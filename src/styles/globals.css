@@ -1,8 +1,21 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "tailwindcss";
+ 
+@theme inline {
+  --font-akzidenz-grotesk: var(--font-akzidenz-grotesk);
+  --font-akzidenz-grotesk-bold: var(--font-akzidenz-grotesk-bold);
+  --font-saol-display: var(--font-saol-display);
+  --font-saol-display-bold: var(--font-saol-display-bold);
+  --font-saol-display-light-italic: var(--font-saol-display-light-italic);
+  --font-lato: var(--font-lato);
+  --font-lato-bold: var(--font-lato-bold);
+  --font-poppins: var(--font-poppins);
+}
 
 @layer utilities {
+
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -13,16 +26,18 @@
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
-  input:focus ~ label,
-  input:not(:placeholder-shown) ~ label {
+  input:focus~label,
+  input:not(:placeholder-shown)~label {
     @apply -translate-y-2 text-xsmall-regular;
   }
 
-  input:focus ~ label {
+  input:focus~label {
     @apply left-0;
   }
 
@@ -109,4 +124,23 @@
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
   }
+}
+
+@layer base {
+  h1 {
+    @apply text-heading1;
+  }
+
+  h2 {
+    @apply text-heading2;
+  }
+
+  h3 {
+    @apply text-heading3;
+  }
+
+  h4 {
+    @apply text-heading4;
+  }
+
 }

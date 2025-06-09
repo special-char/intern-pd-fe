@@ -12,6 +12,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        container: `max(
+					  min(50px, 5vw),
+					  calc((100vw - calc(1700px - 3rem * 2)) / 2)
+					)`,
+        "sm-container": `max(
+					  1rem,
+					  calc((100vw - calc(550px - 1rem * 2)) / 2)
+					)`,
+      },
       transitionProperty: {
         width: "width margin",
         height: "height",
@@ -34,6 +44,46 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
+        },
       },
       borderRadius: {
         none: "0px",
@@ -42,6 +92,9 @@ module.exports = {
         rounded: "8px",
         large: "16px",
         circle: "9999px",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       maxWidth: {
         "8xl": "100rem",
@@ -57,8 +110,106 @@ module.exports = {
       },
       fontSize: {
         "3xl": "2rem",
+        heading1: [
+          "clamp(1.88rem, 2.50vw + 1.38rem, 3.38rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading2: [
+          "clamp(1.31rem,  0.94vw + 1.13rem, 1.88rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading3: [
+          "clamp(1.31rem,  0.42vw + 1.23rem, 1.56rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading4: [
+          "clamp(1.25rem, 0.27vw + 1.20rem, 1.44rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading5: [
+          "clamp(1.25rem, 0.27vw + 1.20rem, 1.44rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading6: [
+          "clamp(1.25rem, 0.27vw + 1.20rem, 1.44rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        subtitle1: [
+          "clamp(1.00rem, 0.21vw + 0.96rem, 1.13rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        subtitle2: [
+          "clamp(1.00rem, 0.21vw + 0.96rem, 1.13rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        body1: [
+          "clamp(0.88rem, 0.21vw + 0.83rem, 1.00rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        body2: [
+          "clamp(0.88rem, 0.21vw + 0.83rem, 1.00rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        caption: [
+          "clamp(0.75rem, 0.21vw + 0.71rem, 0.88rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        overline: [
+          "clamp(0.75rem, 0.21vw + 0.71rem, 0.88rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
       },
       fontFamily: {
+        saol: ["var(--font-saol)"],
+        akzidenz: ["var(--font-akzidenz-grotesk-pro)"],
         sans: [
           "Inter",
           "-apple-system",
@@ -158,5 +309,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-radix")()],
+  plugins: [require("tailwindcss-radix")(), require("tailwindcss-animate")],
 }

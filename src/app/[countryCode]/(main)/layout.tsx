@@ -6,40 +6,39 @@ import { getBaseURL } from "@lib/util/env"
 import { StoreCartShippingOption } from "@medusajs/types"
 import CartMismatchBanner from "@modules/layout/components/cart-mismatch-banner"
 import Footer from "@modules/layout/templates/footer"
-import Nav from "@modules/layout/templates/nav"
+import Navbar from "@modules/layout/components/navbar"
 import FreeShippingPriceNudge from "@modules/shipping/components/free-shipping-price-nudge"
+import { CartProvider } from "@lib/context/cart-context"
+import { StoreProvider } from "@lib/context/store-context"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 }
 
-export default async function PageLayout(props: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+  params,
+}: {
+  children: React.ReactNode
+  params: { countryCode: string }
+}) {
   const customer = await retrieveCustomer()
   const cart = await retrieveCart()
-  let shippingOptions: StoreCartShippingOption[] = []
-
-  if (cart) {
-    const { shipping_options } = await listCartOptions()
-
-    shippingOptions = shipping_options
-  }
+  const shippingOptions = await listCartOptions()
 
   return (
-    <>
-      <Nav />
-      {customer && cart && (
-        <CartMismatchBanner customer={customer} cart={cart} />
-      )}
-
-      {cart && (
-        <FreeShippingPriceNudge
-          variant="popup"
-          cart={cart}
-          shippingOptions={shippingOptions}
-        />
-      )}
-      {props.children}
-      <Footer />
-    </>
+    <StoreProvider>
+      <CartProvider>
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <CartMismatchBanner />
+          <FreeShippingPriceNudge />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </CartProvider>
+    </StoreProvider>
   )
 }

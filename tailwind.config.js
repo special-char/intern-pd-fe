@@ -12,6 +12,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        container: `max(
+					  min(50px, 5vw),
+					  calc((100vw - calc(1700px - 3rem * 2)) / 2)
+					)`,
+        "sm-container": `max(
+					  1rem,
+					  calc((100vw - calc(550px - 1rem * 2)) / 2)
+					)`,
+      },
       transitionProperty: {
         width: "width margin",
         height: "height",
@@ -100,6 +110,102 @@ module.exports = {
       },
       fontSize: {
         "3xl": "2rem",
+        heading1: [
+          "clamp(1.88rem, 2.50vw + 1.38rem, 3.38rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading2: [
+          "clamp(1.31rem,  0.94vw + 1.13rem, 1.88rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading3: [
+          "clamp(1.31rem,  0.42vw + 1.23rem, 1.56rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading4: [
+          "clamp(1.25rem, 0.27vw + 1.20rem, 1.44rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading5: [
+          "clamp(1.25rem, 0.27vw + 1.20rem, 1.44rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        heading6: [
+          "clamp(1.25rem, 0.27vw + 1.20rem, 1.44rem)",
+          {
+            lineHeight: "1.3",
+            letterSpacing: "-0.01em",
+            fontWeight: "900",
+          },
+        ],
+        subtitle1: [
+          "clamp(1.00rem, 0.21vw + 0.96rem, 1.13rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        subtitle2: [
+          "clamp(1.00rem, 0.21vw + 0.96rem, 1.13rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        body1: [
+          "clamp(0.88rem, 0.21vw + 0.83rem, 1.00rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        body2: [
+          "clamp(0.88rem, 0.21vw + 0.83rem, 1.00rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        caption: [
+          "clamp(0.75rem, 0.21vw + 0.71rem, 0.88rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
+        overline: [
+          "clamp(0.75rem, 0.21vw + 0.71rem, 0.88rem)",
+          {
+            lineHeight: "1.5",
+            letterSpacing: "-0.01em",
+            fontWeight: "400",
+          },
+        ],
       },
       fontFamily: {
         sans: [

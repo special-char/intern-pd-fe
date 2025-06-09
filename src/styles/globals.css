@@ -60,7 +60,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border font-akzidenz;
   }
   body {
     @apply bg-background text-foreground;
@@ -68,6 +68,15 @@
 
   section {
     @apply px-container;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-saol;
   }
 
   h1 {

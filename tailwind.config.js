@@ -208,6 +208,8 @@ module.exports = {
         ],
       },
       fontFamily: {
+        saol: ["var(--font-saol)"],
+        akzidenz: ["var(--font-akzidenz-grotesk-pro)"],
         sans: [
           "Inter",
           "-apple-system",

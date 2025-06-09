@@ -4,7 +4,7 @@ import React from "react"
 const PreviewPage = () => {
   return (
     <section>
-      <h1>Lorem ipsum dolor sit amet.</h1>
+      <h1 className="text-italic">Lorem ipsum dolor sit amet.</h1>
       <h2>Lorem ipsum dolor sit amet.</h2>
       <h3>Lorem ipsum dolor sit amet.</h3>
       <h4>Lorem ipsum dolor sit amet.</h4>

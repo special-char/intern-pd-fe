@@ -6,12 +6,12 @@ import { HttpTypes } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import {
-  getAuthHeaders,
-  getCacheOptions,
-  getCacheTag,
-  getCartId,
-  removeCartId,
-  setCartId,
+    getAuthHeaders,
+    getCacheOptions,
+    getCacheTag,
+    getCartId,
+    removeCartId,
+    setCartId,
 } from "./cookies"
 import { getRegion } from "./regions"
 
@@ -336,7 +336,7 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     if (!formData) {
       throw new Error("No form data found when setting addresses")
     }
-    const cartId = getCartId()
+    const cartId = await getCartId()
     if (!cartId) {
       throw new Error("No existing cart found when setting addresses")
     }
@@ -452,6 +452,12 @@ export async function updateRegion(countryCode: string, currentPath: string) {
 
 export async function listCartOptions() {
   const cartId = await getCartId()
+  
+  // If no cart ID exists, return empty shipping options
+  if (!cartId) {
+    return { shipping_options: [] }
+  }
+  
   const headers = {
     ...(await getAuthHeaders()),
   }

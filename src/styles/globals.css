@@ -2,6 +2,23 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+:root {
+  /* Primary Colors */
+  --bg-ui-bg-base: #FFFFFF;
+  --text-ui-fg-base: #111827;
+  --border-ui-border-base: #E5E7EB;
+
+  /* Secondary Colors */
+  --bg-ui-bg-subtle: #F9FAFB;
+  --text-ui-fg-subtle: #6B7280;
+  --border-ui-border-subtle: #E5E7EB;
+
+  /* Interactive Colors */
+  --text-ui-fg-interactive: #6D28D9;
+  --bg-ui-bg-interactive: #6D28D9;
+  --border-ui-border-interactive: #6D28D9;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
@@ -110,3 +127,7 @@
     @apply text-[32px] leading-[44px] font-semibold;
   }
 }
+
+
+
+

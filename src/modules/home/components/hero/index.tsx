@@ -25,8 +25,10 @@ const Hero = () => {
   ]
 
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 5000) // Change slide every 5 seconds
@@ -40,6 +42,10 @@ const Hero = () => {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+  }
+
+  if (!mounted) {
+    return null
   }
 
   return (
@@ -95,7 +101,7 @@ const Hero = () => {
                 target="_blank"
                 style={{ marginTop: "2rem" }}
               >
-                <Button variant="secondary">
+                <Button variant="secondary" suppressHydrationWarning>
                   View on GitHub
                   <Github />
                 </Button>
@@ -108,12 +114,14 @@ const Hero = () => {
         <button
           onClick={prevSlide}
           className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
+          suppressHydrationWarning
         >
           ←
         </button>
         <button
           onClick={nextSlide}
           className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
+          suppressHydrationWarning
         >
           →
         </button>
@@ -129,6 +137,7 @@ const Hero = () => {
                   ? "bg-white scale-125"
                   : "bg-white bg-opacity-50 hover:bg-opacity-75"
               }`}
+              suppressHydrationWarning
             />
           ))}
         </div>

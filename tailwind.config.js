@@ -210,7 +210,10 @@ module.exports = {
       fontFamily: {
         saol: ["var(--font-saol)"],
         akzidenz: ["var(--font-akzidenz-grotesk-pro)"],
+        inter: ["var(--font-inter)", "Inter", "sans-serif"],
+        playfair: ["var(--font-playfair)", "Playfair Display", "serif"],
         sans: [
+          "var(--font-inter)",
           "Inter",
           "-apple-system",
           "BlinkMacSystemFont",

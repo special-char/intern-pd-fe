@@ -1,7 +1,8 @@
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
-import "styles/globals.css"
+import { Inter, Playfair_Display } from "next/font/google"
 import localFont from "next/font/local"
+import "styles/globals.css"
 
 const SaolDisplay = localFont({
   src: [
@@ -26,6 +27,18 @@ const AkzidenzGroteskPro = localFont({
   variable: "--font-akzidenz-grotesk-pro",
 })
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+})
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+})
+
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 }
@@ -35,7 +48,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html
       lang="en"
       data-mode="light"
-      className={`${SaolDisplay.variable} ${AkzidenzGroteskPro.variable} antialiased`}
+      className={`${SaolDisplay.variable} ${AkzidenzGroteskPro.variable} ${inter.variable} ${playfair.variable} antialiased`}
     >
       <body>
         <main className="relative pt-[72px]">{props.children}</main>

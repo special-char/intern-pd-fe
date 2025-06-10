@@ -184,6 +184,311 @@
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
   }
+
+  /* Typography Showcase Components */
+  .typography-hero {
+    @apply py-20 px-4;
+  }
+
+  .typography-hero-content {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .typography-hero-header {
+    @apply text-center mb-20;
+  }
+
+  .typography-hero-title {
+    @apply text-5xl md:text-7xl lg:text-8xl font-light tracking-wide mb-8 text-gray-900 font-playfair;
+  }
+
+  .typography-hero-subtitle {
+    @apply text-lg md:text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed font-light tracking-wide font-inter;
+  }
+
+  .typography-hero-buttons {
+    @apply flex flex-wrap justify-center gap-6;
+  }
+
+  .typography-primary-btn {
+    @apply px-10 py-4 bg-black text-white font-light tracking-widest text-sm uppercase hover:bg-gray-800 transition-all duration-300 font-inter;
+  }
+
+  .typography-secondary-btn {
+    @apply px-10 py-4 border border-gray-300 text-gray-700 font-light tracking-widest text-sm uppercase hover:border-black hover:text-black transition-all duration-300 font-inter;
+  }
+
+  .typography-section {
+    @apply bg-gray-50 p-16 mb-20;
+  }
+
+  .typography-section-title {
+    @apply text-3xl md:text-4xl font-light tracking-wide text-center mb-16 text-gray-900 font-playfair;
+  }
+
+  .typography-font-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12;
+  }
+
+  .typography-font-item {
+    @apply text-center;
+  }
+
+  .typography-font-label {
+    @apply text-sm font-medium tracking-widest uppercase text-gray-500 mb-4 font-inter;
+  }
+
+  .typography-font-sample {
+    @apply space-y-3;
+  }
+
+  .typography-font-letters {
+    @apply text-2xl font-light text-gray-900;
+  }
+
+  .typography-font-name {
+    @apply text-lg font-light text-gray-900;
+  }
+
+  .typography-font-description {
+    @apply text-sm font-light text-gray-600;
+  }
+
+  .typography-hierarchy-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-16;
+  }
+
+  .typography-hierarchy-section {
+    @apply space-y-12;
+  }
+
+  .typography-hierarchy-category {
+    @apply space-y-6;
+  }
+
+  .typography-hierarchy-label {
+    @apply text-sm font-medium tracking-widest uppercase text-gray-500 mb-6 font-inter;
+  }
+
+  .typography-display-heading {
+    @apply font-light tracking-wide text-gray-900 font-playfair;
+  }
+
+  .typography-display-h1 {
+    @apply text-6xl md:text-7xl;
+  }
+
+  .typography-display-h2 {
+    @apply text-5xl md:text-6xl;
+  }
+
+  .typography-display-h3 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  .typography-page-heading {
+    @apply font-light tracking-wide text-gray-900 font-playfair;
+  }
+
+  .typography-page-h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  .typography-page-h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  .typography-page-h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  .typography-page-h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  .typography-body-text {
+    @apply font-light leading-relaxed tracking-wide font-inter;
+  }
+
+  .typography-body-large {
+    @apply text-lg text-gray-700;
+  }
+
+  .typography-body-base {
+    @apply text-base text-gray-700;
+  }
+
+  .typography-body-small {
+    @apply text-sm text-gray-600;
+  }
+
+  .typography-special-elements {
+    @apply space-y-4;
+  }
+
+  .typography-italic-emphasis {
+    @apply text-lg font-light italic text-gray-900 font-playfair;
+  }
+
+  .typography-uppercase-label {
+    @apply text-sm font-medium tracking-widest uppercase text-gray-500 font-inter;
+  }
+
+  .typography-tiny-text {
+    @apply text-xs font-medium tracking-widest uppercase text-gray-400 font-inter;
+  }
+
+  .typography-interactive-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-16;
+  }
+
+  .typography-interactive-section {
+    @apply space-y-8;
+  }
+
+  .typography-nav-links {
+    @apply space-y-3;
+  }
+
+  .typography-nav-link {
+    @apply text-base font-light tracking-wide text-gray-900 hover:text-gray-600 transition-colors duration-300 font-inter block;
+  }
+
+  .typography-nav-link-uppercase {
+    @apply text-sm font-medium tracking-widest uppercase text-gray-900 hover:text-gray-600 transition-colors duration-300 font-inter block;
+  }
+
+  .typography-nav-link-secondary {
+    @apply text-sm font-light text-gray-600 hover:text-gray-900 transition-colors duration-300 font-inter block;
+  }
+
+  .typography-button-group {
+    @apply space-y-4;
+  }
+
+  .typography-btn-primary {
+    @apply px-8 py-3 bg-black text-white font-light tracking-widest text-sm uppercase hover:bg-gray-800 transition-all duration-300 font-inter;
+  }
+
+  .typography-btn-secondary {
+    @apply px-8 py-3 border border-gray-300 text-gray-700 font-light tracking-widest text-sm uppercase hover:border-black hover:text-black transition-all duration-300 font-inter;
+  }
+
+  .typography-btn-text {
+    @apply px-8 py-3 text-gray-900 font-light tracking-wide text-sm underline hover:text-gray-600 transition-colors duration-300 font-inter;
+  }
+
+  .typography-product-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .typography-product-card {
+    @apply bg-white border border-gray-100 p-8;
+  }
+
+  .typography-product-name {
+    @apply text-lg font-light tracking-wide text-gray-900 mb-2 font-playfair;
+  }
+
+  .typography-product-category {
+    @apply text-sm font-light text-gray-600 mb-4 font-inter;
+  }
+
+  .typography-product-price {
+    @apply text-base font-light text-gray-900 mb-4 font-inter;
+  }
+
+  .typography-product-details {
+    @apply space-y-2;
+  }
+
+  .typography-form-container {
+    @apply max-w-2xl mx-auto space-y-8;
+  }
+
+  .typography-form-label {
+    @apply text-sm font-medium tracking-widest uppercase text-gray-500 mb-2 block font-inter;
+  }
+
+  .typography-form-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-none focus:ring-0 focus:border-black transition-all duration-300 font-light tracking-wide text-gray-900 placeholder-gray-500 font-inter;
+  }
+
+  .typography-form-select {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-none focus:ring-0 focus:border-black transition-all duration-300 font-light tracking-wide text-gray-900 font-inter;
+  }
+
+  .typography-form-checkbox-container {
+    @apply flex items-center space-x-3;
+  }
+
+  .typography-form-checkbox {
+    @apply w-4 h-4 text-black border-gray-300 rounded-none focus:ring-black;
+  }
+
+  .typography-form-checkbox-label {
+    @apply text-sm font-light text-gray-700 tracking-wide font-inter;
+  }
+
+  .typography-color-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8;
+  }
+
+  .typography-color-card {
+    @apply p-8 text-center;
+  }
+
+  .typography-color-card-black {
+    @apply bg-black;
+  }
+
+  .typography-color-card-light {
+    @apply bg-gray-100;
+  }
+
+  .typography-color-card-dark {
+    @apply bg-gray-800;
+  }
+
+  .typography-color-card-bordered {
+    @apply bg-white border-2 border-gray-900;
+  }
+
+  .typography-color-title {
+    @apply text-lg font-light tracking-wide mb-2 font-playfair;
+  }
+
+  .typography-color-title-white {
+    @apply text-white;
+  }
+
+  .typography-color-title-dark {
+    @apply text-gray-900;
+  }
+
+  .typography-color-description {
+    @apply text-sm font-light font-inter;
+  }
+
+  .typography-color-description-light {
+    @apply text-gray-300;
+  }
+
+  .typography-color-description-dark {
+    @apply text-gray-600;
+  }
+
+  .typography-responsive-section {
+    @apply space-y-8;
+  }
+
+  .typography-responsive-heading {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light tracking-wide text-gray-900 font-playfair;
+  }
+
+  .typography-responsive-body {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl font-light leading-relaxed text-gray-700 tracking-wide font-inter;
+  }
 }
 
 @layer utilities {

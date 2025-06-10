@@ -10,7 +10,8 @@ const Hero = () => {
     { 
       image: "https://static.vecteezy.com/system/resources/previews/027/806/754/large_2x/t-shirts-mockup-with-text-space-on-colrful-background-hd-ai-free-photo.jpg",
       title: "Ecommerce Starter Template",
-      subtitle: "Powered by Medusa and Next.js"
+      subtitle: "Powered by Medusa and Next.js",
+      alt: "Ecommerce Starter Template"
        },
     {
       image: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/132568331/original/1bf1bbf5cfde00f016a4401662cd77a736a57839/create-a-custom-anime-illustrated-t-shirt-design.png", // Replace with your second image
@@ -99,9 +100,11 @@ const Hero = () => {
                   View on GitHub
                   <Github />
                 </Button>
+                {/* <h1 className="--mm">hello</h1> */}
               </a>
             </div>
           </div>
+          
         ))}
 
         {/* Navigation Buttons */}
@@ -135,20 +138,20 @@ const Hero = () => {
       </div>
       
       {/* Responsibility Program Section */}
-      <div className="w-full py-16 text-center">
+      <div className="w-full py-16 text-center bg-[var(--primary-bg-white)]">
         <Heading
           level="h2"
-          className="text-4xl font-bold mb-4"
+          className="text-4xl font-bold mb-4 text-[var(--interactive-text-purple)]"
         >
           OUR RESPONSIBILITY PROGRAM
         </Heading>
         <Heading
           level="h3"
-          className="text-2xl text-ui-fg-subtle mb-6"
+          className="text-2xl mb-6 text-[var(--secondary-text-grey)]"
         >
           Let's Act!
         </Heading>
-        <Button variant="secondary">
+        <Button variant="secondary" className="border-[var(--interactive-border-purple)] text-[var(--secondary-text-grey)] hover:bg-[var(--interactive-bg-purple)] hover:text-white">
           <a href="/responsibility" className="text-current">
             Read More
           </a>
@@ -172,7 +175,7 @@ const Hero = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="relative h-full">
+          <div className="relative h-full ">
             <img 
               src="https://cdn.dribbble.com/userupload/3487933/file/original-b4a24da7f537693e9328571db1707ef2.jpg"
               alt="Modern T-shirt"

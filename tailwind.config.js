@@ -111,7 +111,7 @@ module.exports = {
       fontSize: {
         "3xl": "2rem",
         heading1: [
-          "clamp(1.88rem, 2.50vw + 1.38rem, 3.38rem)",
+          "clamp(3.13rem, 5.85vw + 0.36rem, 5.63rem)",
           {
             lineHeight: "1.3",
             letterSpacing: "-0.01em",
@@ -119,7 +119,7 @@ module.exports = {
           },
         ],
         heading2: [
-          "clamp(1.31rem,  0.94vw + 1.13rem, 1.88rem)",
+          "clamp(2.00rem, 4.09vw + 0.07rem, 3.75rem)",
           {
             lineHeight: "1.3",
             letterSpacing: "-0.01em",
@@ -127,7 +127,7 @@ module.exports = {
           },
         ],
         heading3: [
-          "clamp(1.31rem,  0.42vw + 1.23rem, 1.56rem)",
+          "clamp(2.00rem, 0.00vw + 2.00rem, 2.00rem)",
           {
             lineHeight: "1.3",
             letterSpacing: "-0.01em",
@@ -135,7 +135,7 @@ module.exports = {
           },
         ],
         heading4: [
-          "clamp(1.25rem, 0.27vw + 1.20rem, 1.44rem)",
+          "clamp(0.63rem, 0.29vw + 0.49rem, 0.75rem)",
           {
             lineHeight: "1.3",
             letterSpacing: "-0.01em",
@@ -174,24 +174,24 @@ module.exports = {
             fontWeight: "400",
           },
         ],
-        body1: [
-          "clamp(0.88rem, 0.21vw + 0.83rem, 1.00rem)",
+        a: [
+          "clamp(0.63rem, 0.00vw + 0.63rem, 0.63rem)",
           {
             lineHeight: "1.5",
             letterSpacing: "-0.01em",
             fontWeight: "400",
           },
         ],
-        body2: [
-          "clamp(0.88rem, 0.21vw + 0.83rem, 1.00rem)",
+        p: [
+          "clamp(0.88rem, 0.58vw + 0.60rem, 1.13rem)",
           {
             lineHeight: "1.5",
             letterSpacing: "-0.01em",
             fontWeight: "400",
           },
         ],
-        caption: [
-          "clamp(0.75rem, 0.21vw + 0.71rem, 0.88rem)",
+        span: [
+          "clamp(0.75rem, 0.29vw + 0.61rem, 0.88rem)",
           {
             lineHeight: "1.5",
             letterSpacing: "-0.01em",

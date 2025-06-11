@@ -2,26 +2,29 @@
 
 import { Github } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
-import { useState, useEffect } from "react"
-import { createClassNames } from "react-instantsearch-dom"
+import DemoPage from "app/[countryCode]/(main)/demo/page"
+import { useEffect, useState } from "react"
 
 const Hero = () => {
   const slides = [
-    { 
-      image: "https://static.vecteezy.com/system/resources/previews/027/806/754/large_2x/t-shirts-mockup-with-text-space-on-colrful-background-hd-ai-free-photo.jpg",
-      title: "Ecommerce Starter Template",
-      subtitle: "Powered by Medusa and Next.js"
-       },
     {
-      image: "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/132568331/original/1bf1bbf5cfde00f016a4401662cd77a736a57839/create-a-custom-anime-illustrated-t-shirt-design.png", // Replace with your second image
-      title: "Modern Shopping Experience",
-      subtitle: "Built with the latest technologies"
+      image:
+        "https://static.vecteezy.com/system/resources/previews/027/806/754/large_2x/t-shirts-mockup-with-text-space-on-colrful-background-hd-ai-free-photo.jpg",
+      title: "Ecommerce Starter Template",
+      subtitle: "Powered by Medusa and Next.js",
     },
     {
-      image: "https://cdn.dribbble.com/userupload/3487933/file/original-b4a24da7f537693e9328571db1707ef2.jpg", // Replace with your third image
+      image:
+        "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/132568331/original/1bf1bbf5cfde00f016a4401662cd77a736a57839/create-a-custom-anime-illustrated-t-shirt-design.png", // Replace with your second image
+      title: "Modern Shopping Experience",
+      subtitle: "Built with the latest technologies",
+    },
+    {
+      image:
+        "https://cdn.dribbble.com/userupload/3487933/file/original-b4a24da7f537693e9328571db1707ef2.jpg", // Replace with your third image
       title: "Fast & Reliable",
-      subtitle: "Optimized for performance"
-    }
+      subtitle: "Optimized for performance",
+    },
   ]
 
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -60,12 +63,12 @@ const Hero = () => {
               backgroundBlendMode: "overlay",
               objectFit: "cover",
               width: "100%",
-              height: "100%"
+              height: "100%",
             }}
           >
             {/* Dark overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-40" />
-            
+
             {/* Content */}
             <div className="absolute inset-0 z-10 flex flex-col justify-center items-start px-16">
               <span className="text-left">
@@ -75,7 +78,7 @@ const Hero = () => {
                     fontSize: "4rem",
                     fontWeight: "bold",
                     textAlign: "left",
-                    marginBottom: "2rem"
+                    marginBottom: "2rem",
                   }}
                   level="h1"
                   className="text-3xl leading-10 text-ui-fg-base font-normal"
@@ -133,19 +136,13 @@ const Hero = () => {
           ))}
         </div>
       </div>
-      
+
       {/* Responsibility Program Section */}
       <div className="w-full py-16 text-center">
-        <Heading
-          level="h2"
-          className="text-4xl font-bold mb-4"
-        >
+        <Heading level="h2" className="text-4xl font-bold mb-4">
           OUR RESPONSIBILITY PROGRAM
         </Heading>
-        <Heading
-          level="h3"
-          className="text-2xl text-ui-fg-subtle mb-6"
-        >
+        <Heading level="h3" className="text-2xl text-ui-fg-subtle mb-6">
           Let's Act!
         </Heading>
         <Button variant="secondary">
@@ -156,7 +153,7 @@ const Hero = () => {
       </div>
 
       {/* Grid Section */}
-      <div className="w-full h-screen">
+      {/* <div className="w-full h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full">
           <div className="relative h-full">
             <img 
@@ -187,13 +184,17 @@ const Hero = () => {
             />
           </div>
         </div>
+      </div> */}
+
+      <div>
+        <DemoPage />
       </div>
 
       {/* New Two Column Grid Section */}
       <div className="w-full h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-          <div className="relative h-full overflow-hidden">
-            <img 
+        <div className="absolute grid grid-cols-1 md:grid-cols-2 ">
+          <div className=" h-full overflow-hidden">
+            <img
               src="https://scontent.cdninstagram.com/v/t39.30808-6/499653963_1288857246084951_6018546624306350196_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=1-7&_nc_sid=18de74&_nc_ohc=7Ycq7XImi44Q7kNvwEKu8QU&_nc_oc=AdmLafbA0aGWbETmIgM3_W5FmdI9WgUNou5NVQfnGaJw_2YCkRiHzWR-CKA1ONlRZIo&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=Wn2UZIbmzymroAAPjwtEUA&oh=00_AfPnKZ-zNG8ARy8HW2pViHPUplDjI6uCg94olwQgLVaSzw&oe=684C3DB8"
               alt="Fashion Collection 1"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -201,7 +202,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black bg-opacity-20 hover:bg-opacity-30 transition-all duration-300"></div>
           </div>
           <div className="relative h-full overflow-hidden">
-            <img 
+            <img
               src="https://rino-pelle.com/cdn/shop/files/Jolene.7002522_White_02.jpg?v=1734016610&width=533"
               alt="Fashion Collection 2"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -215,19 +216,43 @@ const Hero = () => {
         {/* Icon */}
         <div className="mb-8">
           {/* Simple dress form SVG icon as placeholder */}
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="30" r="29" stroke="#222" strokeWidth="2" fill="none"/>
-            <path d="M30 12C32 18 38 18 38 24C38 30 30 30 30 36C30 30 22 30 22 24C22 18 28 18 30 12Z" stroke="#222" strokeWidth="2" fill="none"/>
+          <svg
+            width="60"
+            height="60"
+            viewBox="0 0 60 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="30"
+              cy="30"
+              r="29"
+              stroke="#222"
+              strokeWidth="2"
+              fill="none"
+            />
+            <path
+              d="M30 12C32 18 38 18 38 24C38 30 30 30 30 36C30 30 22 30 22 24C22 18 28 18 30 12Z"
+              stroke="#222"
+              strokeWidth="2"
+              fill="none"
+            />
           </svg>
         </div>
         {/* Headline */}
         <h1 className="text-4xl md:text-6xl font-light text-center max-w-4xl leading-tight mb-8">
-          LUXURIOUS <span className="italic font-extralight">and</span><br/>
-          CONTEMPORARY APPEAL<br/>
-          <span className="italic font-extralight">for</span> <span className="font-light">EVERY WOMAN</span>
+          LUXURIOUS <span className="italic font-extralight">and</span>
+          <br />
+          CONTEMPORARY APPEAL
+          <br />
+          <span className="italic font-extralight">for</span>{" "}
+          <span className="font-light">EVERY WOMAN</span>
         </h1>
         {/* Discover now button */}
-        <a href="#" className="mt-4 text-lg text-black flex flex-col items-center group">
+        <a
+          href="#"
+          className="mt-4 text-lg text-black flex flex-col items-center group"
+        >
           Discover now
           <span className="w-8 h-[2px] bg-black mt-1 group-hover:w-12 transition-all duration-300"></span>
         </a>

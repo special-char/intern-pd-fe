@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       {/* Top banner */}
-      <div className="bg-[hsl(var(--secondary-bg-grey))] text-center py-2 text-sm animate-header-banner-fade-in">
+      <div className="bg-gray-200 text-white text-center py-2 text-sm animate-header-banner-fade-in">
         Subscribe and receive -10% on your first order 🖤
       </div>
 
@@ -31,7 +31,7 @@ const Navbar = () => {
               href="/"
               className="logo-text"
             >
-              citadels
+              RENO & PELLE
             </Link>
           </div>
 

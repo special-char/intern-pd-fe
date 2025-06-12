@@ -5,6 +5,7 @@ import Hero from "@modules/home/components/hero"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import DemoPage from "./demo/page"
+import ImageGallery from "@modules/common/components/ImageGallery"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -38,6 +39,16 @@ export default async function Home(props: {
         </ul>
       </div>
       <DemoPage />
+      <ImageGallery
+        images={[
+          { src: "/images/one.jpg", wishlistCount: 12 },
+          { src: "/images/two.jpg", wishlistCount: 5 },
+          { src: "/images/three.jpg", wishlistCount: 20 },
+          { src: "/images/four.jpg", wishlistCount: 8 },
+          { src: "/images/five.jpg", wishlistCount: 15 },
+          { src: "/images/six.jpg", wishlistCount: 3 },
+        ]}
+      />
     </>
   )
 }

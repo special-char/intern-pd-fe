@@ -2,6 +2,7 @@
 
 import { Github } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
+import { Grid } from "lucide-react"
 import { useState, useEffect } from "react"
 import { createClassNames } from "react-instantsearch-dom"
 

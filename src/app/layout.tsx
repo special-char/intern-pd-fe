@@ -50,8 +50,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       data-mode="light"
       className={`${SaolDisplay.variable} ${AkzidenzGroteskPro.variable} ${inter.variable} ${playfair.variable} antialiased`}
     >
-      <body>
-        <main className="relative pt-[72px]">{props.children}</main>
+      <body className="flex flex-col min-h-screen">
+        <main className="relative pt-[72px] flex-grow">{props.children}</main>
       </body>
     </html>
   )

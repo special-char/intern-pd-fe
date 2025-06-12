@@ -7,7 +7,7 @@ import { createClassNames } from "react-instantsearch-dom"
 
 const Hero = () => {
   return (
-    <div className="w-1330">
+    <div className="w-full">
       {/* Video Background Section */}
       <div className="relative h-[75vh] w-full overflow-hidden">
         <video

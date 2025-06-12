@@ -2,8 +2,9 @@
 
 import { Github } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
-import { Grid } from "lucide-react"
-import { useState, useEffect } from "react"
+import DemoPage from "app/[countryCode]/(main)/demo/page"
+import { Grid } from "lucide-react"   
+import { useState, useEffect } from "react" 
 import { createClassNames } from "react-instantsearch-dom"
 
 const Hero = () => {
@@ -67,39 +68,7 @@ const Hero = () => {
       </div>
 
       {/* Grid Section */}
-      <div className="w-full h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full">
-          <div className="relative h-full">
-            <img
-              src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/132568331/original/1bf1bbf5cfde00f016a4401662cd77a736a57839/create-a-custom-anime-illustrated-t-shirt-design.png"
-              alt="Anime T-shirt"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="relative h-full">
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/027/806/754/large_2x/t-shirts-mockup-with-text-space-on-colrful-background-hd-ai-free-photo.jpg"
-              alt="Colorful T-shirt"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="relative h-full">
-            <img
-              src="https://cdn.dribbble.com/userupload/3487933/file/original-b4a24da7f537693e9328571db1707ef2.jpg"
-              alt="Modern T-shirt"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="relative h-full">
-            <img
-              src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="Classic T-shirt"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-
+       <DemoPage/>
       {/* Two Column Grid Section */}
       <div className="w-full h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 h-full">

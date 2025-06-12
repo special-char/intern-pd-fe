@@ -19,6 +19,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+     domains: ['rino-pelle.com'],
     remotePatterns: [
       {
         protocol: "http",
@@ -38,6 +39,7 @@ const nextConfig = {
       },
     ],
   },
+  
 }
 
 module.exports = nextConfig

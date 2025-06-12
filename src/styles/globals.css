@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --footer-bg-grey: 0, 0%, 96%;
     --primary-bg-white: 0, 0%, 100%;
     --secondary-bg-grey:  0, 0%, 64%;
     --background: 0, 0%, 100%;

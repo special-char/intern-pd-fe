@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Button } from "@medusajs/ui"
+import { Button, Heading } from "@medusajs/ui"
 import { ShoppingBag, Heart, User, MagnifyingGlass } from "@medusajs/icons"
 
 const Navbar = () => {
@@ -12,6 +12,9 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "Shop", href: "/store" },
     { name: "About", href: "/about" },
+    { name: "lookbook", href: "/lookbook" },
+    { name: "Blog", href: "/blog" },
+    { name: "let's act", href: "/let's act" },
     
   ]
 

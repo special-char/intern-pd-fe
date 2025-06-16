@@ -1,9 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { Heart, MagnifyingGlass, ShoppingBag, User } from "@medusajs/icons"
 import Link from "next/link"
-import { Button, Heading } from "@medusajs/ui"
-import { ShoppingBag, Heart, User, MagnifyingGlass } from "@medusajs/icons"
+import { useState } from "react"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,8 +13,7 @@ const Navbar = () => {
     { name: "About", href: "/about" },
     { name: "lookbook", href: "/lookbook" },
     { name: "Blog", href: "/blog" },
-    { name: "let's act", href: "/let's act" },
-    
+    { name: "let's act", href: "/lets-act" },
   ]
 
   return (
@@ -30,10 +28,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between w-full h-[45.8px]">
           {/* Left - Logo */}
           <div className="flex-shrink-0 flex items-center animate-header-logo-slide-in pl-0">
-            <Link
-              href="/"
-              className="logo-text"
-            >
+            <Link href="/" className="logo-text">
               RINO & PELLE
             </Link>
           </div>
@@ -45,7 +40,10 @@ const Navbar = () => {
                 key={item.name}
                 href={item.href}
                 className={`relative text-gray-800 transition-colors duration-200 hover:text-blue-700 text-sm font-medium opacity-0 animate-header-menu-fade-in group`}
-                style={{ animationDelay: `${0.2 + idx * 0.1}s`, animationFillMode: 'forwards' }}
+                style={{
+                  animationDelay: `${0.2 + idx * 0.1}s`,
+                  animationFillMode: "forwards",
+                }}
               >
                 {item.name}
                 <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
@@ -99,45 +97,79 @@ const Navbar = () => {
       )}
       <style jsx global>{`
         @keyframes header-banner-fade-in {
-          0% { opacity: 0; transform: translateY(-30px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-header-banner-fade-in {
-          animation: header-banner-fade-in 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s both;
+          animation: header-banner-fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1)
+            0.1s both;
         }
         @keyframes header-logo-slide-in {
-          0% { opacity: 0; transform: translateX(-40px); }
-          100% { opacity: 1; transform: translateX(0); }
+          0% {
+            opacity: 0;
+            transform: translateX(-40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
         .animate-header-logo-slide-in {
-          animation: header-logo-slide-in 0.7s cubic-bezier(0.4,0,0.2,1) 0.3s both;
+          animation: header-logo-slide-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s
+            both;
         }
         @keyframes header-menu-fade-in {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-header-menu-fade-in {
-          animation: header-menu-fade-in 0.5s cubic-bezier(0.4,0,0.2,1) both;
+          animation: header-menu-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
         @keyframes header-icons-slide-in {
-          0% { opacity: 0; transform: translateX(40px); }
-          100% { opacity: 1; transform: translateX(0); }
+          0% {
+            opacity: 0;
+            transform: translateX(40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
         .animate-header-icons-slide-in {
-          animation: header-icons-slide-in 0.7s cubic-bezier(0.4,0,0.2,1) 0.5s both;
+          animation: header-icons-slide-in 0.7s cubic-bezier(0.4, 0, 0.2, 1)
+            0.5s both;
         }
         @keyframes header-mobile-menu-fade-in {
-          0% { opacity: 0; transform: translateY(-20px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-header-mobile-menu-fade-in {
-          animation: header-mobile-menu-fade-in 0.4s cubic-bezier(0.4,0,0.2,1) both;
+          animation: header-mobile-menu-fade-in 0.4s
+            cubic-bezier(0.4, 0, 0.2, 1) both;
         }
         .icon-hover-effect {
           @apply text-gray-800 transition-colors duration-200 rounded-full p-2 hover:bg-blue-100 hover:text-blue-700;
         }
         .logo-text {
-          font-family: 'Playfair Display', serif;
+          font-family: "Playfair Display", serif;
           font-weight: 700;
           letter-spacing: 0.4em;
           font-size: 1.5rem;
@@ -154,4 +186,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar 
+export default Navbar

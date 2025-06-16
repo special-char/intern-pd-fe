@@ -2,7 +2,7 @@ import React from 'react';
 
 const Twoimggrid1 = () => {
   return (
-    <div className="min-h-screen bg-[#F7F5F2] flex items-center justify-center  ">
+    <div className="min-h-screen bg-[#F7F5F2] flex items-center justify-center p-8  ">
       <div className="flex flex-col md:flex-row items-center gap-4 max-w-6xl w-full">
       <div className="flex-1 flex justify-center items-center">
           <img 

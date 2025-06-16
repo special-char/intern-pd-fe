@@ -67,40 +67,7 @@ const Hero = () => {
         </Button>
       </div>
 
-      {/* Grid Section */}
-       <DemoPage/>
-      <div className="w-full h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full">
-          <div className="relative h-full">
-            <img
-              src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/132568331/original/1bf1bbf5cfde00f016a4401662cd77a736a57839/create-a-custom-anime-illustrated-t-shirt-design.png"
-              alt="Anime T-shirt"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="relative h-full">
-            <img
-              src="https://static.vecteezy.com/system/resources/previews/027/806/754/large_2x/t-shirts-mockup-with-text-space-on-colrful-background-hd-ai-free-photo.jpg"
-              alt="Colorful T-shirt"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="relative h-full">
-            <img
-              src="https://cdn.dribbble.com/userupload/3487933/file/original-b4a24da7f537693e9328571db1707ef2.jpg"
-              alt="Modern T-shirt"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="relative h-full">
-            <img
-              src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="Classic T-shirt"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
+     <DemoPage/>
 
 
       {/* Two Column Grid Section */}
@@ -108,7 +75,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 h-full">
           <div className="relative h-full overflow-hidden">
             <img
-              src="https://scontent.cdninstagram.com/v/t39.30808-6/499653963_1288857246084951_6018546624306350196_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=1-7&_nc_sid=18de74&_nc_ohc=7Ycq7XImi44Q7kNvwEKu8QU&_nc_oc=AdmLafbA0aGWbETmIgM3_W5FmdI9WgUNou5NVQfnGaJw_2YCkRiHzWR-CKA1ONlRZIo&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=Wn2UZIbmzymroAAPjwtEUA&oh=00_AfPnKZ-zNG8ARy8HW2pViHPUplDjI6uCg94olwQgLVaSzw&oe=684C3DB8"
+              src="//rino-pelle.com/cdn/shop/files/IMG_0699_dc878cd2-d4e4-4e64-a9ab-70d650c7bb50.jpg?v=1737130102"
               alt="Fashion Collection 1"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
@@ -116,7 +83,7 @@ const Hero = () => {
           </div>
           <div className="relative h-full overflow-hidden">
             <img
-              src="https://rino-pelle.com/cdn/shop/files/Jolene.7002522_White_02.jpg?v=1734016610&width=533"
+              src="//rino-pelle.com/cdn/shop/files/RinoPelle_10juni_2024_36802_copy_d9bdeb60-c839-4423-89e1-1db90d6edbf9.jpg?v=1737130100"
               alt="Fashion Collection 2"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />

@@ -37,8 +37,8 @@ const Hero = () => {
             </h4>
             <h1 className="text-white text-4xl md:text-6xl font-light mb-6 font-saol">
               spring</h1>
-              <h1 className="font-light text-white">
-                summer <em className="font-light">'25</em>
+            <h1 className="font-light text-white">
+              summer <em className="font-light">'25</em>
             </h1>
           </span>
           <a
@@ -99,6 +99,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
 
       {/* Two Column Grid Section */}
       <div className="w-full h-screen">
@@ -174,7 +175,7 @@ const Hero = () => {
             poster="https://rino-pelle.com/cdn/shop/files/preview_images/8ae83d0f4e65454580d0c326747bb002.thumbnail.0000000000_small.jpg?v=1737127963"
           >
             <source
-              src="https://rino-pelle.com/cdn/shop/videos/c/vp/8ae83d0f4e65454580d0c326747bb002/8ae83d0f4e65454580d0c326747bb002.HD-1080p-7.2Mbps-41148015.mp4?v=0" 
+              src="https://rino-pelle.com/cdn/shop/videos/c/vp/8ae83d0f4e65454580d0c326747bb002/8ae83d0f4e65454580d0c326747bb002.HD-1080p-7.2Mbps-41148015.mp4?v=0"
               type="video/mp4"
             />
           </video>

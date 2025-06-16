@@ -2,8 +2,9 @@
 
 import { Github } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
-import { Grid } from "lucide-react"
-import { useState, useEffect } from "react"
+import DemoPage from "app/[countryCode]/(main)/demo/page"
+import { Grid } from "lucide-react"   
+import { useState, useEffect } from "react" 
 import { createClassNames } from "react-instantsearch-dom"
 
 const Hero = () => {
@@ -67,6 +68,7 @@ const Hero = () => {
       </div>
 
       {/* Grid Section */}
+       <DemoPage/>
       <div className="w-full h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full">
           <div className="relative h-full">

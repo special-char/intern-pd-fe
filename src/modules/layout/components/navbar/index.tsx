@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Button } from "@medusajs/ui"
+import { Button, Heading } from "@medusajs/ui"
 import { ShoppingBag, Heart, User, MagnifyingGlass } from "@medusajs/icons"
 
 const Navbar = () => {
@@ -12,31 +12,34 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "Shop", href: "/store" },
     { name: "About", href: "/about" },
+    { name: "lookbook", href: "/lookbook" },
+    { name: "Blog", href: "/blog" },
+    { name: "let's act", href: "/let's act" },
     
   ]
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       {/* Top banner */}
-      <div className="bg-gray-200 text-white text-center py-2 text-sm animate-header-banner-fade-in">
+      <div className="bg-gray-200 text-black text-center py-2 text-sm animate-header-banner-fade-in">
         Subscribe and receive -10% on your first order 🖤
       </div>
 
       {/* Main navbar */}
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between w-[1500.44px] h-[45.8px]">
+        <div className="flex items-center justify-between w-full h-[45.8px]">
           {/* Left - Logo */}
-          <div className="flex-shrink-0 flex items-center animate-header-logo-slide-in">
+          <div className="flex-shrink-0 flex items-center animate-header-logo-slide-in pl-0">
             <Link
               href="/"
               className="logo-text"
             >
-              RENO & PELLE
+              RINO & PELLE
             </Link>
           </div>
 
           {/* Center - Menu items */}
-          <div className="hidden md:flex flex-1 justify-center space-x-8">
+          <div className="hidden lg:flex flex-1 justify-center space-x-8">
             {menuItems.map((item, idx) => (
               <Link
                 key={item.name}
@@ -51,7 +54,7 @@ const Navbar = () => {
           </div>
 
           {/* Right - Icons */}
-          <div className="flex items-center space-x-6 animate-header-icons-slide-in">
+          <div className="hidden sm:flex items-center space-x-6 animate-header-icons-slide-in">
             <button className="icon-hover-effect">
               <MagnifyingGlass className="w-5 h-5" />
             </button>
@@ -64,28 +67,28 @@ const Navbar = () => {
             <button className="icon-hover-effect">
               <ShoppingBag className="w-5 h-5" />
             </button>
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden ml-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <div className="w-6 h-0.5 bg-black mb-1.5"></div>
-              <div className="w-6 h-0.5 bg-black mb-1.5"></div>
-              <div className="w-6 h-0.5 bg-black"></div>
-            </button>
           </div>
+          {/* Mobile/Tablet menu button */}
+          <button
+            className="lg:hidden ml-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <div className="w-6 h-0.5 bg-black mb-1.5"></div>
+            <div className="w-6 h-0.5 bg-black mb-1.5"></div>
+            <div className="w-6 h-0.5 bg-black"></div>
+          </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile/Tablet menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t animate-header-mobile-menu-fade-in">
-          <div className="container mx-auto px-4 py-4">
+        <div className="lg:hidden absolute right-4 top-16 bg-white border  shadow-lg w-48 animate-header-mobile-menu-fade-in z-50">
+          <div className="py-2">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-gray-800 hover:text-blue-700 text-sm font-medium transition-colors duration-200"
+                className="block px-4 py-2 text-gray-800 hover:text-blue-700 text-sm font-medium transition-colors duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}

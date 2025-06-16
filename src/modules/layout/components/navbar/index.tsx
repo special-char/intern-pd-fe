@@ -1,17 +1,14 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
-import { Button, Heading } from "@medusajs/ui"
-import { ShoppingBag, Heart, User, MagnifyingGlass } from "@medusajs/icons"
+import { useState } from "react"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const menuItems = [
     { name: "Home", href: "/" },
-    { name: "Shop", href: "/store" },
-    { name: "Lookbook", href: "/lookbook" },
+    { name: "Shop", href: "/shop" },
     { name: "About", href: "/about" },
     { name: "Blog", href: "/blog" },
     { name: "Let's Act", href: "/lets-act" },
@@ -44,7 +41,10 @@ const Navbar = () => {
                 key={item.name}
                 href={item.href}
                 className={`relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider opacity-0 animate-header-menu-fade-in group`}
-                style={{ animationDelay: `${0.2 + idx * 0.1}s`, animationFillMode: 'both' }}
+                style={{
+                  animationDelay: `${0.2 + idx * 0.1}s`,
+                  animationFillMode: "both",
+                }}
               >
                 {item.name}
                 <span className="absolute left-0 bottom-[-22px] w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -87,22 +87,22 @@ const Navbar = () => {
             <div className="p-4">
               {/* Close button */}
               <div className="flex justify-end mb-4">
-                <button 
+                <button
                   onClick={() => setIsMenuOpen(false)}
                   className="p-2 hover:bg-gray-100 rounded-md transition-colors duration-200"
                   aria-label="Close menu"
                 >
-                  <svg 
-                    className="w-5 h-5 text-gray-600" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <svg
+                    className="w-5 h-5 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      strokeWidth={2} 
-                      d="M6 18L18 6M6 6l12 12" 
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
                 </button>
@@ -120,7 +120,7 @@ const Navbar = () => {
                   </Link>
                 ))}
               </div>
-              
+
               {/* Mobile action buttons */}
               <div className="mt-8 pt-8 border-t border-gray-100 flex flex-col space-y-4">
                 <button className="text-gray-800 transition-colors duration-200 text-left ">
@@ -143,49 +143,84 @@ const Navbar = () => {
 
       <style jsx global>{`
         @keyframes header-banner-fade-in {
-          0% { opacity: 0; transform: translateY(-30px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-header-banner-fade-in {
-          animation: header-banner-fade-in 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s both;
+          animation: header-banner-fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1)
+            0.1s both;
         }
         @keyframes header-logo-slide-in {
-          0% { opacity: 0; transform: translateX(-40px); }
-          100% { opacity: 1; transform: translateX(0); }
+          0% {
+            opacity: 0;
+            transform: translateX(-40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
         .animate-header-logo-slide-in {
-          animation: header-logo-slide-in 0.7s cubic-bezier(0.4,0,0.2,1) 0.3s both;
+          animation: header-logo-slide-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s
+            both;
         }
         @keyframes header-menu-fade-in {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .animate-header-menu-fade-in {
-          animation: header-menu-fade-in 0.5s cubic-bezier(0.4,0,0.2,1) both;
+          animation: header-menu-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
         }
         @keyframes header-icons-slide-in {
-          0% { opacity: 0; transform: translateX(40px); }
-          100% { opacity: 1; transform: translateX(0); }
+          0% {
+            opacity: 0;
+            transform: translateX(40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
         .animate-header-icons-slide-in {
-          animation: header-icons-slide-in 0.7s cubic-bezier(0.4,0,0.2,1) 0.5s both;
+          animation: header-icons-slide-in 0.7s cubic-bezier(0.4, 0, 0.2, 1)
+            0.5s both;
         }
         @keyframes fade-in {
-          0% { opacity: 0; }
-          100% { opacity: 1; }
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
         .animate-fade-in {
           animation: fade-in 0.3s ease-out forwards;
         }
         @keyframes slide-in-left {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(0); }
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(0);
+          }
         }
         .animate-slide-in-left {
           animation: slide-in-left 0.3s ease-out forwards;
         }
         .logo-text {
-          font-family: 'Playfair Display', serif;
+          font-family: "Playfair Display", serif;
           font-weight: 700;
           letter-spacing: 0.2em;
           color: #111;
@@ -200,4 +235,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar 
+export default Navbar

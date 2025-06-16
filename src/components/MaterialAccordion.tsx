@@ -24,7 +24,7 @@ const AccordionItem = ({
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center">
-          <span className={`font-saol ${isItalic ? "italic" : ""}`}>
+          <span className={`font-saol pl-24 ${isItalic ? "italic" : ""}`}>
             {title}
           </span>
           <svg

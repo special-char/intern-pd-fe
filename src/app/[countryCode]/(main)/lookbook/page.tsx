@@ -36,6 +36,8 @@ const Index = () => {
         <br /><br />
         <TwoColumnGrid1 />
         <Twoimggrid1 />
+        <br />
+        <br />
       </div>
     </div>
   );

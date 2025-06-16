@@ -27,7 +27,7 @@ export default function Page() {
               src="/images/let's-act-1.webp"
               alt="Model"
               fill
-              className="object-cover shadow-lg"
+              className="object-cover"
             />
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function Page() {
       </div>
 
       {/* Product Section */}
-      <div className="bg-[#f9f7f5] py-16">
+      <div className="bg-[#f9f7f5]">
         <div className="grid grid-cols-12 gap-6 items-center">
           {/* Left Text Column */}
           <div className="col-start-2 col-end-6 text-gray-800">
@@ -105,7 +105,7 @@ export default function Page() {
                 src="/images/let's-act-2.webp"
                 alt="Product Image"
                 fill
-                className="object-cover shadow-lg"
+                className="object-cover"
               />
             </div>
           </div>
@@ -122,9 +122,9 @@ export default function Page() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           {/* Left: Image */}
           <div className="md:col-span-6">
-            <div className="relative w-full h-[500px]">
+            <div className="relative w-full aspect-[4/5]">
               <Image
-                src="/images/let's-act-3.webp" // Replace with your own image path in public/
+                src="/images/let's-act-3.webp"
                 alt="Sewing Worker"
                 fill
                 className="object-cover"
@@ -172,7 +172,6 @@ export default function Page() {
       <main className="bg-[#f9f7f5] pb-0">
         <Headoffice />
       </main>
-      
     </div>
   )
 }

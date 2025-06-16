@@ -38,8 +38,8 @@ const Hero = () => {
             </h4>
             <h1 className="text-white text-4xl md:text-6xl font-light mb-6 font-saol">
               spring</h1>
-              <h1 className="font-light text-white">
-                summer <em className="font-light">'25</em>
+            <h1 className="font-light text-white">
+              summer <em className="font-light">'25</em>
             </h1>
           </span>
           <a
@@ -69,6 +69,40 @@ const Hero = () => {
 
       {/* Grid Section */}
        <DemoPage/>
+      <div className="w-full h-screen">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 h-full">
+          <div className="relative h-full">
+            <img
+              src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/132568331/original/1bf1bbf5cfde00f016a4401662cd77a736a57839/create-a-custom-anime-illustrated-t-shirt-design.png"
+              alt="Anime T-shirt"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-full">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/027/806/754/large_2x/t-shirts-mockup-with-text-space-on-colrful-background-hd-ai-free-photo.jpg"
+              alt="Colorful T-shirt"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-full">
+            <img
+              src="https://cdn.dribbble.com/userupload/3487933/file/original-b4a24da7f537693e9328571db1707ef2.jpg"
+              alt="Modern T-shirt"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="relative h-full">
+            <img
+              src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Classic T-shirt"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+
+
       {/* Two Column Grid Section */}
       <div className="w-full h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 h-full">
@@ -143,7 +177,7 @@ const Hero = () => {
             poster="https://rino-pelle.com/cdn/shop/files/preview_images/8ae83d0f4e65454580d0c326747bb002.thumbnail.0000000000_small.jpg?v=1737127963"
           >
             <source
-              src="https://rino-pelle.com/cdn/shop/videos/c/vp/8ae83d0f4e65454580d0c326747bb002/8ae83d0f4e65454580d0c326747bb002.HD-1080p-7.2Mbps-41148015.mp4?v=0" 
+              src="https://rino-pelle.com/cdn/shop/videos/c/vp/8ae83d0f4e65454580d0c326747bb002/8ae83d0f4e65454580d0c326747bb002.HD-1080p-7.2Mbps-41148015.mp4?v=0"
               type="video/mp4"
             />
           </video>

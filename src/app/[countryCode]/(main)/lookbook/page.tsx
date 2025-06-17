@@ -1,7 +1,7 @@
-import TwoColumnGrid from "@components/TwoColumnGrid";
-import TwoColumnGrid1 from "@components/TwoColumnGrid1";
-import Twoimggrid from "@components/Twoimggrid";
-import Twoimggrid1 from "@components/Twoimggrid1";
+import TwoColumnGrid from "@/components/lookbook/TwoColumnGrid";
+import TwoColumnGrid1 from "@/components/lookbook/TwoColumnGrid1";
+import Twoimggrid from "@/components/lookbook/Twoimggrid";
+import Twoimggrid1 from "@/components/lookbook/Twoimggrid1";
 import Image from "next/image";
 
 const Index = () => {

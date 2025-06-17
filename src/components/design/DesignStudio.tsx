@@ -1,0 +1,114 @@
+"use client"
+
+import { Button } from "@/components/design/ui/button"
+import { Card } from "@/components/design/ui/card"
+import { Canvas as FabricCanvas } from "fabric"
+import { Share2, ShoppingCart } from "lucide-react"
+import { useState } from "react"
+import { toast } from "sonner"
+import { Canvas } from "./Canvas"
+import { LayerPanel } from "./LayerPanel"
+import { ProductPanel } from "./ProductPanel"
+import { Toolbar } from "./Toolbar"
+
+export const DesignStudio = () => {
+  const [activeTool, setActiveTool] = useState<"text" | "image" | "select">(
+    "select"
+  )
+  const [selectedColor, setSelectedColor] = useState("#D4A574")
+  const [selectedSize, setSelectedSize] = useState("M")
+  const [quantity, setQuantity] = useState(1)
+  const [fabricCanvas, setFabricCanvas] = useState<FabricCanvas | null>(null)
+
+  const handleSubmitDesign = () => {
+    if (!fabricCanvas) {
+      toast.error("Please create a design first")
+      return
+    }
+
+    const designData = {
+      design: fabricCanvas.toJSON(),
+      productColor: selectedColor,
+      size: selectedSize,
+      quantity: quantity,
+      timestamp: new Date().toISOString(),
+    }
+
+    // In a real app, you would send this to your backend
+    console.log("Design submitted:", designData)
+    toast.success("Design submitted successfully! We will contact you soon.")
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900 mt-4">
+              T-Shirt Designer
+            </h1>
+            <p className="text-sm text-gray-600">Create your custom design</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm">
+              <Share2 className="w-4 h-4 mr-2" />
+              Share
+            </Button>
+            <Button
+              onClick={handleSubmitDesign}
+              className="bg-black hover:bg-gray-800 text-white"
+            >
+              <ShoppingCart className="w-4 h-4 mr-2" />
+              Submit Design
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      <div className="max-w-7xl mx-auto p-6">
+        <div className="grid grid-cols-12 gap-6 h-[calc(100vh-140px)]">
+          {/* Left Panel - Tools & Layers */}
+          <div className="col-span-3 space-y-4">
+            <Card className="p-4">
+              <h3 className="font-semibold mb-3 text-gray-900">Tools</h3>
+              <Toolbar
+                activeTool={activeTool}
+                onToolChange={setActiveTool}
+                fabricCanvas={fabricCanvas}
+              />
+            </Card>
+
+            <Card className="p-4 flex-1">
+              <h3 className="font-semibold mb-3 text-gray-900">Layers</h3>
+              <LayerPanel fabricCanvas={fabricCanvas} />
+            </Card>
+          </div>
+
+          {/* Center - Canvas */}
+          <div className="col-span-6">
+            <Card className="p-6 h-full flex items-center justify-center bg-white">
+              <Canvas
+                activeTool={activeTool}
+                selectedColor={selectedColor}
+                onCanvasReady={setFabricCanvas}
+              />
+            </Card>
+          </div>
+
+          {/* Right Panel - Product Options */}
+          <div className="col-span-3">
+            <ProductPanel
+              selectedColor={selectedColor}
+              onColorChange={setSelectedColor}
+              selectedSize={selectedSize}
+              onSizeChange={setSelectedSize}
+              quantity={quantity}
+              onQuantityChange={setQuantity}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

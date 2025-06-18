@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -64,9 +65,11 @@ const Navbar = () => {
             <button className="text-black transition-colors duration-200 text-sm md:text-base">
               Sign In
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
-              Cart
-            </button>
+            <LocalizedClientLink href="/cart" aria-label="Cart">
+              <button className="text-black transition-colors duration-200 text-sm md:text-base">
+                Cart
+              </button>
+            </LocalizedClientLink>
           </div>
 
           {/* Mobile/Tablet menu button */}

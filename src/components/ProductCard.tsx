@@ -92,6 +92,7 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
                   )}
                   style={{ backgroundColor: color.value }}
                   title={color.name}
+                  suppressHydrationWarning
                 />
               ))}
             </div>
@@ -117,6 +118,7 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
                       "bg-gray-900 text-white",
                     size === "XL" && selectedSize !== size && "text-gray-900"
                   )}
+                  suppressHydrationWarning
                 >
                   {size}
                 </button>

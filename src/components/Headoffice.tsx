@@ -24,7 +24,11 @@ const Accordion = ({
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center">
+<<<<<<< HEAD
           <span className={`font-saol pl-20 ${isItalic ? "italic" : ""}`}>
+=======
+          <span className={`font-saol  pl-24 ${isItalic ? "italic" : ""}`}>
+>>>>>>> 7839f31cd1896590dbef395d91b909c184f395ca
             {title}
           </span>
           <svg
@@ -60,8 +64,13 @@ export default function Headoffice() {
         isItalic={false}
         textColor="#050505"
       >
+<<<<<<< HEAD
         <div className="space-y-6 p-20 text-base md:text-lg">
           <p className="font-semibold">Head office</p>
+=======
+        <div className="space-y-6 text-base md:text-lg pl-24">
+          <p className="font-akzidenz">Head office</p>
+>>>>>>> 7839f31cd1896590dbef395d91b909c184f395ca
 
           <p>
             Read here to learn more about how we are consciously working on reducing our

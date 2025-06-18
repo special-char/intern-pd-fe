@@ -13,7 +13,7 @@ export default async function ProductCards({
   } = await listProducts({
     regionId: region.id,
     queryParams: {
-      limit: "8",
+      limit: 8,
       fields: "*variants.calculated_price",
     },
   })
@@ -48,7 +48,7 @@ export default async function ProductCards({
           href="/store"
           className="inline-flex items-center justify-center px-6 py-3 border border-ui-border-base rounded-md shadow-sm text-base font-medium text-ui-fg-base bg-ui-bg-base hover:bg-ui-bg-base-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ui-fg-interactive transition-colors"
         >
-          View All Products
+          View All Clothing
         </a>
       </div>
     </div>

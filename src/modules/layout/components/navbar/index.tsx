@@ -1,10 +1,30 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const searchContainerRef = useRef<HTMLDivElement>(null)
+  const searchInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target as Node) &&
+        !(event.target as HTMLElement).closest('button')?.textContent?.includes('Search')
+      ) {
+        setIsSearchOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -55,7 +75,7 @@ const Navbar = () => {
 
           {/* Right - Icons */}
           <div className="hidden sm:flex items-center space-x-3 md:space-x-4 lg:space-x-6 animate-header-icons-slide-in">
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
+            <button className="text-black transition-colors duration-200 text-sm md:text-base" onClick={() => setIsSearchOpen(true)}>
               Search
             </button>
             <button className="text-black transition-colors duration-200 text-sm md:text-base">
@@ -138,6 +158,33 @@ const Navbar = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Minimal Full-Width Search Bar Below Navbar */}
+      {isSearchOpen && (
+        <div ref={searchContainerRef} className="w-full bg-white border-t border-b border-gray-100 flex items-start" style={{height: '40px'}}>
+          <div className="relative w-full flex items-center h-full">
+            <input
+              ref={searchInputRef}
+              type="text"
+              autoFocus
+              placeholder="Search..."
+              className="w-full text-sm font-normal bg-transparent border-none outline-none placeholder-gray-400 px-4"
+              style={{height: '32px'}}
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5 text-gray-700 mx-4 cursor-pointer"
+              style={{minWidth: '20px'}}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+            </svg>
           </div>
         </div>
       )}

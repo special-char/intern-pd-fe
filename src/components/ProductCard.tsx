@@ -47,6 +47,7 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
         <button
           onClick={() => setIsFavorited(!isFavorited)}
           className="absolute right-4 top-4 rounded-full bg-white p-2 shadow-sm transition-all duration-200 hover:shadow-md"
+          suppressHydrationWarning
         >
           <Heart
             size={18}
@@ -91,6 +92,7 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
                   )}
                   style={{ backgroundColor: color.value }}
                   title={color.name}
+                  suppressHydrationWarning
                 />
               ))}
             </div>
@@ -116,6 +118,7 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
                       "bg-gray-900 text-white",
                     size === "XL" && selectedSize !== size && "text-gray-900"
                   )}
+                  suppressHydrationWarning
                 >
                   {size}
                 </button>

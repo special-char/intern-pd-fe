@@ -1,17 +1,16 @@
 import { Suspense } from "react"
 
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
-import RefinementList from "@modules/store/components/refinement-list"
-import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 import PaginatedProducts from "./paginated-products"
+import FilterButton from "./filter-button"
 
 const StoreTemplate = ({
   sortBy,
   page,
   countryCode,
 }: {
-  sortBy?: SortOptions
+  sortBy?: string
   page?: string
   countryCode: string
 }) => {
@@ -19,15 +18,15 @@ const StoreTemplate = ({
   const sort = sortBy || "created_at"
 
   return (
-    <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
-      data-testid="category-container"
-    >
-      <RefinementList sortBy={sort} />
+    <div className="py-6 content-container" data-testid="category-container">
       <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1 data-testid="store-page-title">All products</h1>
+        <div className="mt-8 mb-8 text-2xl-semi text-center">
+          <h1 data-testid="store-page-title" className="font-thin">
+            All Clothing
+          </h1>
         </div>
+        {/* Filter & Sort Button */}
+        <FilterButton />
         <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts
             sortBy={sort}

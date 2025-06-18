@@ -24,11 +24,7 @@ const Accordion = ({
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center">
-<<<<<<< HEAD
-          <span className={`font-saol pl-20 ${isItalic ? "italic" : ""}`}>
-=======
           <span className={`font-saol pl-24 ${isItalic ? "italic" : ""}`}>
->>>>>>> 7839f31cd1896590dbef395d91b909c184f395ca
             {title}
           </span>
           <svg
@@ -62,16 +58,11 @@ export default function MaterialAccordion() {
         title="Retraced"
         bgColor="bg-[#ede3d7]"
         isItalic={false}
-        textColor="#050505"
+        textColor="text-[#050505]"
       >
         {/* <p className="font-thin text-[16px]">Material</p> */}
-<<<<<<< HEAD
-        <div className="space-y-6 p-20 text-base md:text-lg " >
-          <p className="font-semibold">Retraced</p>
-=======
         <div className="space-y-6 text-base md:text-lg pl-24">
           <p className="font-akzidenz">Retraced</p>
->>>>>>> 7839f31cd1896590dbef395d91b909c184f395ca
 
           <p>
             At the end of 2023, we partnered with Retraced. This is an online platform that, among
@@ -97,13 +88,8 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-<<<<<<< HEAD
-         <div className="space-y-6 p-20 text-white text-base md:text-lg">
-          <p className="font-semibold">Code of Conduct</p>
-=======
          <div className="space-y-6 text-white text-base md:text-lg pl-24">
           <p className="font-akzidenz">Code of Conduct</p>
->>>>>>> 7839f31cd1896590dbef395d91b909c184f395ca
           <p>
             We formulated our Code of Conduct at the end of 2023. This is a contract
             that stipulates rules of conduct and conditions that our suppliers must
@@ -113,7 +99,7 @@ export default function MaterialAccordion() {
             Click on the link below to see our Code of Conduct.
           </p>
 
-          <button className="bg-black text-white px-4 py-2 rounded">
+          <button className="bg-black text-white text-sm px-3 py-1 rounded">
             Code of Conduct
           </button>
         </div>
@@ -125,13 +111,8 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-<<<<<<< HEAD
-        <div className="space-y-6 p-20 text-base md:text-lg">
-          <p className="font-semibold">Working Conditions</p>
-=======
         <div className="space-y-6 text-base md:text-lg pl-24">
           <p className="font-akzidenz">Working Conditions</p>
->>>>>>> 7839f31cd1896590dbef395d91b909c184f395ca
 
           <p>
             As part of the rules of conduct and conditions mentioned in our Code of Conduct,

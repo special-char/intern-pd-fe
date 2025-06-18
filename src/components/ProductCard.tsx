@@ -36,7 +36,8 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
       onMouseLeave={() => setIsCardHovered(false)}
     >
       {/* Product Image */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-gray-50">
+      {/* <div className="relative aspect-[3/4] overflow-hidden bg-gray-50"> */}
+      <div className="relative aspect-[4/] overflow-hidden bg-gray-50 h-150">
         <img
           src={product.image}
           alt={product.name}
@@ -46,10 +47,10 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
         {/* Favorite Button */}
         <button
           onClick={() => setIsFavorited(!isFavorited)}
-          className="absolute right-4 top-4 rounded-full bg-white p-2 shadow-sm transition-all duration-200 hover:shadow-md"
+          className="absolute right-0 top-0 rounded-none bg-white p-2 shadow-sm transition-all duration-200 hover:shadow-md opacity-0 group-hover:opacity-100"
         >
           <Heart
-            size={18}
+            size={28}
             className={cn(
               "transition-colors duration-200",
               isFavorited ? "fill-red-500 text-red-500" : "text-gray-400"

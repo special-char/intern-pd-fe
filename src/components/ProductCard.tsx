@@ -1,6 +1,7 @@
 "use client"
 
 import { Heart } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { cn } from "../lib/utils"
 
@@ -16,6 +17,7 @@ interface Product {
   image: string
   colors: ProductColor[]
   sizes: string[]
+  handle?: string
 }
 
 interface ProductCardProps {
@@ -28,12 +30,20 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
   const [selectedSize, setSelectedSize] = useState("")
   const [isFavorited, setIsFavorited] = useState(false)
   const [isCardHovered, setIsCardHovered] = useState(isHovered)
+  const router = useRouter()
 
   return (
     <div
-      className="group relative bg-white transition-all duration-300"
+      className="group relative bg-white transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
+      onClick={() =>
+        router.push(
+          product.handle
+            ? `/products/${product.handle}`
+            : `/products/${product.id}`
+        )
+      }
     >
       {/* Product Image */}
       {/* <div className="relative aspect-[3/4] overflow-hidden bg-gray-50"> */}
@@ -46,13 +56,15 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
 
         {/* Favorite Button */}
         <button
-          onClick={() => setIsFavorited(!isFavorited)}
-          className="absolute right-0 top-0 rounded-none bg-white p-2 shadow-sm transition-all duration-200 hover:shadow-md opacity-0 group-hover:opacity-100"
+          onClick={(e) => {
+            e.stopPropagation()
+            setIsFavorited(!isFavorited)
+          }}
+          className="absolute right-0 top-0 rounded-none bg-white p-3 md:p-2 shadow-sm transition-all duration-200 hover:shadow-md opacity-100 md:opacity-0 md:group-hover:opacity-100"
         >
           <Heart
-            size={28}
             className={cn(
-              "transition-colors duration-200",
+              "transition-colors duration-200 w-9 h-9 md:w-7 md:h-7",
               isFavorited ? "fill-red-500 text-red-500" : "text-gray-400"
             )}
           />

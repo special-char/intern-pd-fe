@@ -31,6 +31,7 @@ export default function ProductCardWrapper({
       { name: "Gray", value: "#808080" },
     ],
     sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    handle: product.handle,
   }
 
   return <ProductCard product={productCardData} />

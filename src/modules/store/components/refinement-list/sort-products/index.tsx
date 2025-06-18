@@ -10,20 +10,7 @@ type SortProductsProps = {
   "data-testid"?: string
 }
 
-const sortOptions = [
-  {
-    value: "created_at",
-    label: "Latest Arrivals",
-  },
-  {
-    value: "price_asc",
-    label: "Price: Low -> High",
-  },
-  {
-    value: "price_desc",
-    label: "Price: High -> Low",
-  },
-]
+const sortOptions: { value: string; label: string }[] = []
 
 const SortProducts = ({
   "data-testid": dataTestId,
@@ -36,7 +23,7 @@ const SortProducts = ({
 
   return (
     <FilterRadioGroup
-      title="Sort by"
+      title=""
       items={sortOptions}
       value={sortBy}
       handleChange={handleChange}

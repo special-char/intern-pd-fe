@@ -24,7 +24,7 @@ export default function Page() {
           <div className="relative aspect-[4/5] w-full">
             {/* Uncomment below to enable image */}
             <Image
-              src="/images/let's-act-1.webp"
+              src="https://rino-pelle.com/cdn/shop/files/Rectangle_960.png?v=1744028163"
               alt="Model"
               fill
               className="object-cover"
@@ -74,10 +74,10 @@ export default function Page() {
         <div className="grid grid-cols-12 gap-6 items-center">
           {/* Left Text Column */}
           <div className="col-start-2 col-end-6 text-gray-800">
-            <p className="uppercase text-sm tracking-wide font-medium">
+            <p className="uppercase text-sm tracking-wide font-small">
               Product
             </p>
-            <h2 className="text-5xl font-normal leading-tight mt-2">
+            <h2 className="text-3xl font-normal leading-tight mt-2">
               The Product
             </h2>
             <p className="text-base leading-relaxed mt-6">
@@ -102,7 +102,7 @@ export default function Page() {
           <div className="col-span-12 md:col-start-7 md:col-span-6 -mr-6">
             <div className="relative aspect-[4/5] w-full">
               <Image
-                src="/images/let's-act-2.webp"
+                src="https://rino-pelle.com/cdn/shop/files/Artwork_2.png?v=1741179055"
                 alt="Product Image"
                 fill
                 className="object-cover"
@@ -155,6 +155,7 @@ export default function Page() {
       <main className="bg-[#f9f7f5] pb-0">
         <MAccordion />
       </main>
+
 
       {/* Let's Act 4 Image */}
       <div className="w-full">

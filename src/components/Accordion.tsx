@@ -24,7 +24,7 @@ const Accordion = ({
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center">
-          <span className={`font-saol ${isItalic ? "italic" : ""}`}>
+          <span className={`font-saol pl-20 ${isItalic ? "italic" : ""}`}>
             {title}
           </span>
           <svg
@@ -61,7 +61,7 @@ export default function MaterialAccordion() {
         textColor="#050505"
       >
         {/* <p className="font-thin text-[16px]">Material</p> */}
-        <div className="space-y-6 text-base md:text-lg">
+        <div className="space-y-6 p-20 text-base md:text-lg " >
           <p className="font-semibold">Retraced</p>
 
           <p>
@@ -88,7 +88,7 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-         <div className="space-y-6 text-white text-base md:text-lg">
+         <div className="space-y-6 p-20 text-white text-base md:text-lg">
           <p className="font-semibold">Code of Conduct</p>
           <p>
             We formulated our Code of Conduct at the end of 2023. This is a contract
@@ -111,7 +111,7 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-        <div className="space-y-6 text-base md:text-lg">
+        <div className="space-y-6 p-20 text-base md:text-lg">
           <p className="font-semibold">Working Conditions</p>
 
           <p>

@@ -60,6 +60,7 @@ export default function MaterialAccordion() {
         isItalic={false}
         textColor="#050505"
       >
+        <div className="p-20">
         <p className="font-thin text-[16px]">Material</p>
         <p className="text-sm leading-relaxed mt-4">
           The use of sustainable materials is constantly evolving. We strive to
@@ -121,6 +122,7 @@ export default function MaterialAccordion() {
           the treatment of animals. Additionally, we never use real fur, we only
           use artificial fur.
         </p>
+        </div>
       </AccordionItem>
 
       <AccordionItem
@@ -129,6 +131,7 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
+        <div className="p-20">
         <p className="font-light">Packaging materials</p>
         <p className="text-white font-light text-sm leading-relaxed mt-4">
           60% of our suppliers use solely recycled polyester as plastic
@@ -139,6 +142,7 @@ export default function MaterialAccordion() {
           warehouse we separate all plastic packaging waste, which is collected
           by Renewi for recycling.
         </p>
+        </div>
       </AccordionItem>
 
       <AccordionItem
@@ -147,6 +151,7 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
+        <div className="p-20">
         <p className="font-light">Restricted Substances List</p>
         <p className="text-white font-light text-sm leading-relaxed mt-4">
           A Restricted Substances List (RSL) was formulated towards the end of
@@ -164,6 +169,7 @@ export default function MaterialAccordion() {
         >
           RSL
         </a>
+        </div>
       </AccordionItem>
     </div>
   )

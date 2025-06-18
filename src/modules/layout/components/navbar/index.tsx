@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import LoginTemplate from "@/modules/account/templates/login-template"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -89,9 +90,11 @@ const Navbar = () => {
             >
               Sign In
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
-              Cart
-            </button>
+            <LocalizedClientLink href="/cart" aria-label="Cart">
+              <button className="text-black transition-colors duration-200 text-sm md:text-base">
+                Cart
+              </button>
+            </LocalizedClientLink>
           </div>
 
           {/* Mobile/Tablet menu button */}

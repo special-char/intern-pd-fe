@@ -9,8 +9,9 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Home", href: "/" },
-    { name: "Shop", href: "/shop" },
+    { name: "Shop", href: "/store" },
     { name: "About", href: "/about" },
+    {name: "lookbook", href: "/lookbook"},
     { name: "Blog", href: "/blog" },
     { name: "Let's Act", href: "/lets-act" },
   ]
@@ -143,97 +144,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-
-      <style jsx global>{`
-        @keyframes header-banner-fade-in {
-          0% {
-            opacity: 0;
-            transform: translateY(-30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-header-banner-fade-in {
-          animation: header-banner-fade-in 0.7s cubic-bezier(0.4, 0, 0.2, 1)
-            0.1s both;
-        }
-        @keyframes header-logo-slide-in {
-          0% {
-            opacity: 0;
-            transform: translateX(-40px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        .animate-header-logo-slide-in {
-          animation: header-logo-slide-in 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.3s
-            both;
-        }
-        @keyframes header-menu-fade-in {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-header-menu-fade-in {
-          animation: header-menu-fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
-        }
-        @keyframes header-icons-slide-in {
-          0% {
-            opacity: 0;
-            transform: translateX(40px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        .animate-header-icons-slide-in {
-          animation: header-icons-slide-in 0.7s cubic-bezier(0.4, 0, 0.2, 1)
-            0.5s both;
-        }
-        @keyframes fade-in {
-          0% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.3s ease-out forwards;
-        }
-        @keyframes slide-in-left {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-        .animate-slide-in-left {
-          animation: slide-in-left 0.3s ease-out forwards;
-        }
-        .logo-text {
-          font-family: "Playfair Display", serif;
-          font-weight: 700;
-          letter-spacing: 0.2em;
-          color: #111;
-          text-transform: uppercase;
-          transition: all 0.3s ease;
-        }
-        .logo-text:hover {
-          opacity: 0.8;
-        }
-      `}</style>
     </nav>
   )
 }

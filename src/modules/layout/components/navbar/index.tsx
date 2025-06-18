@@ -8,8 +8,9 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Home", href: "/" },
-    { name: "Shop", href: "/shop" },
+    { name: "Shop", href: "/store" },
     { name: "About", href: "/about" },
+    {name: "lookbook", href: "/lookbook"},
     { name: "Blog", href: "/blog" },
     { name: "Let's Act", href: "/lets-act" },
   ]

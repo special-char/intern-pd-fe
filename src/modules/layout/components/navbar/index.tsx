@@ -2,12 +2,18 @@
 
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
+import { useParams } from "next/navigation"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const searchContainerRef = useRef<HTMLDivElement>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [suggestions, setSuggestions] = useState<Array<{ id: string; handle: string; title: string; thumbnail?: string }>>([])
+  const [loading, setLoading] = useState(false)
+  const [showSuggestions, setShowSuggestions] = useState(false)
+  const { countryCode } = useParams() as { countryCode?: string }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -25,6 +31,42 @@ const Navbar = () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [])
+
+  useEffect(() => {
+    if (isSearchOpen && searchInputRef.current) {
+      searchInputRef.current.focus()
+    }
+  }, [isSearchOpen])
+
+  useEffect(() => {
+    if (!searchTerm || searchTerm.length < 3) {
+      setSuggestions([])
+      setShowSuggestions(false)
+      return
+    }
+    setLoading(true)
+    const controller = new AbortController()
+    const fetchSuggestions = async () => {
+      try {
+        const res = await fetch(
+          `/api/search-products?q=${encodeURIComponent(searchTerm)}&countryCode=${countryCode || "us"}`,
+          { signal: controller.signal }
+        )
+        const data = await res.json()
+        setSuggestions(data.products || [])
+        setShowSuggestions(true)
+      } catch (e: any) {
+        if (e.name !== "AbortError") setSuggestions([])
+      } finally {
+        setLoading(false)
+      }
+    }
+    const debounce = setTimeout(fetchSuggestions, 250)
+    return () => {
+      clearTimeout(debounce)
+      controller.abort()
+    }
+  }, [searchTerm, countryCode])
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -164,8 +206,8 @@ const Navbar = () => {
 
       {/* Minimal Full-Width Search Bar Below Navbar */}
       {isSearchOpen && (
-        <div ref={searchContainerRef} className="w-full bg-white border-t border-b border-gray-100 flex items-start" style={{height: '40px'}}>
-          <div className="relative w-full flex items-center h-full">
+        <div ref={searchContainerRef} className="w-full bg-white border-t border-b border-gray-100 flex flex-col items-start relative z-50" style={{height: 'auto'}}>
+          <div className="relative w-full flex items-center h-10">
             <input
               ref={searchInputRef}
               type="text"
@@ -173,6 +215,9 @@ const Navbar = () => {
               placeholder="Search..."
               className="w-full text-sm font-normal bg-transparent border-none outline-none placeholder-gray-400 px-4"
               style={{height: '32px'}}
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+              onFocus={() => searchTerm && setShowSuggestions(true)}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -186,6 +231,33 @@ const Navbar = () => {
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
             </svg>
           </div>
+          {showSuggestions && (searchTerm || loading) && (
+            <div className="absolute left-0 top-10 w-full bg-white border border-gray-200 shadow-lg max-h-72 overflow-y-auto z-50">
+              {loading ? (
+                <div className="p-4 text-gray-500 text-sm">Searching...</div>
+              ) : suggestions.length > 0 ? (
+                suggestions.map((product) => (
+                  <a
+                    key={product.id}
+                    href={`/${countryCode || "us"}/products/${product.handle}`}
+                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition-colors border-b last:border-b-0"
+                    onClick={() => {
+                      setIsSearchOpen(false)
+                      setSearchTerm("")
+                      setShowSuggestions(false)
+                    }}
+                  >
+                    {product.thumbnail && (
+                      <img src={product.thumbnail} alt={product.title} className="w-10 h-10 object-cover" />
+                    )}
+                    <span className="text-gray-900 text-sm">{product.title}</span>
+                  </a>
+                ))
+              ) : (
+                <div className="p-4 text-gray-500 text-sm">No products found.</div>
+              )}
+            </div>
+          )}
         </div>
       )}
     </nav>

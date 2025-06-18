@@ -2,18 +2,41 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import LoginTemplate from "@/modules/account/templates/login-template"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSignInOpen, setIsSignInOpen] = useState(false)
 
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "Shop", href: "/store" },
     { name: "About", href: "/about" },
-    {name: "lookbook", href: "/lookbook"},
+    { name: "lookbook", href: "/lookbook" },
     { name: "Blog", href: "/blog" },
     { name: "Let's Act", href: "/lets-act" },
   ]
+
+  const SignInDialog = () => {
+    return (
+      <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <LoginTemplate />
+        </DialogContent>
+      </Dialog>
+    )
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
@@ -61,12 +84,17 @@ const Navbar = () => {
             <button className="text-black transition-colors duration-200 text-sm md:text-base">
               Wishlist
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
+            <button
+              onClick={() => setIsSignInOpen(true)}
+              className="text-black transition-colors duration-200 text-sm md:text-base"
+            >
               Sign In
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
-              Cart
-            </button>
+            <LocalizedClientLink href="/cart" aria-label="Cart">
+              <button className="text-black transition-colors duration-200 text-sm md:text-base">
+                Cart
+              </button>
+            </LocalizedClientLink>
           </div>
 
           {/* Mobile/Tablet menu button */}
@@ -130,7 +158,13 @@ const Navbar = () => {
                 <button className="text-gray-800 transition-colors duration-200 text-left ">
                   Wishlist
                 </button>
-                <button className="text-gray-800 transition-colors duration-200 text-left ">
+                <button
+                  onClick={() => {
+                    setIsSignInOpen(true)
+                    setIsMenuOpen(false)
+                  }}
+                  className="text-gray-800 transition-colors duration-200 text-left"
+                >
                   Sign In
                 </button>
                 <button className="text-gray-800 transition-colors duration-200 text-left ">
@@ -141,6 +175,9 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+      {/* Add SignInDialog component */}
+      <SignInDialog />
     </nav>
   )
 }

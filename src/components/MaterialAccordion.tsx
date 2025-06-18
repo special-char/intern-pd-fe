@@ -58,7 +58,7 @@ export default function MaterialAccordion() {
         title="Material"
         bgColor="bg-[#ede3d7]"
         isItalic={false}
-        textColor="#050505"
+        textColor="text-[#050505]"
       >
         <div className="p-20">
         <p className="font-thin text-[16px]">Material</p>

@@ -17,6 +17,7 @@ export default function ProductCardWrapper({
 
   const productCardData = {
     id: product.id,
+    handle: product.handle,
     name: product.title,
     price: cheapestPrice
       ? cheapestPrice.calculated_price

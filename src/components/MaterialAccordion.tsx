@@ -58,7 +58,7 @@ export default function MaterialAccordion() {
         title="Material"
         bgColor="bg-[#ede3d7]"
         isItalic={false}
-        textColor="#050505"
+        textColor="text-[#050505]"
       >
         <div className="pl-24">
           <p className="font-thin text-[16px]">Material</p>
@@ -167,7 +167,7 @@ export default function MaterialAccordion() {
           </p>
           <a
             href="#"
-            className="inline-block mt-8 text-sm font-medium bg-black text-white px-6 py-3"
+            className="inline-block mt-8 text-sm font-medium bg-black text-white px-3 py-1"
           >
             RSL
           </a>

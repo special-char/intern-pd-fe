@@ -1,6 +1,7 @@
 import repeat from "@lib/util/repeat"
 import { HttpTypes } from "@medusajs/types"
 import { Table } from "@medusajs/ui"
+import { useState } from "react"
 
 import Divider from "@modules/common/components/divider"
 import Item from "@modules/order/components/item"
@@ -11,7 +12,11 @@ type ItemsProps = {
 }
 
 const Items = ({ order }: ItemsProps) => {
-  const items = order.items
+  const [items, setItems] = useState(order.items)
+
+  const handleDelete = (id: string) => {
+    setItems((prev) => prev.filter((item) => item.id !== id))
+  }
 
   return (
     <div className="flex flex-col">
@@ -29,6 +34,7 @@ const Items = ({ order }: ItemsProps) => {
                       key={item.id}
                       item={item}
                       currencyCode={order.currency_code}
+                      onDelete={() => handleDelete(item.id)}
                     />
                   )
                 })

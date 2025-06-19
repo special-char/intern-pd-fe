@@ -1,21 +1,22 @@
-import repeat from "@lib/util/repeat"
+import { Table } from "@medusajs/ui"
 import { HttpTypes } from "@medusajs/types"
-import { Heading, Table } from "@medusajs/ui"
-
-import Item from "@modules/cart/components/item"
+import { repeat } from "lodash"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
+import Item from "@modules/cart/components/item"
+import { Heading } from "@medusajs/ui"
 
 type ItemsTemplateProps = {
-  cart?: HttpTypes.StoreCart
+  cart: HttpTypes.StoreCart
+  onCartUpdate?: () => Promise<void>
 }
 
-const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
+const ItemsTemplate = ({ cart, onCartUpdate }: ItemsTemplateProps) => {
   const items = cart?.items
   return (
     <div>
-      <div className="pb-3 flex items-center">
+      {/* <div className="pb-3 flex items-center">
         <Heading className="text-[2rem] leading-[2.75rem]">Cart</Heading>
-      </div>
+      </div> */}
       <Table>
         <Table.Header className="border-t-0">
           <Table.Row className="text-ui-fg-subtle txt-medium-plus">
@@ -42,6 +43,7 @@ const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
                       key={item.id}
                       item={item}
                       currencyCode={cart?.currency_code}
+                      onCartUpdate={onCartUpdate}
                     />
                   )
                 })

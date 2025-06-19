@@ -24,7 +24,7 @@ const Accordion = ({
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center">
-          <span className={`font-saol  pl-24 ${isItalic ? "italic" : ""}`}>
+          <span className={`font-saol pl-24 ${isItalic ? "italic" : ""}`}>
             {title}
           </span>
           <svg
@@ -58,9 +58,11 @@ export default function Headoffice() {
         title="Head office"
         bgColor="bg-[#ede3d7]"
         isItalic={false}
-        textColor="#050505"
+        textColor="text-[#050505]"
       >
-        <div className="space-y-6 text-base md:text-lg pl-24">
+        
+        <div className="space-y-6 text-[14px] pl-24">
+      
           <p className="font-akzidenz">Head office</p>
 
           <p>
@@ -70,7 +72,7 @@ export default function Headoffice() {
 
           <div className="space-y-4">
             <div>
-              <p className="font-semibold">- Extended Producer Responsibility (EPR)</p>
+              <p>- Extended Producer Responsibility (EPR)</p>
               <p>
                 Since 1 July 2023, all producers of textiles (clothing and household textiles)
                 in the Netherlands are responsible for the waste phase of their products. EPR means
@@ -85,7 +87,7 @@ export default function Headoffice() {
             </div>
 
             <div>
-              <p className="font-semibold">- Made to order</p>
+              <p>- Made to order</p>
               <p>
                 Made-to-order means that we produce around 80% of our entire production based on
                 only the volume of orders we receive from our retailers. This prevents wasting
@@ -96,14 +98,14 @@ export default function Headoffice() {
             </div>
 
             <div>
-              <p className="font-semibold">- In-house head office atelier</p>
+              <p>- In-house head office atelier</p>
               <p>
                 This allows us to repair clothing with a defect for subsequent wear.
               </p>
             </div>
 
             <div>
-              <p className="font-semibold">- Sales Office Lijnden</p>
+              <p>- Sales Office Lijnden</p>
               <p>
                 Since 2023 we have our own sales office in Lijnden. We have particularly chosen this
                 office as it is located in a building that has an A+++++ energy rating. Which means
@@ -113,7 +115,6 @@ export default function Headoffice() {
           </div>
         </div>
       </Accordion>
-
     </div>
   )
 }

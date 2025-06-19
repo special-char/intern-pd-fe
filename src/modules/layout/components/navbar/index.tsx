@@ -1,20 +1,70 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import LoginTemplate from "@/modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/design/ui/drawer"
+import CartTemplate from "@/modules/cart/templates"
+import { retrieveCart } from "@/lib/data/cart"
+import { HttpTypes } from "@medusajs/types"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSignInOpen, setIsSignInOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [cart, setCart] = useState<HttpTypes.StoreCart | null>(null)
+
+  const refreshCart = useCallback(async () => {
+    const cartData = await retrieveCart()
+    setCart(cartData)
+  }, [])
+
+  useEffect(() => {
+    if (isCartOpen) {
+      refreshCart()
+    }
+  }, [isCartOpen, refreshCart])
+
+  // Fetch cart on mount to ensure count is correct after refresh
+  useEffect(() => {
+    refreshCart()
+  }, [refreshCart])
 
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "Shop", href: "/store" },
     { name: "About", href: "/about" },
-    {name: "lookbook", href: "/lookbook"},
+    { name: "lookbook", href: "/lookbook" },
     { name: "Blog", href: "/blog" },
     { name: "Let's Act", href: "/lets-act" },
   ]
+
+  const SignInDialog = () => {
+    return (
+      <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <LoginTemplate />
+        </DialogContent>
+      </Dialog>
+    )
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
@@ -62,14 +112,64 @@ const Navbar = () => {
             <button className="text-black transition-colors duration-200 text-sm md:text-base">
               Wishlist
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
+            <button
+              onClick={() => setIsSignInOpen(true)}
+              className="text-black transition-colors duration-200 text-sm md:text-base"
+            >
               Sign In
             </button>
-            <LocalizedClientLink href="/cart" aria-label="Cart">
-              <button className="text-black transition-colors duration-200 text-sm md:text-base">
-                Cart
-              </button>
-            </LocalizedClientLink>
+            <Drawer open={isCartOpen} onOpenChange={setIsCartOpen}>
+              <DrawerTrigger asChild>
+                <button className="text-black transition-colors duration-200 text-sm md:text-base flex items-center gap-2">
+                  Cart
+                  {cart?.items?.length ? (
+                    <span className="bg-black text-white text-xs rounded-full w-6 h-6 flex items-center justify-center ml-1">
+                      {cart.items.length}
+                    </span>
+                  ) : null}
+                </button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <div className="h-full flex flex-col">
+                  <DrawerHeader className="flex flex-row justify-between">
+                    <DrawerTitle className="font-light mt-5 text-3xl w-full">
+                      Your Cart
+                    </DrawerTitle>
+                    <button
+                      onClick={() => setIsCartOpen(false)}
+                      className="p-2 rounded-full hover:bg-gray-200 transition-colors w-8 h-8 flex items-center justify-center"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-gray-500 hover:text-gray-700"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </DrawerHeader>
+                  <div className="flex-1 overflow-y-auto no-scrollbar">
+                    <div className="px-4">
+                      <CartTemplate
+                        cart={cart}
+                        customer={null}
+                        onClose={() => setIsCartOpen(false)}
+                        onCartUpdate={refreshCart}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </DrawerContent>
+            </Drawer>
           </div>
 
           {/* Mobile/Tablet menu button */}
@@ -133,17 +233,37 @@ const Navbar = () => {
                 <button className="text-gray-800 transition-colors duration-200 text-left ">
                   Wishlist
                 </button>
-                <button className="text-gray-800 transition-colors duration-200 text-left ">
+                <button
+                  onClick={() => {
+                    setIsSignInOpen(true)
+                    setIsMenuOpen(false)
+                  }}
+                  className="text-gray-800 transition-colors duration-200 text-left"
+                >
                   Sign In
                 </button>
-                <button className="text-gray-800 transition-colors duration-200 text-left ">
+                <button
+                  onClick={() => {
+                    setIsCartOpen(true)
+                    setIsMenuOpen(false)
+                  }}
+                  className="text-gray-800 transition-colors duration-200 text-left flex items-center gap-2"
+                >
                   Cart
+                  {cart?.items?.length ? (
+                    <span className="bg-black text-white text-xs rounded-full w-6 h-6 flex items-center justify-center ml-1">
+                      {cart.items.length}
+                    </span>
+                  ) : null}
                 </button>
               </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* Add SignInDialog component */}
+      <SignInDialog />
     </nav>
   )
 }

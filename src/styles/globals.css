@@ -6,7 +6,7 @@
   :root {
     --footer-bg-grey: 0, 0%, 96%;
     --primary-bg-white: 0, 0%, 100%;
-    --secondary-bg-grey:  0, 0%, 64%;
+    --secondary-bg-grey: 0, 0%, 64%;
     --background: 0, 0%, 100%;
     --foreground: 0, 0%, 2%;
     --card: 0, 1%, 86%;
@@ -20,9 +20,9 @@
     /* --secondary: 240 4.8% 95.9%; */
     --secondary-foreground: 0, 0%, 55%;
     /* --secondary-foreground: 0, 0%, 72%; */
-    --muted:  210 40% 96.1%;
+    --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent:24, 32%, 58%;
+    --accent: 24, 32%, 58%;
     --accent-foreground: 0, 0%, 98%;
     --destructive: 0, 70%, 50%;
     --destructive-foreground: 0, 0%, 98%;
@@ -32,7 +32,7 @@
     --chart-1: 205, 70%, 50%;
     --chart-2: 45, 70%, 50%;
     --chart-3: 120, 70%, 50%;
-    --chart-4:330, 70%, 50%;
+    --chart-4: 330, 70%, 50%;
     --chart-5: 15, 70%, 50%;
     --radius: 25rem;
 
@@ -649,7 +649,6 @@
 }
 
 @layer utilities {
-
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -666,12 +665,12 @@
     /* Firefox */
   }
 
-  input:focus~label,
-  input:not(:placeholder-shown)~label {
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
     @apply -translate-y-2 text-xsmall-regular;
   }
 
-  input:focus~label {
+  input:focus ~ label {
     @apply left-0;
   }
 
@@ -699,13 +698,21 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* Navbar Animations and Styles */

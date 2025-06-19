@@ -58,7 +58,7 @@ export default function MaterialAccordion() {
         title="Retraced"
         bgColor="bg-[#ede3d7]"
         isItalic={false}
-        textColor="#050505"
+        textColor="text-[#050505]"
       >
         {/* <p className="font-thin text-[16px]">Material</p> */}
         <div className="space-y-6 text-base md:text-lg pl-24">
@@ -99,7 +99,7 @@ export default function MaterialAccordion() {
             Click on the link below to see our Code of Conduct.
           </p>
 
-          <button className="bg-black text-white px-4 py-2 rounded">
+          <button className="bg-black text-white text-sm px-3 py-1 rounded">
             Code of Conduct
           </button>
         </div>

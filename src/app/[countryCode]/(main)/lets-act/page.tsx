@@ -1,30 +1,82 @@
+"use client"
+
 import MAccordion from "@/components/Accordion"
 import Headoffice from "@/components/Headoffice"
 import MaterialAccordion from "@/components/MaterialAccordion"
 import Image from "next/image"
+import { useCallback } from "react"
 
 export default function Page() {
+  // Custom smooth scroll with cubic easing
+  const scrollToSection = useCallback((id: string) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + window.scrollY;
+    const duration = 700; // ms
+    const easeInOutCubic = (t: number) => t < 0.5
+      ? 4 * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    let startTime: number | null = null;
+    function animateScroll(currentTime: number) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+      window.scrollTo(0, start + (end - start) * ease);
+      if (progress < 1) {
+        requestAnimationFrame(animateScroll);
+      }
+    }
+    requestAnimationFrame(animateScroll);
+  }, []);
+
   return (
     <div className="bg-[#f9f7f5] text-black overflow-x-hidden">
       {/* Header */}
       <div className="flex flex-col items-center justify-center text-center px-4 md:px-10 pt-8 mb-12">
         <h1 className="text-6xl font-thin mb-6">Let's Act</h1>
         <div className="flex space-x-6 text-sm font-light">
-          <a href="#">CSR</a>
-          <a href="#">Product</a>
-          <a href="#">Suppliers</a>
-          <a href="#">Head Office</a>
+          <a
+            href="#csr"
+            className="hover:border-b-2 hover:border-black transition-all duration-200 ease-in-out"
+            onClick={e => { e.preventDefault(); scrollToSection('csr'); }}
+          >
+            CSR
+          </a>
+          <a
+            href="#product"
+            className="hover:border-b-2 hover:border-black transition-all duration-200 ease-in-out"
+            onClick={e => { e.preventDefault(); scrollToSection('product'); }}
+          >
+            Product
+          </a>
+          <a
+            href="#suppliers"
+            className="hover:border-b-2 hover:border-black transition-all duration-200 ease-in-out"
+            onClick={e => { e.preventDefault(); scrollToSection('suppliers'); }}
+          >
+            Suppliers
+          </a>
+          <a
+            href="#headoffice"
+            className="hover:border-b-2 hover:border-black transition-all duration-200 ease-in-out"
+            onClick={e => { e.preventDefault(); scrollToSection('headoffice'); }}
+          >
+            Head Office
+          </a>
         </div>
       </div>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-12 gap-6 items-center pr-4 md:pr-10">
+      <div id="csr" className="grid grid-cols-12 gap-6 items-center pr-4 md:pr-10 scroll-mt-24">
         {/* Left Image */}
         <div className="col-span-12 md:col-span-6 md:col-start-1">
           <div className="relative aspect-[4/5] w-full">
             {/* Uncomment below to enable image */}
             <Image
-              src="/images/let's-act-1.webp"
+              src="https://rino-pelle.com/cdn/shop/files/Rectangle_960.png?v=1744028163"
               alt="Model"
               fill
               className="object-cover"
@@ -33,11 +85,11 @@ export default function Page() {
         </div>
 
         {/* Right Text */}
-        <div className="col-start-8 col-end-12 space-y-6">
+        <div className="col-span-12 space-y-6 md:col-start-8 md:col-end-12">
           <p className="uppercase text-sm tracking-wide text-gray-600">CSR</p>
           <h1 className="text-4xl font-light leading-tight">
             Corporate <br />
-            <span className="italic font-thin">Social Responsibility</span>
+            <span className="italic font-thin font-saol">Social Responsibility</span>
           </h1>
           <p className="text-base leading-relaxed text-gray-700">
             The term sustainability cannot be ignored in the fashion industry
@@ -70,14 +122,14 @@ export default function Page() {
       </div>
 
       {/* Product Section */}
-      <div className="bg-[#f9f7f5]">
+      <div id="product" className="bg-[#f9f7f5] scroll-mt-24">
         <div className="grid grid-cols-12 gap-6 items-center">
           {/* Left Text Column */}
-          <div className="col-start-2 col-end-6 text-gray-800">
-            <p className="uppercase text-sm tracking-wide font-medium">
+          <div className="col-span-12 md:col-start-2 md:col-end-6 text-gray-800">
+            <p className="uppercase text-sm tracking-wide font-small">
               Product
             </p>
-            <h2 className="text-5xl font-normal leading-tight mt-2">
+            <h2 className="text-3xl font-normal leading-tight mt-2">
               The Product
             </h2>
             <p className="text-base leading-relaxed mt-6">
@@ -102,7 +154,7 @@ export default function Page() {
           <div className="col-span-12 md:col-start-7 md:col-span-6 -mr-6">
             <div className="relative aspect-[4/5] w-full">
               <Image
-                src="/images/let's-act-2.webp"
+                src="https://rino-pelle.com/cdn/shop/files/Artwork_2.png?v=1741179055"
                 alt="Product Image"
                 fill
                 className="object-cover"
@@ -118,7 +170,7 @@ export default function Page() {
       </main>
 
       {/* Product Section */}
-      <div className="bg-[#f9f7f5] text-black space-x-0 ">
+      <div id="suppliers" className="bg-[#f9f7f5] text-black space-x-0 scroll-mt-24">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
           {/* Left: Image */}
           <div className="md:col-span-6">
@@ -134,7 +186,7 @@ export default function Page() {
           </div>
 
           {/* Right: Text */}
-          <div className="md:col-span-6 space-y-4">
+          <div className=" space-y-4 col-start-8 col-end-12">
             <p className="text-xs tracking-widest uppercase">Suppliers</p>
             <h2 className="text-4xl font-light">
               Suppliers &{" "}
@@ -156,6 +208,7 @@ export default function Page() {
         <MAccordion />
       </main>
 
+
       {/* Let's Act 4 Image */}
       <div className="w-full">
         <Image
@@ -169,7 +222,7 @@ export default function Page() {
       </div>
 
       {/* headoffice */}
-      <main className="bg-[#f9f7f5] pb-0">
+      <main id="headoffice" className="bg-[#f9f7f5] pb-0 scroll-mt-24">
         <Headoffice />
       </main>
     </div>

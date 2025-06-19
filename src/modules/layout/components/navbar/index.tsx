@@ -36,15 +36,14 @@ const Navbar = () => {
     setCart(cartData)
   }, [])
 
-  useEffect(() => {
-    if (isCartOpen) {
-      refreshCart()
-    }
-  }, [isCartOpen, refreshCart])
-
-  // Fetch cart on mount to ensure count is correct after refresh
+  // Fetch cart on mount and when cart is opened
   useEffect(() => {
     refreshCart()
+    // Set up an interval to refresh cart data frequently
+    const intervalId = setInterval(refreshCart, 1000)
+
+    // Cleanup interval on unmount
+    return () => clearInterval(intervalId)
   }, [refreshCart])
 
   const menuItems = [
@@ -158,7 +157,7 @@ const Navbar = () => {
                     </button>
                   </DrawerHeader>
                   <div className="flex-1 overflow-y-auto no-scrollbar">
-                    <div className="px-4">
+                    <div className="px-4 pb-24">
                       <CartTemplate
                         cart={cart}
                         customer={null}
@@ -167,6 +166,30 @@ const Navbar = () => {
                       />
                     </div>
                   </div>
+                  {cart?.items?.length ? (
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
+                      <div className="flex justify-between items-center mb-4">
+                        <span className="text-lg font-medium">Total</span>
+                        <span className="text-lg font-semibold">
+                          {cart.total ? (
+                            <>
+                              {new Intl.NumberFormat("en-US", {
+                                style: "currency",
+                                currency: cart.currency_code || "USD",
+                              }).format(cart.total)}
+                            </>
+                          ) : (
+                            "-"
+                          )}
+                        </span>
+                      </div>
+                      <LocalizedClientLink href="/checkout">
+                        <Button className="flex items-center justify-center bg-black text-white h-12 rounded-[5px] w-full">
+                          Checkout
+                        </Button>
+                      </LocalizedClientLink>
+                    </div>
+                  ) : null}
                 </div>
               </DrawerContent>
             </Drawer>

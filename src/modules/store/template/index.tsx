@@ -1,9 +1,11 @@
 import { Suspense } from "react"
+import Link from "next/link"
 
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 
 import PaginatedProducts from "./paginated-products"
 import FilterButton from "./filter-button"
+import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
 const StoreTemplate = ({
   sortBy,
@@ -15,7 +17,7 @@ const StoreTemplate = ({
   countryCode: string
 }) => {
   const pageNumber = page ? parseInt(page) : 1
-  const sort = sortBy || "created_at"
+  const sort = (sortBy as SortOptions) || "created_at"
 
   return (
     <div className="py-6 content-container" data-testid="category-container">

@@ -1,3 +1,4 @@
+"use client"
 import { Table } from "@medusajs/ui"
 import { HttpTypes } from "@medusajs/types"
 import { repeat } from "lodash"

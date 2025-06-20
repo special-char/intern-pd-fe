@@ -7,6 +7,7 @@ import { Button } from "@medusajs/ui"
 import { useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useState } from "react"
 import ErrorMessage from "../error-message"
+import { removeCartId } from "./cookies"
 
 type PaymentButtonProps = {
   cart: HttpTypes.StoreCart
@@ -140,6 +141,7 @@ const StripePaymentButton = ({
         size="large"
         isLoading={submitting}
         data-testid={dataTestId}
+        className="  bg-white w-[5em] h-[2em]  rounded-[5px]  border-[1px]"
       >
         Place order
       </Button>
@@ -179,6 +181,7 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
         onClick={handlePayment}
         size="large"
         data-testid="submit-order-button"
+        className="  rounded-[5px]  w-full"
       >
         Place order
       </Button>

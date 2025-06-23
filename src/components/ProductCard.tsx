@@ -1,10 +1,10 @@
 "use client"
 
 import { Heart } from "lucide-react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { cn } from "../lib/utils"
-import Link from "next/link"
 
 interface ProductColor {
   name: string
@@ -13,13 +13,12 @@ interface ProductColor {
 
 interface Product {
   id: string
-  handle: string
+  handle?: string
   name: string
   price: string
   image: string
   colors: ProductColor[]
   sizes: string[]
-  handle?: string
 }
 
 interface ProductCardProps {
@@ -35,33 +34,40 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
   const router = useRouter()
 
   return (
-    <div
-      className="group relative bg-white transition-all duration-300"
-      onMouseEnter={() => setIsCardHovered(true)}
-      onMouseLeave={() => setIsCardHovered(false)}
+    <Link
+      href={
+        product.handle
+          ? `/products/${product.handle}`
+          : `/products/${product.id}`
+      }
     >
-      {/* Product Image */}
-      {/* <div className="relative aspect-[3/4] overflow-hidden bg-gray-50"> */}
-      <div className="relative aspect-[4/] overflow-hidden bg-gray-50 h-150">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-full w-full object-cover transition-transform duration-500"
-        />
-
-        {/* Favorite Button */}
-        <button
-          onClick={() => setIsFavorited(!isFavorited)}
-          className="absolute right-0 top-0 rounded-none bg-white p-2 shadow-sm transition-all duration-200 hover:shadow-md opacity-0 group-hover:opacity-100"
-        >
-          <Heart
-            size={28}
-            className={cn(
-              "transition-colors duration-200",
-              isFavorited ? "fill-red-500 text-red-500" : "text-gray-400"
-            )}
+      <div
+        className="group relative bg-white transition-all duration-300"
+        onMouseEnter={() => setIsCardHovered(true)}
+        onMouseLeave={() => setIsCardHovered(false)}
+      >
+        {/* Product Image */}
+        {/* <div className="relative aspect-[3/4] overflow-hidden bg-gray-50"> */}
+        <div className="relative aspect-[4/] overflow-hidden bg-gray-50 h-150">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="h-full w-full object-cover transition-transform duration-500"
           />
-        </button>
+
+          {/* Favorite Button */}
+          <button
+            onClick={() => setIsFavorited(!isFavorited)}
+            className="absolute right-0 top-0 rounded-none bg-white p-2 shadow-sm transition-all duration-200 hover:shadow-md opacity-0 group-hover:opacity-100"
+          >
+            <Heart
+              size={28}
+              className={cn(
+                "transition-colors duration-200",
+                isFavorited ? "fill-red-500 text-red-500" : "text-gray-400"
+              )}
+            />
+          </button>
 
           <div className="absolute bottom-0 left-0 w-full p-4 pb-6">
             <h3 className="text-sm font-normal text-gray-900 mb-1 tracking-wide">

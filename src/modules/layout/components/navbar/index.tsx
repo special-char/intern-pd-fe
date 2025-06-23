@@ -1,26 +1,11 @@
 "use client"
 
-<<<<<<< HEAD
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import LoginTemplate from "@/modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Link from "next/link"
 import { useState } from "react"
-=======
-import Link from "next/link"
-import { useState, useEffect, useCallback } from "react"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import LoginTemplate from "@/modules/account/templates/login-template"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
+
 import {
   Drawer,
   DrawerContent,
@@ -28,10 +13,11 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/design/ui/drawer"
-import CartTemplate from "@/modules/cart/templates"
+import { Button } from "@/components/ui/button"
 import { retrieveCart } from "@/lib/data/cart"
+import CartTemplate from "@/modules/cart/templates"
 import { HttpTypes } from "@medusajs/types"
->>>>>>> 8a6d4f7fcb73ac8763a971e869dc8f65bb6f6bb4
+import { useCallback, useEffect } from "react"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

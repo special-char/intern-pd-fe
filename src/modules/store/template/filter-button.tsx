@@ -105,7 +105,7 @@ const FilterButton = () => {
 
           <div className="flex flex-col space-y-6 px-4 py-6 overflow-y-auto h-[calc(100vh-56px)] font-akzidenz text-[12px]">
             {/* SORT */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">SORT</h3>
                 <button
@@ -143,7 +143,7 @@ const FilterButton = () => {
             </div>
 
             {/* SIZE */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">SIZE</h3>
                 <button
@@ -185,7 +185,7 @@ const FilterButton = () => {
             </div>
 
             {/* CATEGORIES */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">CATEGORIES</h3>
                 <button
@@ -224,7 +224,7 @@ const FilterButton = () => {
             </div>
 
             {/* COLOUR */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">COLOUR</h3>
                 <button
@@ -264,7 +264,7 @@ const FilterButton = () => {
             </div>
 
             {/* PRICE */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">PRICE</h3>
                 <button

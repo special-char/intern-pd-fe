@@ -1,19 +1,11 @@
 "use client"
 
-import Link from "next/link"
-import { useState, useEffect, useCallback } from "react"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import LoginTemplate from "@/modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Link from "next/link"
+import { useState } from "react"
+
 import {
   Drawer,
   DrawerContent,
@@ -21,15 +13,19 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/design/ui/drawer"
-import CartTemplate from "@/modules/cart/templates"
+import { Button } from "@/components/ui/button"
 import { retrieveCart } from "@/lib/data/cart"
+import CartTemplate from "@/modules/cart/templates"
 import { HttpTypes } from "@medusajs/types"
+import { useCallback, useEffect } from "react"
+import WishlistSlider from "../wishlist-slider"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSignInOpen, setIsSignInOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [cart, setCart] = useState<HttpTypes.StoreCart | null>(null)
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false)
 
   const refreshCart = useCallback(async () => {
     const cartData = await retrieveCart()
@@ -59,6 +55,7 @@ const Navbar = () => {
     return (
       <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
         <DialogContent className="sm:max-w-[425px]">
+          <DialogTitle>Sign In</DialogTitle>
           <LoginTemplate />
         </DialogContent>
       </Dialog>
@@ -108,7 +105,10 @@ const Navbar = () => {
             <button className="text-black transition-colors duration-200 text-sm md:text-base">
               Search
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
+            <button
+              className="text-black transition-colors duration-200 text-sm md:text-base"
+              onClick={() => setIsWishlistOpen(true)}
+            >
               Wishlist
             </button>
             <button
@@ -193,6 +193,10 @@ const Navbar = () => {
                 </div>
               </DrawerContent>
             </Drawer>
+            <WishlistSlider
+              open={isWishlistOpen}
+              onClose={() => setIsWishlistOpen(false)}
+            />
           </div>
 
           {/* Mobile/Tablet menu button */}

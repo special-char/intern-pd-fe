@@ -1,9 +1,11 @@
 "use client"
 
 import { Heart } from "lucide-react"
-import { useState } from "react"
-import { cn } from "../lib/utils"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { useWishlist } from "../lib/context/wishlist-context"
+import { cn } from "../lib/utils"
 
 interface ProductColor {
   name: string
@@ -12,7 +14,7 @@ interface ProductColor {
 
 interface Product {
   id: string
-  handle: string
+  handle?: string
   name: string
   price: string
   image: string
@@ -28,11 +30,29 @@ interface ProductCardProps {
 const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState("")
-  const [isFavorited, setIsFavorited] = useState(false)
   const [isCardHovered, setIsCardHovered] = useState(isHovered)
+  const router = useRouter()
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
+
+  const favorited = isInWishlist(product.id)
+
+  const handleWishlistClick = (e: React.MouseEvent) => {
+    e.preventDefault() // Prevent link navigation
+    if (favorited) {
+      removeFromWishlist(product.id)
+    } else {
+      addToWishlist(product)
+    }
+  }
 
   return (
-    <Link href={`/products/${product.handle}`} className="block group">
+    <Link
+      href={
+        product.handle
+          ? `/products/${product.handle}`
+          : `/products/${product.id}`
+      }
+    >
       <div
         className="group relative bg-white transition-all duration-300"
         onMouseEnter={() => setIsCardHovered(true)}
@@ -49,14 +69,14 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
 
           {/* Favorite Button */}
           <button
-            onClick={() => setIsFavorited(!isFavorited)}
+            onClick={handleWishlistClick}
             className="absolute right-0 top-0 rounded-none bg-white p-2 shadow-sm transition-all duration-200 hover:shadow-md opacity-0 group-hover:opacity-100"
           >
             <Heart
               size={28}
               className={cn(
                 "transition-colors duration-200",
-                isFavorited ? "fill-red-500 text-red-500" : "text-gray-400"
+                favorited ? "fill-red-500 text-red-500" : "text-gray-400"
               )}
             />
           </button>

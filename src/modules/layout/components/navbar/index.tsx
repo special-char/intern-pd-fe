@@ -18,12 +18,14 @@ import { retrieveCart } from "@/lib/data/cart"
 import CartTemplate from "@/modules/cart/templates"
 import { HttpTypes } from "@medusajs/types"
 import { useCallback, useEffect } from "react"
+import WishlistSlider from "../wishlist-slider"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSignInOpen, setIsSignInOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
   const [cart, setCart] = useState<HttpTypes.StoreCart | null>(null)
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false)
 
   const refreshCart = useCallback(async () => {
     const cartData = await retrieveCart()
@@ -103,7 +105,10 @@ const Navbar = () => {
             <button className="text-black transition-colors duration-200 text-sm md:text-base">
               Search
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
+            <button
+              className="text-black transition-colors duration-200 text-sm md:text-base"
+              onClick={() => setIsWishlistOpen(true)}
+            >
               Wishlist
             </button>
             <button
@@ -188,6 +193,10 @@ const Navbar = () => {
                 </div>
               </DrawerContent>
             </Drawer>
+            <WishlistSlider
+              open={isWishlistOpen}
+              onClose={() => setIsWishlistOpen(false)}
+            />
           </div>
 
           {/* Mobile/Tablet menu button */}

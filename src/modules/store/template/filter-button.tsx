@@ -19,7 +19,7 @@ const FilterButton = () => {
         <Button
           onClick={() => setIsFilterOpen(!isFilterOpen)}
           variant="secondary"
-          className="flex items-center gap-2 px-4 py-2 border border-black text-black bg-white rounded-none"
+          className="flex items-left gap-2 px-4 py-2 border border-black text-black bg-white rounded-none"
         >
           FILTER & SORT
         </Button>

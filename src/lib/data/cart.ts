@@ -6,12 +6,12 @@ import { HttpTypes } from "@medusajs/types"
 import { revalidateTag } from "next/cache"
 import { redirect } from "next/navigation"
 import {
-    getAuthHeaders,
-    getCacheOptions,
-    getCacheTag,
-    getCartId,
-    removeCartId,
-    setCartId,
+  getAuthHeaders,
+  getCacheOptions,
+  getCacheTag,
+  getCartId,
+  removeCartId,
+  setCartId,
 } from "./cookies"
 import { getRegion } from "./regions"
 
@@ -124,7 +124,7 @@ export async function addToCart({
     throw new Error("Missing variant ID when adding to cart")
   }
 
-  const cart = await getOrSetCart(countryCode)
+  let cart = await getOrSetCart(countryCode)
 
   if (!cart) {
     throw new Error("Error retrieving or creating cart")
@@ -134,24 +134,33 @@ export async function addToCart({
     ...(await getAuthHeaders()),
   }
 
-  await sdk.store.cart
-    .createLineItem(
-      cart.id,
-      {
-        variant_id: variantId,
-        quantity,
-      },
-      {},
-      headers
-    )
-    .then(async () => {
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
+  try {
+    await sdk.store.cart
+      .createLineItem(
+        cart.id,
+        {
+          variant_id: variantId,
+          quantity,
+        },
+        {},
+        headers
+      )
+      .then(async () => {
+        const cartCacheTag = await getCacheTag("carts")
+        revalidateTag(cartCacheTag)
 
-      const fulfillmentCacheTag = await getCacheTag("fulfillment")
-      revalidateTag(fulfillmentCacheTag)
-    })
-    .catch(medusaError)
+        const fulfillmentCacheTag = await getCacheTag("fulfillment")
+        revalidateTag(fulfillmentCacheTag)
+      })
+  } catch (error: any) {
+    if (
+      error?.message?.includes("is already completed") ||
+      error?.toString()?.includes("is already completed")
+    ) {
+      await removeCartId()
+    }
+    throw error
+  }
 }
 
 export async function updateLineItem({
@@ -187,7 +196,7 @@ export async function updateLineItem({
     .catch(medusaError)
 }
 
-export async function deleteLineItem(lineId: string) {
+export async function deleteLineItem(lineId: string, itemId: string) {
   if (!lineId) {
     throw new Error("Missing lineItem ID when deleting line item")
   }
@@ -452,12 +461,12 @@ export async function updateRegion(countryCode: string, currentPath: string) {
 
 export async function listCartOptions() {
   const cartId = await getCartId()
-  
+
   // If no cart ID exists, return empty shipping options
   if (!cartId) {
     return { shipping_options: [] }
   }
-  
+
   const headers = {
     ...(await getAuthHeaders()),
   }

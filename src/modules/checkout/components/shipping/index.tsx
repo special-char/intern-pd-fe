@@ -173,7 +173,8 @@ const Shipping: React.FC<ShippingProps> = ({
             <Text>
               <button
                 onClick={handleEdit}
-                className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+                className="  bg-white w-[5em] h-[2em]  rounded-[5px]  border-[1px]
+"
                 data-testid="edit-delivery-button"
               >
                 Edit
@@ -362,7 +363,7 @@ const Shipping: React.FC<ShippingProps> = ({
             />
             <Button
               size="large"
-              className="mt"
+              className="mt w-full rounded-[5px]"
               onClick={handleSubmit}
               isLoading={isLoading}
               disabled={!cart.shipping_methods?.[0]}

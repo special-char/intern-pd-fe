@@ -4,6 +4,7 @@ import { Github } from "@medusajs/icons"
 import { Button, Heading } from "@medusajs/ui"
 import DemoPage from "app/[countryCode]/(main)/demo/page"
 import { Grid } from "lucide-react"   
+import Link from "next/link"
 import { useState, useEffect } from "react" 
 import { createClassNames } from "react-instantsearch-dom"
 
@@ -60,12 +61,10 @@ const Hero = () => {
       <div className="w-full py-16 text-center">
         <h4 className="font-akzidenz">OUR RESPONSIBILITY PROGRAM</h4>
         <h3 className="font-saol">Let's Act!</h3>
-        <Button variant="secondary">
-          <a href="/responsibility" className="text-current">
-            Read More
-          </a>
-        </Button>
-      </div>
+         <Link href="/lets-act">
+          <button className="border ">Read More</button>
+        </Link>
+        </div>
 
      <DemoPage/>
 
@@ -127,12 +126,12 @@ const Hero = () => {
           <span className="font-light">EVERY WOMAN</span>
         </h1>
         <a
-          href="#"
+          href="/store"
           className="mt-4 text-lg text-black flex flex-col items-center group"
         >
           Discover now
           <span className="w-8 h-[2px] bg-black mt-1 group-hover:w-12 transition-all duration-300"></span>
-        </a>
+        </a><br />
         <div className="relative">
           <video
             preload="metadata"

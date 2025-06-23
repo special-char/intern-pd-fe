@@ -26,6 +26,14 @@ const FilterButton = () => {
 
   return (
     <>
+<<<<<<< HEAD
+      {/* Filter & Sort Button */}
+      <div className="mb-6">
+        <Button
+          onClick={() => setIsFilterOpen(!isFilterOpen)}
+          variant="secondary"
+          className="flex items-left gap-2 px-4 py-2 border border-black text-black bg-white rounded-none"
+=======
       <style jsx>{`
         .custom-checkbox {
           appearance: none;
@@ -89,6 +97,7 @@ const FilterButton = () => {
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           style={{ boxShadow: "0 0 16px 0 rgba(0,0,0,0.08)" }}
+>>>>>>> e35b81d1c411f88d147bfd77bd7694a78e548cfb
         >
           <div className="flex justify-between items-center px-4 pt-6">
             <h2 className="font-akzidenz text-[10px] font-medium">
@@ -105,7 +114,7 @@ const FilterButton = () => {
 
           <div className="flex flex-col space-y-6 px-4 py-6 overflow-y-auto h-[calc(100vh-56px)] font-akzidenz text-[12px]">
             {/* SORT */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">SORT</h3>
                 <button
@@ -143,7 +152,7 @@ const FilterButton = () => {
             </div>
 
             {/* SIZE */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">SIZE</h3>
                 <button
@@ -185,7 +194,7 @@ const FilterButton = () => {
             </div>
 
             {/* CATEGORIES */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">CATEGORIES</h3>
                 <button
@@ -224,7 +233,7 @@ const FilterButton = () => {
             </div>
 
             {/* COLOUR */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">COLOUR</h3>
                 <button
@@ -264,7 +273,7 @@ const FilterButton = () => {
             </div>
 
             {/* PRICE */}
-            <div className="p-4 border-b-8">
+            <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">PRICE</h3>
                 <button

@@ -26,14 +26,6 @@ const FilterButton = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      {/* Filter & Sort Button */}
-      <div className="mb-6">
-        <Button
-          onClick={() => setIsFilterOpen(!isFilterOpen)}
-          variant="secondary"
-          className="flex items-left gap-2 px-4 py-2 border border-black text-black bg-white rounded-none"
-=======
       <style jsx>{`
         .custom-checkbox {
           appearance: none;
@@ -97,7 +89,6 @@ const FilterButton = () => {
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           style={{ boxShadow: "0 0 16px 0 rgba(0,0,0,0.08)" }}
->>>>>>> e35b81d1c411f88d147bfd77bd7694a78e548cfb
         >
           <div className="flex justify-between items-center px-4 pt-6">
             <h2 className="font-akzidenz text-[10px] font-medium">

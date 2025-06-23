@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Filter } from "lucide-react"
 import { useState } from "react"
 
-
 const FilterButton = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 329])
@@ -39,13 +38,13 @@ const FilterButton = () => {
             <h2 className="font-akzidenz text-[10px] font-medium">
               FILTER & SORT
             </h2>
-            <button
-              className=" button"
+            <Button
+              className=" Button"
               onClick={() => setIsOpen(false)}
               aria-label="Close sidebar"
             >
               ×
-            </button>
+            </Button>
           </div>
 
           <div className="flex flex-col space-y-6 px-4 py-6 overflow-y-auto h-[calc(100vh-56px)] font-akzidenz text-[12px]">

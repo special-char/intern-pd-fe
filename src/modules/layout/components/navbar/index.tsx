@@ -59,7 +59,8 @@ const Navbar = () => {
     return (
       <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
         <DialogContent className="sm:max-w-[425px]">
-          <LoginTemplate />
+          <DialogTitle></DialogTitle>
+          <LoginTemplate onLoginSuccess={() => setIsSignInOpen(false)} />
         </DialogContent>
       </Dialog>
     )

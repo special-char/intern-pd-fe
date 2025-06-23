@@ -3,6 +3,7 @@ import { Metadata } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import localFont from "next/font/local"
 import "styles/globals.css"
+import { WishlistProvider } from "../lib/context/wishlist-context"
 
 const SaolDisplay = localFont({
   src: [
@@ -51,7 +52,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       className={`${SaolDisplay.variable} ${AkzidenzGroteskPro.variable} ${inter.variable} ${playfair.variable} antialiased`}
     >
       <body className="flex flex-col min-h-screen">
-        <main className="relative pt-[72px] flex-grow">{props.children}</main>
+        <WishlistProvider>
+          <main className="relative pt-[72px] flex-grow">{props.children}</main>
+        </WishlistProvider>
       </body>
     </html>
   )

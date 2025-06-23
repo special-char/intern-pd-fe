@@ -1,19 +1,10 @@
 "use client"
 
-import Link from "next/link"
-import { useState } from "react"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import LoginTemplate from "@/modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import Link from "next/link"
+import { useState } from "react"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -32,6 +23,7 @@ const Navbar = () => {
     return (
       <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
         <DialogContent className="sm:max-w-[425px]">
+          <DialogTitle>Sign In</DialogTitle>
           <LoginTemplate />
         </DialogContent>
       </Dialog>

@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@medusajs/ui"
+import { Button } from "@/components/ui/button"
 import { Filter } from "lucide-react"
+import { useState } from "react"
 
 const FilterButton = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -317,7 +317,6 @@ const FilterButton = () => {
         {/* Filter Button */}
         <div className="absolute z-30 top-6 left-6">
           <Button
-            variant="secondary"
             onClick={() => setIsOpen(true)}
             className="flex items-center gap-2 px-4 py-2 border border-black text-black bg-white rounded-none font-akzidenz text-[12px]"
           >

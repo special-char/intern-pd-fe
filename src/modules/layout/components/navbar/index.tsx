@@ -132,7 +132,7 @@ const Navbar = () => {
                 <div className="h-full flex flex-col">
                   <DrawerHeader className="flex flex-row justify-between">
                     <DrawerTitle className="font-light mt-5 text-3xl w-full">
-                      Your Cart
+                      Cart
                     </DrawerTitle>
                     <button
                       onClick={() => setIsCartOpen(false)}

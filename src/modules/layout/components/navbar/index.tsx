@@ -55,13 +55,8 @@ const Navbar = () => {
     return (
       <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
         <DialogContent className="sm:max-w-[425px]">
-<<<<<<< HEAD
           <DialogTitle></DialogTitle>
-          <LoginTemplate onLoginSuccess={() => setIsSignInOpen(false)} />
-=======
-          <DialogTitle>Sign In</DialogTitle>
           <LoginTemplate />
->>>>>>> 5e9c66de46a129d2d2b4013253fa1613f5c3a182
         </DialogContent>
       </Dialog>
     )
@@ -100,7 +95,7 @@ const Navbar = () => {
                 }}
               >
                 {item.name}
-                <span className="absolute left-0 bottom-[-22px] w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span className="absolute left-0 bottom-[-8px] w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             ))}
           </div>

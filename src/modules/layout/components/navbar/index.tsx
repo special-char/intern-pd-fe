@@ -3,17 +3,27 @@
 import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { useParams } from "next/navigation"
+import Medusa from "@medusajs/js-sdk"
+import ProductCard from "@/components/ProductCard"
+
+if (typeof window !== "undefined") {
+  window.onerror = function(message, source, lineno, colno, error) {
+    console.error("Global error:", message, error)
+  }
+}
 
 const Navbar = () => {
+  console.log("Navbar mounted")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const searchContainerRef = useRef<HTMLDivElement>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
   const [searchTerm, setSearchTerm] = useState("")
-  const [suggestions, setSuggestions] = useState<Array<{ id: string; handle: string; title: string; thumbnail?: string }>>([])
+  const [suggestions, setSuggestions] = useState<Array<{ id: string; handle: string; title: string; thumbnail?: string; price?: string }>>([])
   const [loading, setLoading] = useState(false)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const { countryCode } = useParams() as { countryCode?: string }
+  const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -39,34 +49,57 @@ const Navbar = () => {
   }, [isSearchOpen])
 
   useEffect(() => {
+    console.log("Search effect running. searchTerm:", searchTerm)
     if (!searchTerm || searchTerm.length < 3) {
       setSuggestions([])
       setShowSuggestions(false)
       return
     }
     setLoading(true)
-    const controller = new AbortController()
+    let isMounted = true
     const fetchSuggestions = async () => {
       try {
-        const res = await fetch(
-          `/api/search-products?q=${encodeURIComponent(searchTerm)}&countryCode=${countryCode || "us"}`,
-          { signal: controller.signal }
-        )
-        const data = await res.json()
-        setSuggestions(data.products || [])
-        setShowSuggestions(true)
-      } catch (e: any) {
-        if (e.name !== "AbortError") setSuggestions([])
+        const params = new URLSearchParams({ q: searchTerm, limit: '12' })
+        if (countryCode) params.append('region_id', countryCode)
+        const res = await fetch(`/api/search-products?${params.toString()}`)
+        if (!res.ok) throw new Error('Failed to fetch suggestions')
+        const result = await res.json()
+        const products = (result.products || []).map((p: any) => ({
+          id: p.id,
+          handle: p.handle,
+          title: p.title,
+          thumbnail: p.thumbnail ?? undefined,
+          price: p.price ?? undefined,
+        }))
+        if (isMounted) {
+          setSuggestions(products)
+          setShowSuggestions(true)
+        }
+      } catch (e) {
+        console.error('Product search error:', e)
+        if (isMounted) setSuggestions([])
       } finally {
-        setLoading(false)
+        if (isMounted) setLoading(false)
       }
     }
     const debounce = setTimeout(fetchSuggestions, 250)
     return () => {
       clearTimeout(debounce)
-      controller.abort()
+      isMounted = false
     }
   }, [searchTerm, countryCode])
+
+  // Prevent body scroll when search is open
+  useEffect(() => {
+    if (isSearchOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isSearchOpen]);
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -206,55 +239,67 @@ const Navbar = () => {
 
       {/* Minimal Full-Width Search Bar Below Navbar */}
       {isSearchOpen && (
-        <div ref={searchContainerRef} className="w-full bg-white border-t border-b border-gray-100 flex flex-col items-start relative z-50" style={{height: 'auto'}}>
-          <div className="relative w-full flex items-center h-10">
+        <div
+          ref={searchContainerRef}
+          className="fixed left-0 right-0 bottom-0 top-[96px] z-50 w-screen h-[calc(100vh-96px)] bg-white flex flex-col shadow-2xl border border-gray-200 rounded"
+        >
+          {/* Search Bar */}
+          <div className="w-full border-b border-gray-100 relative flex-shrink-0">
+            <button
+              type="button"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-700 text-2xl focus:outline-none"
+              onClick={() => setIsSearchOpen(false)}
+              aria-label="Close search"
+            >
+              &times;
+            </button>
             <input
               ref={searchInputRef}
               type="text"
               autoFocus
               placeholder="Search..."
-              className="w-full text-sm font-normal bg-transparent border-none outline-none placeholder-gray-400 px-4"
-              style={{height: '32px'}}
+              className="w-full text-xl font-normal bg-white border-none outline-none pr-14 pl-8 py-2"
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
               onFocus={() => searchTerm && setShowSuggestions(true)}
+              style={{ borderRadius: 0 }}
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-5 h-5 text-gray-700 mx-4 cursor-pointer"
-              style={{minWidth: '20px'}}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
-            </svg>
           </div>
-          {showSuggestions && (searchTerm || loading) && (
-            <div className="absolute left-0 top-10 w-full bg-white border border-gray-200 shadow-lg max-h-72 overflow-y-auto z-50">
+          {/* Results */}
+          {searchTerm.length >= 3 && (
+            <div className="flex-1 w-full overflow-y-auto">
               {loading ? (
-                <div className="p-4 text-gray-500 text-sm">Searching...</div>
+                <div className="text-gray-500 text-center text-lg py-12">Searching…</div>
               ) : suggestions.length > 0 ? (
-                suggestions.map((product) => (
-                  <a
-                    key={product.id}
-                    href={`/${countryCode || "us"}/products/${product.handle}`}
-                    className="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition-colors border-b last:border-b-0"
-                    onClick={() => {
-                      setIsSearchOpen(false)
-                      setSearchTerm("")
-                      setShowSuggestions(false)
-                    }}
-                  >
-                    {product.thumbnail && (
-                      <img src={product.thumbnail} alt={product.title} className="w-10 h-10 object-cover" />
-                    )}
-                    <span className="text-gray-900 text-sm">{product.title}</span>
-                  </a>
-                ))
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1.5 bg-white">
+                    {suggestions.map((product) => (
+                      <Link key={product.id} href={`/products/${product.handle}`} className="min-w-[360px] min-h-[540px] cursor-pointer" onClick={() => setIsSearchOpen(false)}>
+                        <ProductCard
+                          product={{
+                            id: product.id,
+                            name: product.title,
+                            price: product.price || "",
+                            image: product.thumbnail || "",
+                            colors: [],
+                            sizes: [],
+                          }}
+                        />
+                      </Link>
+                    ))}
+                  </div>
+                  {/* Show all search results button */}
+                  <div className="w-full flex justify-center mt-0 pb-4">
+                    <button
+                      className="relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider group px-6 py-3 bg-white rounded hover:text-gray-600"
+                    >
+                      Show all search results
+                      <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black scale-x-100 group-hover:scale-x-0 transition-transform duration-300 origin-left"></span>
+                    </button>
+                  </div>
+                </>
               ) : (
-                <div className="p-4 text-gray-500 text-sm">No products found.</div>
+                <div className="text-gray-500 text-center text-lg py-12">No products found.</div>
               )}
             </div>
           )}

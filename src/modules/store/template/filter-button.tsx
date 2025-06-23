@@ -26,62 +26,6 @@ const FilterButton = () => {
 
   return (
     <>
-      <style jsx>{`
-        .custom-checkbox {
-          appearance: none;
-          width: 16px;
-          height: 16px;
-          border: 1px solid black;
-          display: inline-block;
-          position: relative;
-          cursor: pointer;
-          background-color: white;
-        }
-        .custom-checkbox:checked::before {
-          content: "";
-          position: absolute;
-          top: 2px;
-          left: 2px;
-          width: 10px;
-          height: 10px;
-          background-color: black;
-        }
-
-        .custom-range-dual {
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          width: 100%;
-          background: transparent;
-          pointer-events: none;
-          position: absolute;
-          height: 100%;
-          top: 0;
-          left: 0;
-          margin: 0;
-        }
-        .custom-range-dual::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 16px;
-          height: 16px;
-          background: black;
-          cursor: pointer;
-          border: none;
-          border-radius: 0;
-          pointer-events: auto;
-        }
-        .custom-range-dual::-moz-range-thumb {
-          width: 16px;
-          height: 16px;
-          background: black;
-          cursor: pointer;
-          border: none;
-          border-radius: 0;
-          pointer-events: auto;
-        }
-      `}</style>
-
       <div className="relative flex w-full overflow-x-hidden">
         {/* Sidebar */}
         <div

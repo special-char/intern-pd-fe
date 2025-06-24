@@ -1,7 +1,10 @@
 "use client"
 
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import LoginTemplate from "@/modules/account/templates/login-template"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Link from "next/link"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { useParams } from "next/navigation"
 import Medusa from "@medusajs/js-sdk"
 import ProductCard from "@/components/ProductCard"
@@ -11,6 +14,19 @@ if (typeof window !== "undefined") {
     console.error("Global error:", message, error)
   }
 }
+
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/design/ui/drawer"
+import { Button } from "@/components/ui/button"
+import { retrieveCart } from "@/lib/data/cart"
+import CartTemplate from "@/modules/cart/templates"
+import { HttpTypes } from "@medusajs/types"
+import WishlistSlider from "../wishlist-slider"
 
 const Navbar = () => {
   console.log("Navbar mounted")
@@ -23,7 +39,26 @@ const Navbar = () => {
   const [loading, setLoading] = useState(false)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const { countryCode } = useParams() as { countryCode?: string }
-  const [allProducts, setAllProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([])
+  const [isSignInOpen, setIsSignInOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [cart, setCart] = useState<HttpTypes.StoreCart | null>(null)
+  const [isWishlistOpen, setIsWishlistOpen] = useState(false)
+
+  const refreshCart = useCallback(async () => {
+    const cartData = await retrieveCart()
+    setCart(cartData)
+  }, [])
+
+  // Fetch cart on mount and when cart is opened
+  useEffect(() => {
+    refreshCart()
+    // Set up an interval to refresh cart data frequently
+    const intervalId = setInterval(refreshCart, 1000)
+
+    // Cleanup interval on unmount
+    return () => clearInterval(intervalId)
+  }, [refreshCart])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -99,16 +134,27 @@ const Navbar = () => {
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isSearchOpen]);
+  }, [isSearchOpen])
 
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "Shop", href: "/store" },
     { name: "About", href: "/about" },
-    {name: "lookbook", href: "/lookbook"},
+    { name: "lookbook", href: "/lookbook" },
     { name: "Blog", href: "/blog" },
     { name: "Let's Act", href: "/lets-act" },
   ]
+
+  const SignInDialog = () => {
+    return (
+      <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogTitle>Sign In</DialogTitle>
+          <LoginTemplate />
+        </DialogContent>
+      </Dialog>
+    )
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
@@ -153,15 +199,98 @@ const Navbar = () => {
             <button className="text-black transition-colors duration-200 text-sm md:text-base" onClick={() => setIsSearchOpen(true)}>
               Search
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
+            <button
+              className="text-black transition-colors duration-200 text-sm md:text-base"
+              onClick={() => setIsWishlistOpen(true)}
+            >
               Wishlist
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
+            <button
+              onClick={() => setIsSignInOpen(true)}
+              className="text-black transition-colors duration-200 text-sm md:text-base"
+            >
               Sign In
             </button>
-            <button className="text-black transition-colors duration-200 text-sm md:text-base">
-              Cart
-            </button>
+            <Drawer open={isCartOpen} onOpenChange={setIsCartOpen}>
+              <DrawerTrigger asChild>
+                <button className="text-black transition-colors duration-200 text-sm md:text-base flex items-center gap-2">
+                  Cart
+                  {cart?.items?.length ? (
+                    <span className="bg-black text-white text-xs rounded-full w-6 h-6 flex items-center justify-center ml-1">
+                      {cart.items.length}
+                    </span>
+                  ) : null}
+                </button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <div className="h-full flex flex-col">
+                  <DrawerHeader className="flex flex-row justify-between">
+                    <DrawerTitle className="font-light mt-5 text-3xl w-full">
+                      Your Cart
+                    </DrawerTitle>
+                    <button
+                      onClick={() => setIsCartOpen(false)}
+                      className="p-2 rounded-full hover:bg-gray-200 transition-colors w-8 h-8 flex items-center justify-center"
+                      aria-label="Close"
+                      type="button"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 text-gray-500 hover:text-gray-700"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </DrawerHeader>
+                  <div className="flex-1 overflow-y-auto no-scrollbar">
+                    <div className="px-4 pb-24">
+                      <CartTemplate
+                        cart={cart}
+                        customer={null}
+                        onClose={() => setIsCartOpen(false)}
+                        onCartUpdate={refreshCart}
+                      />
+                    </div>
+                  </div>
+                  {cart?.items?.length ? (
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
+                      <div className="flex justify-between items-center mb-4">
+                        <span className="text-lg font-medium">Total</span>
+                        <span className="text-lg font-semibold">
+                          {cart.total ? (
+                            <>
+                              {new Intl.NumberFormat("en-US", {
+                                style: "currency",
+                                currency: cart.currency_code || "USD",
+                              }).format(cart.total)}
+                            </>
+                          ) : (
+                            "-"
+                          )}
+                        </span>
+                      </div>
+                      <LocalizedClientLink href="/checkout">
+                        <Button className="flex items-center justify-center bg-black text-white h-12 rounded-[5px] w-full">
+                          Checkout
+                        </Button>
+                      </LocalizedClientLink>
+                    </div>
+                  ) : null}
+                </div>
+              </DrawerContent>
+            </Drawer>
+            <WishlistSlider
+              open={isWishlistOpen}
+              onClose={() => setIsWishlistOpen(false)}
+            />
           </div>
 
           {/* Mobile/Tablet menu button */}
@@ -225,11 +354,28 @@ const Navbar = () => {
                 <button className="text-gray-800 transition-colors duration-200 text-left ">
                   Wishlist
                 </button>
-                <button className="text-gray-800 transition-colors duration-200 text-left ">
+                <button
+                  onClick={() => {
+                    setIsSignInOpen(true)
+                    setIsMenuOpen(false)
+                  }}
+                  className="text-gray-800 transition-colors duration-200 text-left"
+                >
                   Sign In
                 </button>
-                <button className="text-gray-800 transition-colors duration-200 text-left ">
+                <button
+                  onClick={() => {
+                    setIsCartOpen(true)
+                    setIsMenuOpen(false)
+                  }}
+                  className="text-gray-800 transition-colors duration-200 text-left flex items-center gap-2"
+                >
                   Cart
+                  {cart?.items?.length ? (
+                    <span className="bg-black text-white text-xs rounded-full w-6 h-6 flex items-center justify-center ml-1">
+                      {cart.items.length}
+                    </span>
+                  ) : null}
                 </button>
               </div>
             </div>
@@ -241,7 +387,7 @@ const Navbar = () => {
       {isSearchOpen && (
         <div
           ref={searchContainerRef}
-          className="fixed left-0 right-0 bottom-0 top-[96px] z-50 w-screen h-[calc(100vh-96px)] bg-white flex flex-col shadow-2xl border border-gray-200 rounded"
+          className="fixed left-0 right-0 top-[96px] z-50 w-screen bg-white flex flex-col shadow-2xl border border-gray-200 rounded"
         >
           {/* Search Bar */}
           <div className="w-full border-b border-gray-100 relative flex-shrink-0">
@@ -265,7 +411,7 @@ const Navbar = () => {
               style={{ borderRadius: 0 }}
             />
           </div>
-          {/* Results */}
+          {/* Results - only show if searchTerm.length >= 3 */}
           {searchTerm.length >= 3 && (
             <div className="flex-1 w-full overflow-y-auto">
               {loading ? (
@@ -305,6 +451,9 @@ const Navbar = () => {
           )}
         </div>
       )}
+
+      {/* Add SignInDialog component */}
+      <SignInDialog />
     </nav>
   )
 }

@@ -1,3 +1,4 @@
+"use client"
 import { HttpTypes } from "@medusajs/types"
 import { Container } from "@medusajs/ui"
 import Checkbox from "@modules/common/components/checkbox"
@@ -112,57 +113,63 @@ const ShippingAddress = ({
       )}
       <div className="grid grid-cols-2 gap-4">
         <Input
-          label="First name"
+          placeholder="First name"
           name="shipping_address.first_name"
           autoComplete="given-name"
           value={formData["shipping_address.first_name"]}
           onChange={handleChange}
           required
           data-testid="shipping-first-name-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
         <Input
-          label="Last name"
+          placeholder="Last name"
           name="shipping_address.last_name"
           autoComplete="family-name"
           value={formData["shipping_address.last_name"]}
           onChange={handleChange}
           required
           data-testid="shipping-last-name-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
         <Input
-          label="Address"
+          placeholder="Address"
           name="shipping_address.address_1"
           autoComplete="address-line1"
           value={formData["shipping_address.address_1"]}
           onChange={handleChange}
           required
           data-testid="shipping-address-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
         <Input
-          label="Company"
+          placeholder="Company"
           name="shipping_address.company"
           value={formData["shipping_address.company"]}
           onChange={handleChange}
           autoComplete="organization"
           data-testid="shipping-company-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
         <Input
-          label="Postal code"
+          placeholder="Postal code"
           name="shipping_address.postal_code"
           autoComplete="postal-code"
           value={formData["shipping_address.postal_code"]}
           onChange={handleChange}
           required
           data-testid="shipping-postal-code-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
         <Input
-          label="City"
+          placeholder="City"
           name="shipping_address.city"
           autoComplete="address-level2"
           value={formData["shipping_address.city"]}
           onChange={handleChange}
           required
           data-testid="shipping-city-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
         <CountrySelect
           name="shipping_address.country_code"
@@ -172,28 +179,31 @@ const ShippingAddress = ({
           onChange={handleChange}
           required
           data-testid="shipping-country-select"
+          className="rounded-[5px] bg-white"
         />
         <Input
-          label="State / Province"
+          placeholder="State / Province"
           name="shipping_address.province"
           autoComplete="address-level1"
           value={formData["shipping_address.province"]}
           onChange={handleChange}
           data-testid="shipping-province-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
       </div>
       <div className="my-8">
         <Checkbox
-          label="Billing address same as shipping address"
+          placeholder="Billing address same as shipping address"
           name="same_as_billing"
           checked={checked}
           onChange={onChange}
           data-testid="billing-address-checkbox"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
       </div>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <Input
-          label="Email"
+          placeholder="Email"
           name="email"
           type="email"
           title="Enter a valid email address."
@@ -202,14 +212,17 @@ const ShippingAddress = ({
           onChange={handleChange}
           required
           data-testid="shipping-email-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
+
         <Input
-          label="Phone"
+          placeholder="Phone"
           name="shipping_address.phone"
           autoComplete="tel"
           value={formData["shipping_address.phone"]}
           onChange={handleChange}
           data-testid="shipping-phone-input"
+          className="placeholder-black w-full size-12 pl-2 rounded-[5px] border-[1px]"
         />
       </div>
     </>

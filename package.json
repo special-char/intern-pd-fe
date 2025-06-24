@@ -19,8 +19,11 @@
     "@medusajs/js-sdk": "latest",
     "@medusajs/ui": "^4.0.14",
     "@radix-ui/react-accordion": "^1.2.1",
+<<<<<<< HEAD
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-label": "^2.1.7",
+=======
+>>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-toast": "^1.2.14",
     "@stripe/react-stripe-js": "^1.7.2",
@@ -42,7 +45,7 @@
     "react-router-dom": "^7.6.2",
     "server-only": "^0.0.1",
     "sonner": "^2.0.5",
-    "tailwind-merge": "^3.3.1",
+    "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-radix": "^2.8.0",
     "webpack": "^5"

@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/design/ui/button"
 import { Input } from "@/components/design/ui/input"
-import { Label } from "@/components/design/ui/label"
 import {
   Select,
   SelectContent,
@@ -10,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/design/ui/select"
+import { Label } from "@/components/ui/label"
 import { Canvas as FabricCanvas, FabricImage, IText } from "fabric"
 import { MousePointer, Type, Upload } from "lucide-react"
 import React, { useState } from "react"
@@ -110,15 +110,14 @@ export const Toolbar: React.FC<ToolbarProps> = ({
     setSelectedFont(font)
 
     // Update the selected text object if one is active
-    if (
-      fabricCanvas &&
-      fabricCanvas.getActiveObject() &&
-      fabricCanvas.getActiveObject().type === "i-text"
-    ) {
-      const activeText = fabricCanvas.getActiveObject() as IText
-      activeText.set("fontFamily", font)
-      fabricCanvas.renderAll()
-      toast.success(`Font changed to ${font}`)
+    if (fabricCanvas) {
+      const obj = fabricCanvas.getActiveObject()
+      if (obj && obj.type === "i-text") {
+        const activeText = obj as IText
+        activeText.set("fontFamily", font)
+        fabricCanvas.renderAll()
+        toast.success(`Font changed to ${font}`)
+      }
     }
   }
 
@@ -126,15 +125,14 @@ export const Toolbar: React.FC<ToolbarProps> = ({
     setTextColor(color)
 
     // Update the selected text object if one is active
-    if (
-      fabricCanvas &&
-      fabricCanvas.getActiveObject() &&
-      fabricCanvas.getActiveObject().type === "i-text"
-    ) {
-      const activeText = fabricCanvas.getActiveObject() as IText
-      activeText.set("fill", color)
-      fabricCanvas.renderAll()
-      toast.success(`Text color updated`)
+    if (fabricCanvas) {
+      const obj = fabricCanvas.getActiveObject()
+      if (obj && obj.type === "i-text") {
+        const activeText = obj as IText
+        activeText.set("fill", color)
+        fabricCanvas.renderAll()
+        toast.success(`Text color updated`)
+      }
     }
   }
 
@@ -157,7 +155,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
 
         <div className="space-y-1">
           <Label htmlFor="font-select" className="text-xs">
-            Font
+            {"Font" as React.ReactNode}
           </Label>
           <Select value={selectedFont} onValueChange={handleFontChange}>
             <SelectTrigger id="font-select" className="h-8 text-xs">
@@ -180,7 +178,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
 
         <div className="space-y-1">
           <Label htmlFor="text-color" className="text-xs">
-            Text Color
+            {"Text Color" as React.ReactNode}
           </Label>
           <div className="flex items-center gap-2">
             <Input
@@ -198,13 +196,16 @@ export const Toolbar: React.FC<ToolbarProps> = ({
           </div>
         </div>
       </div>
-
       <div>
         <Label htmlFor="image-upload" className="cursor-pointer">
-          <div className="w-full border-2 border-dashed border-gray-300 rounded-none p-4 text-center hover:border-gray-400 transition-colors">
-            <Upload className="w-6 h-6 mx-auto mb-2 text-gray-400" />
-            <p className="text-sm text-gray-600">Upload Image</p>
-          </div>
+          {
+            (
+              <div className="w-full border-2 border-dashed border-gray-300 rounded-none p-4 text-center hover:border-gray-400 transition-colors">
+                <Upload className="w-6 h-6 mx-auto mb-2 text-gray-400" />
+                <p className="text-sm text-gray-600">Upload Image</p>
+              </div>
+            ) as React.ReactNode
+          }
         </Label>
         <Input
           id="image-upload"

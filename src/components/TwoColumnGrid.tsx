@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link"
 
 const TwoColumnGrid = () => {
   return (
@@ -14,24 +15,28 @@ const TwoColumnGrid = () => {
               & Reversible Parka's
             </h2>
           </div>
-          
+
           <p className="text-base lg:text-lg text-muted-foreground leading-relaxed font-light">
-            Within our Spring Summer 2025 collection we embrace flawless functionality combined with trend, 
-            adapting to different uses. Expect revisited classics, which can be found in new shapes or fabrics like 
-            technical satins or washed utility styles. Observe our rich gradations of colour in both earthy shades and in 
-            muted pastels.
+            Within our Spring Summer 2025 collection we embrace flawless
+            functionality combined with trend, adapting to different uses.
+            Expect revisited classics, which can be found in new shapes or
+            fabrics like technical satins or washed utility styles. Observe our
+            rich gradations of colour in both earthy shades and in muted
+            pastels.
           </p>
-          
+
           <div className="pt-4">
-            <button className="text-foreground font-medium border-b border-foreground pb-1 hover:opacity-70 transition-opacity duration-200">
-              Discover now
-            </button>
+            <Link href="/products/coat">
+              <button className="text-foreground font-medium border-b border-foreground pb-1 hover:opacity-70 transition-opacity duration-200">
+                Discover now
+              </button>
+            </Link>
           </div>
         </div>
 
         {/* Image */}
         <div className="flex-1">
-          <img 
+          <img
             src="//rino-pelle.com/cdn/shop/files/RinoPelle_10juni_2024_39700_copy.jpg?v=1737363482"
             alt="Fashion model wearing utility style clothing"
             className="w-full h-auto object-cover "
@@ -39,8 +44,7 @@ const TwoColumnGrid = () => {
         </div>
       </div>
     </div>
-
-  );
+  )
 };
 
 export default TwoColumnGrid;

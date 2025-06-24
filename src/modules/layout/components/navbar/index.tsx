@@ -149,7 +149,7 @@ const Navbar = () => {
     return (
       <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
         <DialogContent className="sm:max-w-[425px]">
-          <DialogTitle>Sign In</DialogTitle>
+          <DialogTitle></DialogTitle>
           <LoginTemplate />
         </DialogContent>
       </Dialog>
@@ -189,7 +189,7 @@ const Navbar = () => {
                 }}
               >
                 {item.name}
-                <span className="absolute left-0 bottom-[-22px] w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                <span className="absolute left-0 bottom-[-8px] w-full h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             ))}
           </div>
@@ -226,7 +226,7 @@ const Navbar = () => {
                 <div className="h-full flex flex-col">
                   <DrawerHeader className="flex flex-row justify-between">
                     <DrawerTitle className="font-light mt-5 text-3xl w-full">
-                      Your Cart
+                      Cart
                     </DrawerTitle>
                     <button
                       onClick={() => setIsCartOpen(false)}

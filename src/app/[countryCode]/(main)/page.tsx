@@ -56,7 +56,7 @@ export default async function Home(props: {
             lookbook
           </h1>
           <a
-            href="#"
+            href="/lookbook"
             className="text-sm font-normal relative group inline-block"
           >
             Discover now
@@ -69,7 +69,8 @@ export default async function Home(props: {
       <div className="py-20 text-center bg-white">
         <p className="text-xs uppercase tracking-widest mb-2">Get Inspired</p>
         <p className="text-3xl">
-         <span className="font-saol">Follow us </span><span className="italic font-saol">@rinopelleofficial</span>
+          <span className="font-saol">Follow us </span>
+          <span className="italic font-saol">@rinopelleofficial</span>
         </p>
       </div>
       <ImageGallery

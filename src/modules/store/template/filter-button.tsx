@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { Filter } from "lucide-react"
 import { useState } from "react"
 
-
 const FilterButton = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 329])
@@ -36,16 +35,14 @@ const FilterButton = () => {
           style={{ boxShadow: "0 0 16px 0 rgba(0,0,0,0.08)" }}
         >
           <div className="flex justify-between items-center px-4 pt-6">
-            <h2 className="font-akzidenz text-[10px] font-medium">
-              FILTER & SORT
-            </h2>
-            <button
+            <Button className="button">FILTER & SORT</Button>
+            <Button
               className=" button"
               onClick={() => setIsOpen(false)}
               aria-label="Close sidebar"
             >
               ×
-            </button>
+            </Button>
           </div>
 
           <div className="flex flex-col space-y-6 px-4 py-6 overflow-y-auto h-[calc(100vh-56px)] font-akzidenz text-[12px]">
@@ -53,12 +50,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">SORT</h3>
-                <button
+                <Button
                   onClick={() => setIsSortOpen(!isSortOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isSortOpen ? "−" : "+"}
-                </button>
+                </Button>
               </div>
               {isSortOpen && (
                 <div className="space-y-2">
@@ -91,12 +88,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">SIZE</h3>
-                <button
+                <Button
                   onClick={() => setIsSizeOpen(!isSizeOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isSizeOpen ? "−" : "+"}
-                </button>
+                </Button>
               </div>
               {isSizeOpen && (
                 <div className="grid grid-cols-2 gap-2">
@@ -133,12 +130,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">CATEGORIES</h3>
-                <button
+                <Button
                   onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isCategoriesOpen ? "−" : "+"}
-                </button>
+                </Button>
               </div>
               {isCategoriesOpen && (
                 <div className="grid grid-cols-2 gap-2">
@@ -172,12 +169,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">COLOUR</h3>
-                <button
+                <Button
                   onClick={() => setIsColourOpen(!isColourOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isColourOpen ? "−" : "+"}
-                </button>
+                </Button>
               </div>
               {isColourOpen && (
                 <div className="grid grid-cols-2 gap-2">
@@ -212,12 +209,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">PRICE</h3>
-                <button
+                <Button
                   onClick={() => setIsPriceOpen(!isPriceOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isPriceOpen ? "−" : "+"}
-                </button>
+                </Button>
               </div>
               {isPriceOpen && (
                 <div className="flex flex-col gap-2 pt-2">

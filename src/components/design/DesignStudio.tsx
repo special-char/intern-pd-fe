@@ -20,21 +20,45 @@ export const DesignStudio = () => {
   const [quantity, setQuantity] = useState(1)
   const [fabricCanvas, setFabricCanvas] = useState<FabricCanvas | null>(null)
 
+  // const handleSubmitDesign = () => {
+  //   if (!fabricCanvas) {
+  //     toast.error("Please create a design first")
+  //     return
+  //   }
+
+  //   const designData = {
+  //     design: fabricCanvas.toJSON(),
+  //     productColor: selectedColor,
+  //     size: selectedSize,
+  //     quantity: quantity,
+  //     timestamp: new Date().toISOString(),
+  //   }
+
+  //   // In a real app, you would send this to your backend
+  //   console.log("Design submitted:", designData)
+  //   toast.success("Design submitted successfully! We will contact you soon.")
+  // }.
+ 
+  //svg format
+  
   const handleSubmitDesign = () => {
     if (!fabricCanvas) {
       toast.error("Please create a design first")
       return
     }
 
+    // ✅ Convert canvas to SVG format
+    const svgData = fabricCanvas.toSVG()
+
     const designData = {
-      design: fabricCanvas.toJSON(),
+      svg: svgData, // <--- SVG instead of JSON
       productColor: selectedColor,
       size: selectedSize,
       quantity: quantity,
       timestamp: new Date().toISOString(),
     }
 
-    // In a real app, you would send this to your backend
+    //  Send to backend (you can replace with actual API call)
     console.log("Design submitted:", designData)
     toast.success("Design submitted successfully! We will contact you soon.")
   }

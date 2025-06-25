@@ -70,6 +70,13 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
     }
   }, [searchTerm, countryCode])
 
+  // Handler to clear search state
+  const clearSearch = () => {
+    setSearchTerm("");
+    setSuggestions([]);
+    setShowSuggestions(false);
+  };
+
   if (!isSearchOpen) return null
 
   return (
@@ -111,7 +118,10 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
                   <div
                     key={product.id}
                     className="min-w-[360px] min-h-[540px] cursor-pointer"
-                    onClick={() => setIsSearchOpen(false)}
+                    onClick={() => {
+                      setIsSearchOpen(false);
+                      clearSearch();
+                    }}
                   >
                     <ProductCard
                       product={{
@@ -128,7 +138,13 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
                 ))}
               </div>
               <div className="w-full flex justify-center mt-0 pb-4">
-                <button className="relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider group px-6 py-3 bg-white rounded hover:text-gray-600">
+                <button
+                  className="relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider group px-6 py-3 bg-white rounded hover:text-gray-600"
+                  onClick={() => {
+                    setIsSearchOpen(false);
+                    clearSearch();
+                  }}
+                >
                   Show all search results
                   <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black scale-x-100 group-hover:scale-x-0 transition-transform duration-300 origin-left"></span>
                 </button>

@@ -25,9 +25,10 @@ interface Product {
 interface ProductCardProps {
   product: Product
   isHovered?: boolean
+  href?: string
 }
 
-const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
+const ProductCard = ({ product, isHovered = false, href }: ProductCardProps) => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState("")
   const [isCardHovered, setIsCardHovered] = useState(isHovered)
@@ -47,7 +48,7 @@ const ProductCard = ({ product, isHovered = false }: ProductCardProps) => {
 
   return (
     <Link
-      href={`/products/${product.handle || product.id}`}
+      href={href || `/products/${product.handle || product.id}`}
       className="group relative bg-white transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}

@@ -122,6 +122,7 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
                         colors: [],
                         sizes: [],
                       }}
+                      href={countryCode ? `/${countryCode}/products/${product.handle}` : `/products/${product.handle}`}
                     />
                   </div>
                 ))}

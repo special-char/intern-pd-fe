@@ -7,7 +7,7 @@ const headingVariants = cva("", {
   variants: {
     variant: {
       display: "typography-display-heading",
-      page: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+      page: "font-normal text-gray-900 mb-1 tracking-wide",
     },
     level: {
       h1: "typography-display-h1",
@@ -29,6 +29,7 @@ const Heading = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, level, ...props }, ref) => {
     const Comp = level ? level : "h1"
     return (
+      // @ts-expect-error
       <Comp
         className={cn(headingVariants({ variant, level, className }))}
         {...props}

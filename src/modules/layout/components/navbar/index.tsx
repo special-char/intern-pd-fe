@@ -57,15 +57,15 @@ const Navbar = () => {
     setCart(cartData)
   }, [])
 
-  // Fetch cart on mount and when cart is opened
-  useEffect(() => {
-    refreshCart()
-    // Set up an interval to refresh cart data frequently
-    const intervalId = setInterval(refreshCart, 1000)
+  // // Fetch cart on mount and when cart is opened
+  // useEffect(() => {
+  //   refreshCart()
+  //   // Set up an interval to refresh cart data frequently
+  //   const intervalId = setInterval(refreshCart, 1000)
 
-    // Cleanup interval on unmount
-    return () => clearInterval(intervalId)
-  }, [refreshCart])
+  //   // Cleanup interval on unmount
+  //   return () => clearInterval(intervalId)
+  // }, [refreshCart])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -191,7 +191,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider opacity-0 animate-header-menu-fade-in group`}
+                className="relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider opacity-0 animate-header-menu-fade-in group"
                 style={{
                   animationDelay: `${0.2 + idx * 0.1}s`,
                   animationFillMode: "both",

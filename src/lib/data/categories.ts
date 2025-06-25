@@ -30,7 +30,7 @@ export const getCategoryByHandle = async (categoryHandle: string[]) => {
   const handle = `${categoryHandle.join("/")}`
 
   const next = {
-    ...(await getCacheOptions("categories")),
+    ...(await getCacheOptions(`categories-${handle}`)),
   }
 
   return sdk.client

@@ -27,7 +27,11 @@ interface ProductCardProps {
   href?: string
 }
 
-const ProductCard = ({ product, isHovered = false, href }: ProductCardProps) => {
+const ProductCard = ({
+  product,
+  isHovered = false,
+  href,
+}: ProductCardProps) => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState("")
   const [isCardHovered, setIsCardHovered] = useState(isHovered)
@@ -46,22 +50,12 @@ const ProductCard = ({ product, isHovered = false, href }: ProductCardProps) => 
   }
 
   return (
-<<<<<<< HEAD
     <div
-      className="group relative bg-white transition-all duration-300"
-=======
-    <Link
-      href={href || `/products/${product.handle || product.id}`}
       className="group relative bg-white transition-all duration-300 cursor-pointer"
->>>>>>> 05decbc89205b437301c8db4bc5c842d96cb180d
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
     >
       {/* Product Image */}
-<<<<<<< HEAD
-=======
-      {/* <div className="relative aspect-[3/4] overflow-hidden bg-gray-50"> */}
->>>>>>> 05decbc89205b437301c8db4bc5c842d96cb180d
       <div className="relative aspect-[4/] overflow-hidden bg-gray-50 h-150">
         <img
           src={product.image}

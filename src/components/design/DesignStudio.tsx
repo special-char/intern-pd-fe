@@ -38,7 +38,7 @@ export const DesignStudio = () => {
   //   console.log("Design submitted:", designData)
   //   toast.success("Design submitted successfully! We will contact you soon.")
   // }.
-
+ 
   //svg format
   
   const handleSubmitDesign = () => {

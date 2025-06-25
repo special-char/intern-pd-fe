@@ -1,51 +1,70 @@
 import ProductCard from "components/ProductCard"
 
-const products = [
-  {
-    id: "prod_01",
-    handle: "melissa-top",
-    name: "Melissa Top",
-    price: "49.99 USD",
-    image: "https://example.com/images/melissa-top.jpg",
-    colors: [
-      { name: "Black", value: "#000000" },
-      { name: "White", value: "#FFFFFF" },
-      { name: "Red", value: "#FF0000" },
-    ],
-    sizes: ["XS", "S", "M", "L", "XL"],
-  },
-  {
-    id: "prod_02",
-    handle: "arizona-denim-jacket",
-    name: "Arizona Denim Jacket",
-    price: "79.95 USD",
-    image: "https://example.com/images/arizona-denim-jacket.jpg",
-    colors: [
-      { name: "Blue", value: "#1E90FF" },
-      { name: "Light Blue", value: "#ADD8E6" },
-    ],
-    sizes: ["S", "M", "L", "XL"],
-  },
-  {
-    id: "prod_03",
-    handle: "babice-coat",
-    name: "Babice Coat",
-    price: "199.95 USD",
-    image: "https://example.com/images/babice-coat.jpg",
-    colors: [
-      { name: "Beige", value: "#C8B5A0" },
-      { name: "Pink", value: "#E91E63" },
-    ],
-    sizes: ["M", "L", "XL", "XXL"],
-  },
-]
-
 export default function DemoPage() {
+  const products = [
+    {
+      id: "1",
+      name: "Erlissa jacket",
+      price: "129,95 EUR",
+      image:
+        "https://rino-pelle.com/cdn/shop/files/Erlissa.7002521_fog-grey_01.jpg?v=1734008005",
+      colors: [
+        { name: "Beige", value: "#C8B5A0" },
+        { name: "Pink", value: "#E91E63" },
+        { name: "Light Gray", value: "#E5E5E5" },
+        { name: "White", value: "#FFFFFF" },
+      ],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    },
+    {
+      id: "2",
+      name: "Knit sweater",
+      price: "89,95 EUR",
+      image:
+        "https://rino-pelle.com/cdn/shop/files/Isarea.5002521_Snow-white_01.jpg?v=1734605012",
+      colors: [
+        { name: "Beige", value: "#C8B5A0" },
+        { name: "Pink", value: "#E91E63" },
+        { name: "Light Gray", value: "#E5E5E5" },
+        { name: "White", value: "#FFFFFF" },
+      ],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    },
+    {
+      id: "3",
+      name: "Arizona denim jacket",
+      price: "79,95 EUR",
+      image:
+        "https://rino-pelle.com/cdn/shop/files/Arizona.6002521_Birch_01.jpg?v=1734002910",
+      colors: [
+        { name: "Beige", value: "#C8B5A0" },
+        { name: "Pink", value: "#E91E63" },
+        { name: "Light Gray", value: "#E5E5E5" },
+        { name: "White", value: "#FFFFFF" },
+      ],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    },
+    {
+      id: "4",
+      name: "Babice coat",
+      price: "199,95 EUR",
+      image:
+        "https://rino-pelle.com/cdn/shop/files/Babice.7012521_Birch-Ikat_01.jpg?v=1734002648",
+      colors: [
+        { name: "Beige", value: "#C8B5A0" },
+        { name: "Pink", value: "#E91E63" },
+        { name: "Light Gray", value: "#E5E5E5" },
+        { name: "White", value: "#FFFFFF" },
+      ],
+      sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    },
+  ]
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
-    </div>
-  )
+    </div>
+  )
 }

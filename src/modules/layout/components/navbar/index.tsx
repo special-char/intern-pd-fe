@@ -3,10 +3,8 @@
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import LoginTemplate from "@/modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 
-import ProductCard from "@/components/ProductCard"
 import { useParams } from "next/navigation"
 
 if (typeof window !== "undefined") {
@@ -15,24 +13,16 @@ if (typeof window !== "undefined") {
   }
 }
 
-import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/design/ui/drawer"
 import { Button } from "@/components/ui/button"
 import { retrieveCart } from "@/lib/data/cart"
 import CartTemplate from "@/modules/cart/templates"
 import { HttpTypes } from "@medusajs/types"
 import WishlistSlider from "../wishlist-slider"
-import TopBanner from "./TopBanner"
 import Logo from "./Logo"
 import MenuItems from "./MenuItems"
-import SearchBar from "./SearchBar"
-import SignInDialog from "./SignInDialog"
 import MobileMenu from "./MobileMenu"
+import SearchBar from "./SearchBar"
+import TopBanner from "./TopBanner"
 
 const Navbar = () => {
   console.log("Navbar mounted")
@@ -161,20 +151,6 @@ const Navbar = () => {
     { name: "Let's Act", href: "/lets-act" },
   ]
 
-<<<<<<< HEAD
-  const SignInDialog = () => {
-    return (
-      <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogTitle>Sign In</DialogTitle>
-          <LoginTemplate />
-        </DialogContent>
-      </Dialog>
-    )
-  }
-
-=======
->>>>>>> 05decbc89205b437301c8db4bc5c842d96cb180d
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
       <TopBanner />
@@ -220,7 +196,10 @@ const Navbar = () => {
               </button>
               {isCartOpen && (
                 <div className="fixed inset-0 z-50 flex items-end justify-end">
-                  <div className="fixed inset-0 bg-black bg-opacity-40" onClick={() => setIsCartOpen(false)} />
+                  <div
+                    className="fixed inset-0 bg-black bg-opacity-40"
+                    onClick={() => setIsCartOpen(false)}
+                  />
                   <div className="relative bg-white w-full max-w-md h-full shadow-xl flex flex-col">
                     <div className="flex flex-row justify-between items-center p-4 border-b">
                       <span className="font-light mt-5 text-3xl">Cart</span>
@@ -238,7 +217,11 @@ const Navbar = () => {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -278,7 +261,10 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <WishlistSlider open={isWishlistOpen} onClose={() => setIsWishlistOpen(false)} />
+            <WishlistSlider
+              open={isWishlistOpen}
+              onClose={() => setIsWishlistOpen(false)}
+            />
           </div>
           {/* Mobile/Tablet menu button */}
           <button
@@ -298,8 +284,18 @@ const Navbar = () => {
         setIsCartOpen={setIsCartOpen}
         cart={cart}
       />
-      <SearchBar isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
-      <SignInDialog isOpen={isSignInOpen} onOpenChange={setIsSignInOpen} />
+      <SearchBar
+        isSearchOpen={isSearchOpen}
+        setIsSearchOpen={setIsSearchOpen}
+      />
+      {isSignInOpen && (
+        <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogTitle>Sign In</DialogTitle>
+            <LoginTemplate />
+          </DialogContent>
+        </Dialog>
+      )}
     </nav>
   )
 }

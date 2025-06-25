@@ -15,7 +15,12 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@headlessui/react": "^2.2.0",
+=======
+    "@headlessui/react": "^2.2.4",
+    "@headlessui/react": "^1.7.19",
+>>>>>>> 3719c8d190dd7ed9096fd37ccc994dd24a29373e
     "@medusajs/js-sdk": "latest",
     "@medusajs/ui": "^4.0.14",
     "@radix-ui/react-accordion": "^1.2.1",

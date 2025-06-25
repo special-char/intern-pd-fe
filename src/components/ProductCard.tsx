@@ -54,6 +54,9 @@ const ProductCard = ({
       className="group relative bg-white transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
+      onClick={() =>
+        router.push(href || `/products/${product.handle || product.id}`)
+      }
     >
       {/* Product Image */}
       <div className="relative aspect-[4/] overflow-hidden bg-gray-50 h-150">

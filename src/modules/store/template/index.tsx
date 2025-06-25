@@ -6,8 +6,9 @@ import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-g
 import PaginatedProducts from "./paginated-products"
 import FilterButton from "./filter-button"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { listCollections } from "@lib/data/collections"
 
-const StoreTemplate = ({
+const StoreTemplate = async ({
   sortBy,
   page,
   countryCode,
@@ -18,6 +19,14 @@ const StoreTemplate = ({
 }) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
+
+  // Fetch collections on the server
+  const { collections } = await listCollections()
+
+  // Filter out 'Tops & Blouses' collection
+  const filteredCollections = collections.filter(
+    (collection) => collection.title !== 'Tops & Blouses'
+  )
 
   return (
     <div className="py-6 content-container" data-testid="category-container">
@@ -39,39 +48,15 @@ const StoreTemplate = ({
               All Clothing
             </Link>
             <span className="text-gray-300">|</span>
-            <Link href="/store/coats" className="hover:underline">
-              Coats
-            </Link>
-            <Link href="/store/jackets" className="hover:underline">
-              Jackets
-            </Link>
-            <Link href="/products/Capes" className="hover:underline">
-              Capes
-            </Link>
-            <Link href="/store/waistcoats" className="hover:underline">
-              Waistcoats
-            </Link>
-            <Link href="/store/sweaters" className="hover:underline">
-              Sweaters
-            </Link>
-            <Link href="/store/cardigans" className="hover:underline">
-              Cardigans
-            </Link>
-            <Link href="/products/dulani-top" className="hover:underline">
-              Tops & Blouses
-            </Link>
-            <Link href="/store/t-shirts" className="hover:underline">
-              T-shirts
-            </Link>
-            <Link href="/store/trousers" className="hover:underline">
-              Trousers
-            </Link>
-            <Link href="/category/Skirts" className="hover:underline">
-              Skirts
-            </Link>
-            <Link href="/store/dresses" className="hover:underline">
-              Dresses
-            </Link>
+            {filteredCollections.map((collection) => (
+              <Link
+                key={collection.id}
+                href={`/${countryCode}/collections/${collection.handle}`}
+                className="hover:underline"
+              >
+                {collection.title}
+              </Link>
+            ))}
           </nav>
         </div>
         <Suspense fallback={<SkeletonProductGrid />}>

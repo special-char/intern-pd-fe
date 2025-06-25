@@ -70,4 +70,4 @@ const CartItemSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 
 CartItemSelect.displayName = "CartItemSelect"
 
-export default CartItemSelect
+export default CartItemSelect

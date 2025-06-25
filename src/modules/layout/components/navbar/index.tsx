@@ -1,16 +1,15 @@
 "use client"
 
+import ProductCard from "@/components/ProductCard"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import LoginTemplate from "@/modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Link from "next/link"
-import { useState, useEffect, useRef, useCallback } from "react"
 import { useParams } from "next/navigation"
-import Medusa from "@medusajs/js-sdk"
-import ProductCard from "@/components/ProductCard"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 if (typeof window !== "undefined") {
-  window.onerror = function(message, source, lineno, colno, error) {
+  window.onerror = function (message, source, lineno, colno, error) {
     console.error("Global error:", message, error)
   }
 }
@@ -35,7 +34,15 @@ const Navbar = () => {
   const searchContainerRef = useRef<HTMLDivElement>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
   const [searchTerm, setSearchTerm] = useState("")
-  const [suggestions, setSuggestions] = useState<Array<{ id: string; handle: string; title: string; thumbnail?: string; price?: string }>>([])
+  const [suggestions, setSuggestions] = useState<
+    Array<{
+      id: string
+      handle: string
+      title: string
+      thumbnail?: string
+      price?: string
+    }>
+  >([])
   const [loading, setLoading] = useState(false)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const { countryCode } = useParams() as { countryCode?: string }
@@ -50,30 +57,32 @@ const Navbar = () => {
     setCart(cartData)
   }, [])
 
-  // Fetch cart on mount and when cart is opened
-  useEffect(() => {
-    refreshCart()
-    // Set up an interval to refresh cart data frequently
-    const intervalId = setInterval(refreshCart, 1000)
+  // // Fetch cart on mount and when cart is opened
+  // useEffect(() => {
+  //   refreshCart()
+  //   // Set up an interval to refresh cart data frequently
+  //   const intervalId = setInterval(refreshCart, 1000)
 
-    // Cleanup interval on unmount
-    return () => clearInterval(intervalId)
-  }, [refreshCart])
+  //   // Cleanup interval on unmount
+  //   return () => clearInterval(intervalId)
+  // }, [refreshCart])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         searchContainerRef.current &&
         !searchContainerRef.current.contains(event.target as Node) &&
-        !(event.target as HTMLElement).closest('button')?.textContent?.includes('Search')
+        !(event.target as HTMLElement)
+          .closest("button")
+          ?.textContent?.includes("Search")
       ) {
         setIsSearchOpen(false)
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [])
 
@@ -94,10 +103,10 @@ const Navbar = () => {
     let isMounted = true
     const fetchSuggestions = async () => {
       try {
-        const params = new URLSearchParams({ q: searchTerm, limit: '12' })
-        if (countryCode) params.append('region_id', countryCode)
+        const params = new URLSearchParams({ q: searchTerm, limit: "12" })
+        if (countryCode) params.append("region_id", countryCode)
         const res = await fetch(`/api/search-products?${params.toString()}`)
-        if (!res.ok) throw new Error('Failed to fetch suggestions')
+        if (!res.ok) throw new Error("Failed to fetch suggestions")
         const result = await res.json()
         const products = (result.products || []).map((p: any) => ({
           id: p.id,
@@ -111,7 +120,7 @@ const Navbar = () => {
           setShowSuggestions(true)
         }
       } catch (e) {
-        console.error('Product search error:', e)
+        console.error("Product search error:", e)
         if (isMounted) setSuggestions([])
       } finally {
         if (isMounted) setLoading(false)
@@ -127,13 +136,13 @@ const Navbar = () => {
   // Prevent body scroll when search is open
   useEffect(() => {
     if (isSearchOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden"
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = ""
     }
     return () => {
-      document.body.style.overflow = '';
-    };
+      document.body.style.overflow = ""
+    }
   }, [isSearchOpen])
 
   const menuItems = [
@@ -182,7 +191,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider opacity-0 animate-header-menu-fade-in group`}
+                className="relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider opacity-0 animate-header-menu-fade-in group"
                 style={{
                   animationDelay: `${0.2 + idx * 0.1}s`,
                   animationFillMode: "both",
@@ -196,7 +205,10 @@ const Navbar = () => {
 
           {/* Right - Icons */}
           <div className="hidden sm:flex items-center space-x-3 md:space-x-4 lg:space-x-6 animate-header-icons-slide-in">
-            <button className="text-black transition-colors duration-200 text-sm md:text-base" onClick={() => setIsSearchOpen(true)}>
+            <button
+              className="text-black transition-colors duration-200 text-sm md:text-base"
+              onClick={() => setIsSearchOpen(true)}
+            >
               Search
             </button>
             <button
@@ -406,7 +418,7 @@ const Navbar = () => {
               placeholder="Search..."
               className="w-full text-xl font-normal bg-white border-none outline-none pr-14 pl-8 py-2"
               value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
               onFocus={() => searchTerm && setShowSuggestions(true)}
               style={{ borderRadius: 0 }}
             />
@@ -415,12 +427,19 @@ const Navbar = () => {
           {searchTerm.length >= 3 && (
             <div className="flex-1 w-full overflow-y-auto">
               {loading ? (
-                <div className="text-gray-500 text-center text-lg py-12">Searching…</div>
+                <div className="text-gray-500 text-center text-lg py-12">
+                  Searching…
+                </div>
               ) : suggestions.length > 0 ? (
                 <>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1.5 bg-white">
                     {suggestions.map((product) => (
-                      <Link key={product.id} href={`/products/${product.handle}`} className="min-w-[360px] min-h-[540px] cursor-pointer" onClick={() => setIsSearchOpen(false)}>
+                      <Link
+                        key={product.id}
+                        href={`/products/${product.handle}`}
+                        className="min-w-[360px] min-h-[540px] cursor-pointer"
+                        onClick={() => setIsSearchOpen(false)}
+                      >
                         <ProductCard
                           product={{
                             id: product.id,
@@ -436,16 +455,16 @@ const Navbar = () => {
                   </div>
                   {/* Show all search results button */}
                   <div className="w-full flex justify-center mt-0 pb-4">
-                    <button
-                      className="relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider group px-6 py-3 bg-white rounded hover:text-gray-600"
-                    >
+                    <button className="relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider group px-6 py-3 bg-white rounded hover:text-gray-600">
                       Show all search results
                       <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black scale-x-100 group-hover:scale-x-0 transition-transform duration-300 origin-left"></span>
                     </button>
                   </div>
                 </>
               ) : (
-                <div className="text-gray-500 text-center text-lg py-12">No products found.</div>
+                <div className="text-gray-500 text-center text-lg py-12">
+                  No products found.
+                </div>
               )}
             </div>
           )}

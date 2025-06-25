@@ -57,11 +57,19 @@ const Navbar = () => {
     setCart(cartData)
   }, [])
 
+<<<<<<< HEAD
   // Fetch cart on mount and when cart is opened
   useEffect(() => {
     refreshCart()
     // Set up an interval to refresh cart data frequently
     const intervalId = setInterval(refreshCart, 1000)
+=======
+  // // Fetch cart on mount and when cart is opened
+  // useEffect(() => {
+  //   refreshCart()
+  //   // Set up an interval to refresh cart data frequently
+  //   const intervalId = setInterval(refreshCart, 1000)
+>>>>>>> f6fb1738b6b7718e69d34488e53b95377b4d41cc
 
     // Cleanup interval on unmount
     return () => clearInterval(intervalId)
@@ -191,7 +199,11 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
+<<<<<<< HEAD
                 className={`relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider opacity-0 animate-header-menu-fade-in group`}
+=======
+                className="relative text-gray-900 transition-colors duration-200 text-sm font-light tracking-wider opacity-0 animate-header-menu-fade-in group"
+>>>>>>> f6fb1738b6b7718e69d34488e53b95377b4d41cc
                 style={{
                   animationDelay: `${0.2 + idx * 0.1}s`,
                   animationFillMode: "both",

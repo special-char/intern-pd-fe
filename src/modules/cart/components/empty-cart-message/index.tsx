@@ -3,7 +3,7 @@
 import { Heading, Text } from "@medusajs/ui"
 import { useRouter } from "next/navigation"
 import InteractiveLink from "@modules/common/components/interactive-link"
-import { Button } from "@/lib/components/ui/button"
+import { Button } from "@/components/ui/button"
 
 const EmptyCartMessage = ({ onClose }: { onClose?: () => void }) => {
   const router = useRouter()

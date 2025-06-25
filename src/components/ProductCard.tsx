@@ -1,7 +1,6 @@
 "use client"
 
 import { Heart } from "lucide-react"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useWishlist } from "../lib/context/wishlist-context"
@@ -28,7 +27,11 @@ interface ProductCardProps {
   href?: string
 }
 
-const ProductCard = ({ product, isHovered = false, href }: ProductCardProps) => {
+const ProductCard = ({
+  product,
+  isHovered = false,
+  href,
+}: ProductCardProps) => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [selectedSize, setSelectedSize] = useState("")
   const [isCardHovered, setIsCardHovered] = useState(isHovered)
@@ -47,14 +50,15 @@ const ProductCard = ({ product, isHovered = false, href }: ProductCardProps) => 
   }
 
   return (
-    <Link
-      href={href || `/products/${product.handle || product.id}`}
+    <div
       className="group relative bg-white transition-all duration-300 cursor-pointer"
       onMouseEnter={() => setIsCardHovered(true)}
       onMouseLeave={() => setIsCardHovered(false)}
+      onClick={() =>
+        router.push(href || `/products/${product.handle || product.id}`)
+      }
     >
       {/* Product Image */}
-      {/* <div className="relative aspect-[3/4] overflow-hidden bg-gray-50"> */}
       <div className="relative aspect-[4/] overflow-hidden bg-gray-50 h-150">
         <img
           src={product.image}
@@ -145,7 +149,7 @@ const ProductCard = ({ product, isHovered = false, href }: ProductCardProps) => 
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 

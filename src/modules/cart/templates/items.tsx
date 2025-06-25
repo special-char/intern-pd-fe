@@ -7,7 +7,6 @@ import Item from "@modules/cart/components/item"
 import { Heading } from "@medusajs/ui"
 import { useState } from "react"
 import { updateLineItem, deleteLineItem } from "@lib/data/cart"
-import { Button } from "@/lib/components/ui/button"
 
 type ItemsTemplateProps = {
   cart: HttpTypes.StoreCart
@@ -79,34 +78,33 @@ const CartItem = ({
             </div>
           </div>
           {/* Remove Button */}
-          <Button
-            variant="remove"
-            // className="text-gray-400 underline text-sm hover:text-gray-600"
+          <button
+            className="text-gray-400 underline text-sm hover:text-gray-600"
             disabled={removing}
             onClick={handleRemove}
           >
             Remove
-          </Button>
+          </button>
         </div>
         {/* Controls: Quantity and Size */}
         <div className="flex gap-2 mt-4 items-center">
           {/* Quantity Selector */}
           <div className="flex items-center border rounded px-2">
-            <Button
-              variant="quantity"
+            <button
+              className="px-2 text-lg"
               disabled={updating}
               onClick={handleDecrease}
             >
               -
-            </Button>
+            </button>
             <span className="px-4">{item.quantity}</span>
-            <Button
-              variant="quantity"
+            <button
+              className="px-2 text-lg"
               disabled={updating}
               onClick={handleIncrease}
             >
               +
-            </Button>
+            </button>
           </div>
           {/* Size Selector as dropdown */}
           {/* <select
@@ -147,14 +145,8 @@ const ItemsTemplate = ({ cart, onCartUpdate }: ItemsTemplateProps) => {
               />
             ))
         : Array.from({ length: 5 }).map((_, i) => <SkeletonLineItem key={i} />)}
-      {/* Add custom Button below cart items */}
-      <div className="mt-6 flex justify-end">
-        {/* <Button variant="default" size="lg">
-          Checkout
-        </Button> */}
-      </div>
     </div>
   )
 }
 
-export default ItemsTemplate
+export default ItemsTemplate

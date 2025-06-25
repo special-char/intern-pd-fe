@@ -1,7 +1,7 @@
 "use client"
 
 import { useActionState } from "react"
-import Input from "@modules/common/components/input"
+import { Input } from "@components/ui/input"
 import { LOGIN_VIEW } from "@modules/account/templates/login-template"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
@@ -57,7 +57,7 @@ const Register = ({ setCurrentView }: Props) => {
             required
             autoComplete="given-name"
             data-testid="first-name-input"
-            className="w-full size-12 pl-2 rounded-[5px]"
+            className="size-12 pl-2 rounded-[5px] w-full "
             value={formData.first_name}
             onChange={handleInputChange}
           />
@@ -67,7 +67,7 @@ const Register = ({ setCurrentView }: Props) => {
             required
             autoComplete="family-name"
             data-testid="last-name-input"
-            className="w-full size-12 pl-2 rounded-[5px]"
+            className="w-full size-12 pl-2 rounded-[5px] w-full "
             value={formData.last_name}
             onChange={handleInputChange}
           />
@@ -78,7 +78,7 @@ const Register = ({ setCurrentView }: Props) => {
             type="email"
             autoComplete="email"
             data-testid="email-input"
-            className="w-full size-12 pl-2 rounded-[5px]"
+            className="w-full size-12 pl-2 rounded-[5px] w-full "
             value={formData.email}
             onChange={handleInputChange}
           />
@@ -88,7 +88,7 @@ const Register = ({ setCurrentView }: Props) => {
             type="tel"
             autoComplete="tel"
             data-testid="phone-input"
-            className="w-full size-12 pl-2 rounded-[5px]"
+            className="w-full size-12 pl-2 rounded-[5px] w-full "
             value={formData.phone}
             onChange={handleInputChange}
           />
@@ -99,7 +99,7 @@ const Register = ({ setCurrentView }: Props) => {
             type="password"
             autoComplete="new-password"
             data-testid="password-input"
-            className="w-full size-12 pl-2 rounded-[5px]"
+            className="w-full size-12 pl-2 rounded-[5px] w-full "
             value={formData.password}
             onChange={handleInputChange}
           />

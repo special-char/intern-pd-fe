@@ -2,7 +2,7 @@ import { login } from "@lib/data/customer"
 import { LOGIN_VIEW } from "@modules/account/templates/login-template"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
-import Input from "@modules/common/components/input"
+import { Input } from "@components/ui/input"
 import { useActionState } from "react"
 import { useState } from "react"
 
@@ -47,7 +47,7 @@ const Login = ({ setCurrentView }: Props) => {
             autoComplete="email"
             required
             data-testid="email-input"
-            className="w-full size-12 pl-2 rounded-[5px]"
+            className=" size-12 pl-2 rounded-[5px] w-full"
             value={formData.email}
             onChange={handleInputChange}
           />
@@ -58,7 +58,7 @@ const Login = ({ setCurrentView }: Props) => {
             autoComplete="current-password"
             required
             data-testid="password-input"
-            className="w-full size-12 pl-2 rounded-[5px]"
+            className=" size-12 pl-2 rounded-[5px] w-full"
             value={formData.password}
             onChange={handleInputChange}
           />

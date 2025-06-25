@@ -4,20 +4,16 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import LoginTemplate from "@/modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Link from "next/link"
-<<<<<<< HEAD
-import { useState } from "react"
-=======
-import { useState, useEffect, useRef, useCallback } from "react"
-import { useParams } from "next/navigation"
-import Medusa from "@medusajs/js-sdk"
+import { useCallback, useEffect, useRef, useState } from "react"
+
 import ProductCard from "@/components/ProductCard"
+import { useParams } from "next/navigation"
 
 if (typeof window !== "undefined") {
   window.onerror = function (message, source, lineno, colno, error) {
     console.error("Global error:", message, error)
   }
 }
->>>>>>> e15bb76239ed124268978d8c230e954e22557e11
 
 import {
   Drawer,
@@ -30,10 +26,6 @@ import { Button } from "@/components/ui/button"
 import { retrieveCart } from "@/lib/data/cart"
 import CartTemplate from "@/modules/cart/templates"
 import { HttpTypes } from "@medusajs/types"
-<<<<<<< HEAD
-import { useCallback, useEffect } from "react"
-=======
->>>>>>> e15bb76239ed124268978d8c230e954e22557e11
 import WishlistSlider from "../wishlist-slider"
 
 const Navbar = () => {
@@ -167,11 +159,7 @@ const Navbar = () => {
     return (
       <Dialog open={isSignInOpen} onOpenChange={setIsSignInOpen}>
         <DialogContent className="sm:max-w-[425px]">
-<<<<<<< HEAD
           <DialogTitle>Sign In</DialogTitle>
-=======
-          <DialogTitle></DialogTitle>
->>>>>>> e15bb76239ed124268978d8c230e954e22557e11
           <LoginTemplate />
         </DialogContent>
       </Dialog>

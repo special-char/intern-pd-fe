@@ -1,13 +1,12 @@
 "use client"
 
+import ProductCard from "@/components/ProductCard"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import LoginTemplate from "@/modules/account/templates/login-template"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Link from "next/link"
-import { useState, useEffect, useRef, useCallback } from "react"
 import { useParams } from "next/navigation"
-import Medusa from "@medusajs/js-sdk"
-import ProductCard from "@/components/ProductCard"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 if (typeof window !== "undefined") {
   window.onerror = function (message, source, lineno, colno, error) {
@@ -59,14 +58,14 @@ const Navbar = () => {
   }, [])
 
   // Fetch cart on mount and when cart is opened
-  // useEffect(() => {
-  //   refreshCart()
-  //   // Set up an interval to refresh cart data frequently
-  //   const intervalId = setInterval(refreshCart, 1000)
+  useEffect(() => {
+    refreshCart()
+    // Set up an interval to refresh cart data frequently
+    const intervalId = setInterval(refreshCart, 1000)
 
-  //   // Cleanup interval on unmount
-  //   return () => clearInterval(intervalId)
-  // }, [refreshCart])
+    // Cleanup interval on unmount
+    return () => clearInterval(intervalId)
+  }, [refreshCart])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

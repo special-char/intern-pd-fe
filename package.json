@@ -15,21 +15,15 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@headlessui/react": "^2.2.4",
-=======
     "@headlessui/react": "^1.7.19",
->>>>>>> ccf43018f718da2718da044bff7a25b6ad7ece57
     "@medusajs/js-sdk": "latest",
     "@medusajs/ui": "^4.0.14",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-label": "^2.1.7",
-<<<<<<< HEAD
-=======
     "@radix-ui/react-popover": "^1.1.14",
     "@radix-ui/react-radio-group": "^1.3.7",
->>>>>>> ccf43018f718da2718da044bff7a25b6ad7ece57
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-switch": "^1.2.5",

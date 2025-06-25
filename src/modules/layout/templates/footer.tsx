@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import { Button } from '@/lib/components/ui/button'
 const paymentIcons = [
     //   { alt: 'AMEX', src: 'https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo_%282018%29.svg' },
     //   { alt: 'Apple Pay', src: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_Pay_logo.svg' },
@@ -83,12 +83,13 @@ export default function Footer() {
                                 placeholder="Email" 
                                 className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-black" 
                             />
-                            <button 
+                            {/* <button 
                                 type="submit" 
                                 className="bg-black text-white rounded px-4 py-2 text-sm font-semibold tracking-widest hover:bg-gray-800 transition-colors w-full"
                             >
                                 SUBSCRIBE
-                            </button>
+                            </button> */}
+                            <Button >SUBSCRIBE</Button>
                         </form>
                     </div>
                 </div>

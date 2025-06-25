@@ -108,9 +108,8 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1.5 bg-white">
                 {suggestions.map((product) => (
-                  <Link
+                  <div
                     key={product.id}
-                    href={`/products/${product.handle}`}
                     className="min-w-[360px] min-h-[540px] cursor-pointer"
                     onClick={() => setIsSearchOpen(false)}
                   >
@@ -124,7 +123,7 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
                         sizes: [],
                       }}
                     />
-                  </Link>
+                  </div>
                 ))}
               </div>
               <div className="w-full flex justify-center mt-0 pb-4">

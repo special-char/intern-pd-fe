@@ -223,7 +223,7 @@ const Navbar = () => {
             >
               Sign In
             </button>
-            <Dragitwer open={isCartOpen} onOpenChange={setIsCartOpen}>
+            <Drawer open={isCartOpen} onOpenChange={setIsCartOpen}>
               <DrawerTrigger asChild>
                 <button className="text-black transition-colors duration-200 text-sm md:text-base flex items-center gap-2">
                   Cart
@@ -298,7 +298,7 @@ const Navbar = () => {
                   ) : null}
                 </div>
               </DrawerContent>
-            </Dragitwer>
+            </Drawer>
             <WishlistSlider
               open={isWishlistOpen}
               onClose={() => setIsWishlistOpen(false)}

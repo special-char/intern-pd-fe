@@ -2,7 +2,7 @@ import { login } from "@lib/data/customer"
 import { LOGIN_VIEW } from "@modules/account/templates/login-template"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
-import { Input } from "@components/ui/input"
+import Input from "@modules/common/components/input"
 import { useActionState } from "react"
 import { useState } from "react"
 
@@ -40,7 +40,7 @@ const Login = ({ setCurrentView }: Props) => {
       <form className="w-full" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
           <Input
-            placeholder="Email"
+            label="Email"
             name="email"
             type="email"
             title="Enter a valid email address."
@@ -52,7 +52,7 @@ const Login = ({ setCurrentView }: Props) => {
             onChange={handleInputChange}
           />
           <Input
-            placeholder="Password"
+            label="Password"
             name="password"
             type="password"
             autoComplete="current-password"

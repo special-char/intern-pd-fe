@@ -28,12 +28,6 @@ const RightNavbar = () => {
     setCart(cartData)
   }, [])
 
-  useEffect(() => {
-    refreshCart()
-    const intervalId = setInterval(refreshCart, 1000)
-    return () => clearInterval(intervalId)
-  }, [refreshCart])
-
   return (
     <>
       <div className="hidden sm:flex items-center space-x-3 md:space-x-4 lg:space-x-6 animate-header-icons-slide-in">

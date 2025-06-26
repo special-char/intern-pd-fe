@@ -1,14 +1,14 @@
-import TwoColumnGrid from "@components/TwoColumnGrid";
-import TwoColumnGrid1 from "@components/TwoColumnGrid1";
-import Twoimggrid from "@components/Twoimggrid";
-import Twoimggrid1 from "@components/Twoimggrid1";
-import Image from "next/image";
+import TwoColumnGrid from "@/components/TwoColumnGrid"
+import TwoColumnGrid1 from "@/components/TwoColumnGrid1"
+import Twoimggrid from "@/components/Twoimggrid"
+import Twoimggrid1 from "@/components/Twoimggrid1"
+import Image from "next/image"
 
 const Index = () => {
   return (
     <div className="bg-[#F7F5F2]">
       <div>
-        <Image 
+        <Image
           src="https://rino-pelle.com/cdn/shop/files/lb_1.jpg?v=1737364748"
           alt="Fashion model wearing utility style clothing"
           className="w-screen h-screen object-cover"
@@ -24,8 +24,8 @@ const Index = () => {
         </h1>
         <TwoColumnGrid />
         <Twoimggrid />
-      
-        <Image 
+
+        <Image
           src="https://rino-pelle.com/cdn/shop/files/RinoPelle_10juni_2024_37813_copy.jpg?v=1737363481"
           alt="Fashion model wearing utility style clothing"
           className="w-screen h-screen object-cover"
@@ -33,14 +33,15 @@ const Index = () => {
           height={1080}
           priority
         />
-        <br /><br />
+        <br />
+        <br />
         <TwoColumnGrid1 />
         <Twoimggrid1 />
         <br />
         <br />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

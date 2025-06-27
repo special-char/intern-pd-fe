@@ -5,13 +5,13 @@ const ResponsibilityProgramSection = () => {
   return (
     <>
       {/* Responsibility Program Section */}
-      <div className="w-full py-16 text-center">
+      {/* <div className="w-full py-16 text-center">
         <h4 className="font-akzidenz">OUR RESPONSIBILITY PROGRAM</h4>
         <h3 className="font-saol">Let's Act!</h3>
         <Link href="/lets-act">
           <button className="border ">Read More</button>
         </Link>
-      </div>
+      </div> */}
 
       {/* Two Column Grid Section */}
       <div className="w-full h-screen">

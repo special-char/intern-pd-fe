@@ -640,41 +640,41 @@
     semver "^7.3.5"
     tar "^6.1.11"
 
-"@medusajs/icons@2.8.4":
-  version "2.8.4"
-  resolved "https://registry.yarnpkg.com/@medusajs/icons/-/icons-2.8.4.tgz#cf49fec6fb7c2b9da2900ebb40187f58fbabeb95"
-  integrity sha512-g6Hc+8eRH4HTlYpW3tyNPdQ6Iym1Lvul/7MVD6ANYn9LCNchVU2HFhYz9m6M+tC96/gMDWRExiVWaW/hexvPTg==
+"@medusajs/icons@2.8.5":
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/@medusajs/icons/-/icons-2.8.5.tgz#604ae60aa8cfb2f38fc15a014b5974f9f3e8f43d"
+  integrity sha512-ljs+jfgYk7tuJW4kQoCamd+8uHQnpexxS0FGajd6Q1XvwVk+dGMOojyyOnXMqRQE29ezWmeVXSEc/WXJwGW0LA==
 
 "@medusajs/js-sdk@latest":
-  version "2.8.4"
-  resolved "https://registry.yarnpkg.com/@medusajs/js-sdk/-/js-sdk-2.8.4.tgz#650fd0963f3675fbdea25de5efc63b97e765c3dd"
-  integrity sha512-G2B/NpXrQl/sry0FotFs4qRpsEaIK2VGQQL5fs49lk1Nt0khWLYc10NtfcEyaSbb2jQI9ese3rocIqQP0McJ1A==
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/@medusajs/js-sdk/-/js-sdk-2.8.5.tgz#4c566efc55a3f7c8dd5286ef6133e431c69c46bc"
+  integrity sha512-p1ZHbNlqVeZ0l0e4CJRZzi7Rc79CZOWz8jG1fsONSm08hrHGJEuU9yTT2mqrTooLEg4dUYuBGqrY3kwFfyWhAg==
   dependencies:
-    "@medusajs/types" "2.8.4"
+    "@medusajs/types" "2.8.5"
     fetch-event-stream "^0.1.5"
     qs "^6.12.1"
 
-"@medusajs/types@2.8.4", "@medusajs/types@latest":
-  version "2.8.4"
-  resolved "https://registry.yarnpkg.com/@medusajs/types/-/types-2.8.4.tgz#b82ae4f1b64c26c3b3796bf1893912c0d147682c"
-  integrity sha512-AMl9XmbMOXk09jwrV2Df1pRVW/Qz74vN2AS0UNFbEBC3YhcFDqTrt4nZpZZrLtckOOcMrR/xG6GgcWvb0vKimw==
+"@medusajs/types@2.8.5", "@medusajs/types@latest":
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/@medusajs/types/-/types-2.8.5.tgz#82755afb9db761fbcd60b54cf637f49c3f31a498"
+  integrity sha512-M+hsmU2oVpZtFuG9ZgwY+VenHuafDThlLRyV7Yu9OPO5KcqAblixgTgJtXTqgXiicJV3ElBZ9jFrlgeR9C3dtw==
   dependencies:
     bignumber.js "^9.1.2"
 
 "@medusajs/ui-preset@latest":
-  version "2.8.4"
-  resolved "https://registry.yarnpkg.com/@medusajs/ui-preset/-/ui-preset-2.8.4.tgz#2d6bfbd3e778fd556099a2790eb0ab86364dfb6a"
-  integrity sha512-6eOuuaPcwyKmNEREiZuyj9lt6aD2gg3as+Utt9UqdsUQH1G5jXuFhiNUbuf/F+ELi+Gfq090p1x/C0BneLFSfw==
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/@medusajs/ui-preset/-/ui-preset-2.8.5.tgz#8475f3efb32249a78591a6af4fd653499f042712"
+  integrity sha512-LVKq/siV8ml0tOOiyu48Ce5FaKBww9E+BnFRQ423YvzgNG7SBXUKHAv1ykILrnHoCJY2qx/9GVodnIxssq8pTg==
   dependencies:
     "@tailwindcss/forms" "^0.5.3"
     tailwindcss-animate "^1.0.6"
 
 "@medusajs/ui@^4.0.14":
-  version "4.0.14"
-  resolved "https://registry.yarnpkg.com/@medusajs/ui/-/ui-4.0.14.tgz#a474278e329f82c0269a4b4327430f7f8e70fc80"
-  integrity sha512-2Abq8r9X/xlzSk3uotiVlHD9ZtfnysNS3e/vpToqGvQeqkyPwLMbqQIIj1WzfnkiI9fKMFhPsgyxwyokQjpjeg==
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/@medusajs/ui/-/ui-4.0.15.tgz#13f410681f0e28c6142d8661e1103d93001a5a46"
+  integrity sha512-62jLU5OTKbwFt97anvocmbV5lk+ZZYcn3OlRwCjPIHLuYhc14744sxc09Nee1QwoGtqyk7c/sCrr70pxDEv5sQ==
   dependencies:
-    "@medusajs/icons" "2.8.4"
+    "@medusajs/icons" "2.8.5"
     "@tanstack/react-table" "8.20.5"
     clsx "^1.2.1"
     copy-to-clipboard "^3.3.3"
@@ -3013,9 +3013,9 @@
   integrity sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==
 
 "@types/lodash@^4.14.195":
-  version "4.17.18"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.18.tgz#4710e7db5b3857103764bf7b7b666414e6141baf"
-  integrity sha512-KJ65INaxqxmU6EoCiJmRPZC9H9RVWCRd349tXM2M3O5NA7cY6YL7c0bHAHQ93NOfTObEQ004kd2QVHs/r0+m4g==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.19.tgz#de18c90b7891f00fed7c1273495a2f851efd99c4"
+  integrity sha512-NYqRyg/hIQrYPT9lbOeYc3kIRabJDn/k4qQHIXUpx88CBDww2fD15Sg5kbXlW86zm2XEW4g0QxkTI3/Kfkc7xQ==
 
 "@types/node@*":
   version "24.0.4"
@@ -4199,9 +4199,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.5.173:
-  version "1.5.173"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.173.tgz#1aeba57204fe19425921a29946ef543653f5e896"
-  integrity sha512-2bFhXP2zqSfQHugjqJIDFVwa+qIxyNApenmXTp9EjaKtdPrES5Qcn9/aSFy/NaP2E+fWG/zxKu/LBvY36p5VNQ==
+  version "1.5.175"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.175.tgz#669d3cdacf48b91e234886a98df8f4dfd081dd22"
+  integrity sha512-Nqpef9mOVo7pZfl9NIUhj7tgtRTsMzCzRTJDP1ccim4Wb4YHOz3Le87uxeZq68OCNwau2iQ/X7UwdAZ3ReOkmg==
 
 emoji-regex@^8.0.0:
   version "8.0.0"

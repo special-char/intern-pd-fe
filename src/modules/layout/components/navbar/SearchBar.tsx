@@ -1,27 +1,32 @@
-import Link from "next/link"
-import { useRef, useEffect, useState } from "react"
-import { useParams } from "next/navigation"
 import ProductCard from "@/components/ProductCard"
+import { useParams, useRouter } from "next/navigation"
+import { useEffect, useRef, useState } from "react"
 
 interface SearchBarProps {
   isSearchOpen: boolean
   setIsSearchOpen: (isOpen: boolean) => void
 }
 
-export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => {
+export const SearchBar = ({
+  isSearchOpen,
+  setIsSearchOpen,
+}: SearchBarProps) => {
   const searchContainerRef = useRef<HTMLDivElement>(null)
   const searchInputRef = useRef<HTMLInputElement>(null)
   const [searchTerm, setSearchTerm] = useState("")
-  const [suggestions, setSuggestions] = useState<Array<{
-    id: string
-    handle: string
-    title: string
-    thumbnail?: string
-    price?: string
-  }>>([])
+  const [suggestions, setSuggestions] = useState<
+    Array<{
+      id: string
+      handle: string
+      title: string
+      thumbnail?: string
+      price?: string
+    }>
+  >([])
   const [loading, setLoading] = useState(false)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const { countryCode } = useParams() as { countryCode?: string }
+  const router = useRouter()
 
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
@@ -111,7 +116,14 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
                   <div
                     key={product.id}
                     className="min-w-[360px] min-h-[540px] cursor-pointer"
-                    onClick={() => setIsSearchOpen(false)}
+                    onClick={() => {
+                      setIsSearchOpen(false)
+                      router.push(
+                        countryCode
+                          ? `/${countryCode}/products/${product.handle}`
+                          : `/products/${product.handle}`
+                      )
+                    }}
                   >
                     <ProductCard
                       product={{
@@ -122,7 +134,11 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
                         colors: [],
                         sizes: [],
                       }}
-                      href={countryCode ? `/${countryCode}/products/${product.handle}` : `/products/${product.handle}`}
+                      href={
+                        countryCode
+                          ? `/${countryCode}/products/${product.handle}`
+                          : `/products/${product.handle}`
+                      }
                     />
                   </div>
                 ))}
@@ -145,4 +161,4 @@ export const SearchBar = ({ isSearchOpen, setIsSearchOpen }: SearchBarProps) => 
   )
 }
 
-export default SearchBar 
+export default SearchBar

@@ -1,5 +1,6 @@
 import { Github } from "@medusajs/icons"
 import { Button } from "@medusajs/ui"
+import Link from "next/link"
 
 const Hero = () => {
   return (
@@ -49,6 +50,17 @@ const Hero = () => {
             </Button>
           </a>
         </div>
+      </div>
+
+      {/* Responsibility Program Section */}
+      <div className="w-full py-16 text-center">
+        <h4 className="font-akzidenz">OUR RESPONSIBILITY PROGRAM</h4>
+        <h3 className="font-saol">Let's Act!</h3>
+        <Link href="/lets-act">
+          <button className="border px-4 py-2 mt-4 hover:opacity-75 transition">
+            Read More
+          </button>
+        </Link>
       </div>
     </>
   )

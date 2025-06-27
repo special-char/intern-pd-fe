@@ -11,7 +11,7 @@ import { retrieveCart } from "@/lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
 import CartTemplate from "@modules/cart/templates"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useState } from "react"
 import WishlistSlider from "../wishlist-slider"
 import SearchBar from "./SearchBar"
 import SignInDialog from "./SignInDialog"
@@ -28,15 +28,12 @@ const RightNavbar = () => {
     setCart(cartData)
   }, [])
 
-<<<<<<< HEAD
-  useEffect(() => {
-    refreshCart()
-    const intervalId = setInterval(refreshCart, 1000)
-    return () => clearInterval(intervalId)
-  }, [refreshCart])
+  // useEffect(() => {
+  //   refreshCart()
+  //   const intervalId = setInterval(refreshCart, 1000)
+  //   return () => clearInterval(intervalId)
+  // }, [refreshCart])
 
-=======
->>>>>>> dbbfc49b2a9b7c4114bdbc0ec2e6a8f421ae79cf
   return (
     <>
       <div className="hidden sm:flex items-center space-x-3 md:space-x-4 lg:space-x-6 animate-header-icons-slide-in">

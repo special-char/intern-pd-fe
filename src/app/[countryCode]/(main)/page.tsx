@@ -42,6 +42,7 @@ export default async function Home(props: {
       <LookbookBanner />
       {/* Follow Us Section */}
       <FollowUsSection />
+      {/* <FeaturedProductList countryCode={countryCode} /> */}
       <ImageGallery
         images={[
           { src: "/images/one.jpg", wishlistCount: 12 },

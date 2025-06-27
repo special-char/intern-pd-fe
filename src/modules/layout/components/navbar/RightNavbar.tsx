@@ -7,8 +7,8 @@ import {
   DrawerTrigger,
 } from "@/components/design/ui/drawer"
 import { Button } from "@/components/ui/button"
+import { useCart } from "@/lib/context/cart-context"
 import { retrieveCart } from "@/lib/data/cart"
-import { HttpTypes } from "@medusajs/types"
 import CartTemplate from "@modules/cart/templates"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { useCallback, useEffect, useState } from "react"
@@ -21,12 +21,19 @@ const RightNavbar = () => {
   const [isWishlistOpen, setIsWishlistOpen] = useState(false)
   const [isSignInOpen, setIsSignInOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
-  const [cart, setCart] = useState<HttpTypes.StoreCart | null>(null)
+  const { cart, setCart } = useCart()
+
+  // Fetch cart once on mount if not present
+  useEffect(() => {
+    if (!cart) {
+      retrieveCart().then(setCart)
+    }
+  }, [])
 
   const refreshCart = useCallback(async () => {
     const cartData = await retrieveCart()
     setCart(cartData)
-  }, [])
+  }, [setCart])
 
   return (
     <>

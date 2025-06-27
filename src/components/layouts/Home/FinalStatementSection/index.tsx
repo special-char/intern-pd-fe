@@ -26,12 +26,12 @@ const FinalStatementSection = () => {
         </svg>
       </div>
       <h1 className="text-4xl md:text-6xl font-light text-center max-w-4xl leading-tight mb-8">
-        LUXURIOUS <span className="italic font-extralight">and</span>
+        LUXURIOUS <em className="font-saol font-light ">and</em>
         <br />
         CONTEMPORARY APPEAL
         <br />
-        <span className="italic font-extralight">for</span>{" "}
-        <span className="font-light">EVERY WOMAN</span>
+        <em className="font-saol font-light">for</em>{" "}
+        <em className="font-saol font-light">EVERY WOMAN</em>
       </h1>
       <a
         href="/store"

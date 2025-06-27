@@ -31,14 +31,19 @@ const Hero = () => {
             <h4 className="text-white font-light font-akzidenz">
               latest collection
             </h4>
-            <h1 className="text-white text-4xl md:text-6xl font-light mb-6 font-saol">
-              spring
-            </h1>
-            <h1 className="font-light text-white">
+            <h1 className="text-white text-4xl md:text-6xl font-light mb-4 font-saol">
+              spring <br />
+              <h1 className="font-light text-white">
               summer <em className="font-light">'25</em>
             </h1>
+            </h1>
+              
+            {/* </h1>
+            <h1 className="font-light text-white">
+              summer <em className="font-light">'25</em>
+            </h1> */}
           </span>
-          <a
+          {/* <a
             href="https://github.com/medusajs/nextjs-starter-medusa"
             target="_blank"
             rel="noopener noreferrer"
@@ -48,7 +53,7 @@ const Hero = () => {
               View on GitHub
               <Github className="ml-2" />
             </Button>
-          </a>
+          </a> */}
         </div>
       </div>
 

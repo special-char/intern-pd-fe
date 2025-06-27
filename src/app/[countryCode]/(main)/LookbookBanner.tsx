@@ -10,7 +10,7 @@ const LookbookBanner = () => (
     <div className="absolute inset-0 bg-black bg-opacity-20 transition-all duration-300" />
     <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white z-10 text-center">
       <h3 className="text-xs tracking-widest uppercase mb-2">
-        Spring Summer 25
+         Summer 25
       </h3>
       <h1 className="text-2xl md:text-4xl font-light mb-3">
         Explore the <span className="italic font-medium">latest</span> lookbook

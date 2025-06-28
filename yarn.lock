@@ -8302,6 +8302,7 @@ __metadata:
     react: "npm:19.0.0-rc-66855b96-20241106"
     react-country-flag: "npm:^3.1.0"
     react-dom: "npm:19.0.0-rc-66855b96-20241106"
+    react-intersection-observer: "npm:^9.16.0"
     react-router-dom: "npm:^7.6.2"
     server-only: "npm:^0.0.1"
     sonner: "npm:^2.0.5"
@@ -9469,6 +9470,19 @@ __metadata:
   peerDependencies:
     react: 19.0.0-rc-66855b96-20241106
   checksum: 10/b757334b58659dae292c553b52d8d566734681b02b2cd09ba8cc9f385fab9fe2207a1f3dff44affc65bf9d4b6cf16fa309a5c78911d94175872cd6db8cf8de1e
+  languageName: node
+  linkType: hard
+
+"react-intersection-observer@npm:^9.16.0":
+  version: 9.16.0
+  resolution: "react-intersection-observer@npm:9.16.0"
+  peerDependencies:
+    react: ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 10/ded14524d9311cfb9dd9e65eb04748d07a1868f8c40dd628bec8a8474d43ee2373604fdc1e6a7d468a8e2e680638e41b91048ab9669555d50217c5c0c51247e0
   languageName: node
   linkType: hard
 

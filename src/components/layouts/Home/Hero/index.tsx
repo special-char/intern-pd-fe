@@ -1,5 +1,4 @@
-import { Github } from "@medusajs/icons"
-import { Button } from "@medusajs/ui"
+import Link from "next/link"
 
 const Hero = () => {
   return (
@@ -30,14 +29,14 @@ const Hero = () => {
             <h4 className="text-white font-light font-akzidenz">
               latest collection
             </h4>
-            <h1 className="text-white text-4xl md:text-6xl font-light mb-6 font-saol">
-              spring
-            </h1>
-            <h1 className="font-light text-white">
-              summer <em className="font-light">'25</em>
+            <h1 className="text-white text-4xl md:text-6xl font-light mb-4 font-saol">
+              spring <br />
+              <span className="font-light text-white">
+                summer <em className="font-light">'25</em>
+              </span>
             </h1>
           </span>
-          <a
+          {/* <a
             href="https://github.com/medusajs/nextjs-starter-medusa"
             target="_blank"
             rel="noopener noreferrer"
@@ -47,8 +46,19 @@ const Hero = () => {
               View on GitHub
               <Github className="ml-2" />
             </Button>
-          </a>
+          </a> */}
         </div>
+      </div>
+
+      {/* Responsibility Program Section */}
+      <div className="w-full py-16 text-center">
+        <h4 className="font-akzidenz">OUR RESPONSIBILITY PROGRAM</h4>
+        <h3 className="font-saol">Let's Act!</h3>
+        <Link href="/lets-act">
+          <button className="border px-4 py-2 mt-4 hover:opacity-75 transition">
+            Read More
+          </button>
+        </Link>
       </div>
     </>
   )

@@ -1,14 +1,16 @@
 import { Metadata } from "next"
+import Link from "next/link"
 
+import FeaturedProductList from "@/components/layouts/FeaturedProductList"
+import FinalStatementSection from "@/components/layouts/Home/FinalStatementSection"
+import Hero from "@/components/layouts/Home/Hero"
+import ResponsibilityProgramSection from "@/components/layouts/Home/ResponsibilityProgramSection"
+import SummerProductList from "@/components/layouts/SummerCollection"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import ImageGallery from "@modules/common/components/ImageGallery"
-import LookbookBanner from "./LookbookBanner"
 import FollowUsSection from "./FollowUsSection"
-import FeaturedProductList from "@/components/layouts/FeaturedProductList"
-import Hero from "@/components/layouts/Home/Hero"
-import ResponsibilityProgramSection from "@/components/layouts/Home/ResponsibilityProgramSection"
-import FinalStatementSection from "@/components/layouts/Home/FinalStatementSection"
+import LookbookBanner from "./LookbookBanner"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -36,12 +38,14 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
-      <ResponsibilityProgramSection />
       <FeaturedProductList countryCode={countryCode} />
+      <ResponsibilityProgramSection />
       <FinalStatementSection />
+      <SummerProductList countryCode={countryCode} />
       <LookbookBanner />
       {/* Follow Us Section */}
       <FollowUsSection />
+      {/* <FeaturedProductList countryCode={countryCode} /> */}
       <ImageGallery
         images={[
           { src: "/images/one.jpg", wishlistCount: 12 },

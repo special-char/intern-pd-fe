@@ -28,9 +28,8 @@ const Accordion = ({
             {title}
           </span>
           <svg
-            className={`w-5 h-5 transition-transform duration-300 ${
-              isOpen ? "rotate-180" : ""
-            }`}
+            className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+              }`}
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -60,9 +59,9 @@ export default function Headoffice() {
         isItalic={false}
         textColor="text-[#050505]"
       >
-        
+
         <div className="space-y-6 text-[14px] pl-24">
-      
+
           <p className="font-akzidenz">Head office</p>
 
           <p>

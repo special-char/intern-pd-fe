@@ -43,9 +43,8 @@ const Accordion = ({
         </div>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className={`px-6 py-2 ${bgColor} text-sm leading-7 ${textColor}`}>
           {children}
@@ -95,11 +94,7 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-<<<<<<< HEAD
         <div className="space-y-6 text-white text-base md:text-sm pl-24">
-=======
-        <div className="space-y-6 text-white text-base md:text-lg pl-24">
->>>>>>> 7b4884ce3942c515ad892b008db1f6a94eec25bd
           <p className="font-akzidenz">Code of Conduct</p>
           <p>
             We formulated our Code of Conduct at the end of 2023. This is a

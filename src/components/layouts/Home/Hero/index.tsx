@@ -27,12 +27,13 @@ const Hero = () => {
         <div className="absolute inset-0 z-20 flex flex-col justify-center items-start px-16">
           <span className="text-left">
             <h4 className="text-white font-light font-akzidenz">
-              latest collection
+              LATEST COLLECTION
             </h4>
             <h1 className="text-white text-4xl md:text-6xl font-light mb-4 font-saol">
-              spring <br />
-              <span className="font-light text-white">
-                summer <em className="font-light">'25</em>
+            
+              Spring <br />
+              <span className="font-saol font-light text-white">
+                Summer <em className="font-saol font-light">'25</em>
               </span>
             </h1>
           </span>

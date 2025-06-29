@@ -44,7 +44,6 @@ const Login = ({ setCurrentView }: Props) => {
             type="email"
             title="Enter a valid email address."
             autoComplete="email"
-            required
             data-testid="email-input"
             className="w-full size-12 pl-2 rounded-[5px]"
             value={formData.email}
@@ -55,7 +54,6 @@ const Login = ({ setCurrentView }: Props) => {
             name="password"
             type="password"
             autoComplete="current-password"
-            required
             data-testid="password-input"
             className="w-full size-12 pl-2 rounded-[5px]"
             value={formData.password}

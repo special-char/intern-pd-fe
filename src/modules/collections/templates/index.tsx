@@ -61,14 +61,14 @@ export default async function CollectionTemplate({
             ))}
           </nav>
         </div>
-        <FilterButton />
         <Suspense
           fallback={
             <SkeletonProductGrid
-              numberOfProducts={collection.products?.length}
+            numberOfProducts={collection.products?.length}
             />
           }
         >
+          <FilterButton />
           <PaginatedProducts
             sortBy={sort}
             page={pageNumber}

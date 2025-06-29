@@ -29,17 +29,31 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
   return (
     <>
       <div
-        className="content-container flex flex-col small:flex-row small:items-start py-6 relative"
+        className="content-container flex flex-col lg:flex-row py-6 relative gap-8"
         data-testid="product-container"
       >
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-6">
+        {/* Left Column - Images */}
+        <div className="w-full lg:w-2/3">
+          <div className="grid grid-cols-2 gap-4">
+            {product?.images?.slice(0, 4).map((image, index) => (
+              <div
+                key={index}
+                className="aspect-[4/5] relative overflow-hidden"
+              >
+                <img
+                  src={image.url}
+                  alt={`Product image ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right Column - Content */}
+        <div className="w-full lg:w-1/3 flex flex-col gap-8">
           <ProductInfo product={product} />
           <ProductTabs product={product} />
-        </div>
-        <div className="block w-full relative">
-          <ImageGallery images={product?.images || []} />
-        </div>
-        <div className="flex flex-col small:sticky small:top-48 small:py-0 small:max-w-[300px] w-full py-8 gap-y-12">
           <ProductOnboardingCta />
           <Suspense
             fallback={

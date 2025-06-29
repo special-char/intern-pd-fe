@@ -8,6 +8,7 @@ const Accordion = ({
   bgColor,
   isItalic,
   textColor,
+
 }: {
   title: string
   children: React.ReactNode
@@ -28,9 +29,8 @@ const Accordion = ({
             {title}
           </span>
           <svg
-            className={`w-5 h-5 transition-transform duration-300 ${
-              isOpen ? "rotate-180" : ""
-            }`}
+            className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+              }`}
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -59,9 +59,10 @@ export default function MaterialAccordion() {
         bgColor="bg-[#ede3d7]"
         isItalic={false}
         textColor="text-[#050505]"
+
       >
         {/* <p className="font-thin text-[16px]">Material</p> */}
-        <div className="space-y-6 text-base md:text-lg pl-24">
+        <div className="space-y-6 text-base md:text-sm pl-24">
           <p className="font-akzidenz">Retraced</p>
 
           <p>
@@ -88,7 +89,7 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-         <div className="space-y-6 text-white text-base md:text-lg pl-24">
+        <div className="space-y-6 text-white text-base md:text-sm pl-24">
           <p className="font-akzidenz">Code of Conduct</p>
           <p>
             We formulated our Code of Conduct at the end of 2023. This is a contract
@@ -111,7 +112,7 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-        <div className="space-y-6 text-base md:text-lg pl-24">
+        <div className="space-y-6 text-base md:text-sm pl-24">
           <p className="font-akzidenz">Working Conditions</p>
 
           <p>

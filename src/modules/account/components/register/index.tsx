@@ -42,10 +42,10 @@ const Register = ({ setCurrentView }: Props) => {
       className="max-w-sm flex flex-col items-center"
       data-testid="register-page"
     >
-      <h1 className="font-serif uppercase mb-6 text-sm">
+      <h1 className="text-large-semi uppercase mb-6 text-2xl font-serif text-center">
         Become a Rino & Pelle Store Member
       </h1>
-      <p className="text-center text-base-regular text-ui-fg-base mb-4">
+      <p className=" text-base-regular text-ui-fg-base mb-4 font-semibold text-sm">
         Create your Rino & Pelle Store Member profile, and get access to an
         enhanced shopping experience.
       </p>
@@ -54,7 +54,6 @@ const Register = ({ setCurrentView }: Props) => {
           <Input
             placeholder="First name"
             name="first_name"
-            required
             autoComplete="given-name"
             data-testid="first-name-input"
             className="w-full size-12 pl-2 rounded-[5px]"
@@ -64,7 +63,6 @@ const Register = ({ setCurrentView }: Props) => {
           <Input
             placeholder="Last name"
             name="last_name"
-            required
             autoComplete="family-name"
             data-testid="last-name-input"
             className="w-full size-12 pl-2 rounded-[5px]"
@@ -74,7 +72,6 @@ const Register = ({ setCurrentView }: Props) => {
           <Input
             placeholder="Email"
             name="email"
-            required
             type="email"
             autoComplete="email"
             data-testid="email-input"
@@ -95,7 +92,6 @@ const Register = ({ setCurrentView }: Props) => {
           <Input
             placeholder="Password"
             name="password"
-            required
             type="password"
             autoComplete="new-password"
             data-testid="password-input"
@@ -105,7 +101,7 @@ const Register = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
-        <span className="text-center text-ui-fg-base text-small-regular mt-6">
+        <span className="text-ui-fg-base text-small-regular mt-6 text-sm font-semibold">
           By creating an account, you agree to Medusa Store&apos;s{" "}
           <LocalizedClientLink
             href="/content/privacy-policy"

@@ -1,5 +1,3 @@
-import { Github } from "@medusajs/icons"
-import { Button } from "@medusajs/ui"
 import Link from "next/link"
 
 const Hero = () => {
@@ -33,15 +31,10 @@ const Hero = () => {
             </h4>
             <h1 className="text-white text-4xl md:text-6xl font-light mb-4 font-saol">
               spring <br />
-              <h1 className="font-light text-white">
-              summer <em className="font-light">'25</em>
+              <span className="font-light text-white">
+                summer <em className="font-light">'25</em>
+              </span>
             </h1>
-            </h1>
-              
-            {/* </h1>
-            <h1 className="font-light text-white">
-              summer <em className="font-light">'25</em>
-            </h1> */}
           </span>
           {/* <a
             href="https://github.com/medusajs/nextjs-starter-medusa"

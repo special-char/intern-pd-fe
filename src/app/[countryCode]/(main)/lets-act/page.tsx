@@ -188,9 +188,9 @@ export default function Page() {
           {/* Right: Text */}
           <div className=" space-y-4 col-start-8 col-end-12">
             <p className="text-xs tracking-widest uppercase">Suppliers</p>
-            <h2 className="text-4xl font-light">
-              Suppliers &{" "}
-              <em className="italic font-serif">Production Chain</em>
+            <h2 className="text-4xl font-light font-saol">
+              Suppliers &<br />
+              <em className="italic font-saol">Production Chain</em>
             </h2>
             <p className="text-sm leading-relaxed font-light">
               To better understand where we need improvement in our supply

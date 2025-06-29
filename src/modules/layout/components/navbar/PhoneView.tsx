@@ -1,23 +1,22 @@
 "use client"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import Link from "next/link"
 
 const menuItems = [
-  { name: "Home", href: "/" },
+  { name: "New Arrivals", href: "/" },
   { name: "Shop", href: "/store" },
+  { name: "Lookbook", href: "/lookbook" },
   { name: "About", href: "/about" },
-  { name: "lookbook", href: "/lookbook" },
-  { name: "Blog", href: "/blog" },
   { name: "Let's Act", href: "/lets-act" },
 ]
 
-const PhoneView = ({ onSignIn }: { onSignIn: () => void }) => (
+const PhoneView = () => (
   <Sheet>
     <SheetTrigger asChild>
       <button
@@ -29,38 +28,37 @@ const PhoneView = ({ onSignIn }: { onSignIn: () => void }) => (
         <div className="w-6 h-[1px] bg-black"></div>
       </button>
     </SheetTrigger>
-    <SheetContent
-      side="left"
-      className="w-64 bg-white shadow-lg font-saol overflow-y-auto no-scrollbar"
-    >
-      <SheetHeader>
-        <SheetTitle>Menu</SheetTitle>
-      </SheetHeader>
-      <div className="flex flex-col space-y-4 mt-4">
-        {menuItems.map((item) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            className="text-gray-900 hover:text-gray-600 text-2xl font-light tracking-wider transition-colors duration-200 py-2 font-saol"
+    <SheetContent side="left" className="p-0 w-[100vw] max-w-[400px]">
+      <SheetTitle className="sr-only">Main menu</SheetTitle>
+      {/* Header with logo and close icon */}
+      <div className="flex items-center px-4 py-6 border-b border-gray-200 gap-2">
+        <span className="font-serif font-extrabold tracking-[0.3em] text-xl text-black">
+          RINO & PELLE
+        </span>
+        <SheetTrigger asChild>
+          <button
+            className="lg:hidden ml-auto p-2 hover:bg-gray-50 rounded-md transition-colors duration-200"
+            aria-label="Open menu"
           >
-            {item.name}
-          </Link>
+            <div className="w-6 h-[1px] bg-black mb-1.5"></div>
+            <div className="w-6 h-[1px] bg-black mb-1.5"></div>
+            <div className="w-6 h-[1px] bg-black"></div>
+          </button>
+        </SheetTrigger>
+      </div>
+      {/* Main menu */}
+      <nav className="flex flex-col gap-4 px-4 py-8">
+        {menuItems.map((item) => (
+          <SheetClose asChild key={item.name}>
+            <Link
+              href={item.href}
+              className="text-black text-5xl font-light font-saol tracking-wide leading-tight hover:text-gray-600 transition-colors duration-200"
+            >
+              {item.name}
+            </Link>
+          </SheetClose>
         ))}
-      </div>
-      <div className="flex flex-col space-y-4 mt-8 pt-8 border-t border-gray-100">
-        <button className="text-gray-800 transition-colors duration-200 text-left ">
-          Search
-        </button>
-        <button className="text-gray-800 transition-colors duration-200 text-left ">
-          Wishlist
-        </button>
-        <button
-          onClick={onSignIn}
-          className="text-gray-800 transition-colors duration-200 text-left"
-        >
-          Sign In
-        </button>
-      </div>
+      </nav>
     </SheetContent>
   </Sheet>
 )

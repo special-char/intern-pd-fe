@@ -42,11 +42,15 @@ const Accordion = ({
           </svg>
         </div>
       </button>
-      {isOpen && (
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
         <div className={`px-6 py-2 ${bgColor} text-sm leading-7 ${textColor}`}>
           {children}
         </div>
-      )}
+      </div>
     </div>
   )
 }
@@ -61,23 +65,25 @@ export default function MaterialAccordion() {
         textColor="text-[#050505]"
       >
         {/* <p className="font-thin text-[16px]">Material</p> */}
-        <div className="space-y-6 text-base md:text-lg pl-24">
+        <div className="space-y-6 text-base md:text-sm pl-24">
           <p className="font-akzidenz">Retraced</p>
 
           <p>
-            At the end of 2023, we partnered with Retraced. This is an online platform that, among
-            other things, is going to help us make our production chain more transparent. In 2024
-            for instance, we started inventorying our main suppliers. Via the platform, we can request
-            and track certificates. For our Spring/Summer 2025 collection, we tracked our largest
-            orders to gain a clearer understanding of which sub-suppliers are involved in producing
-            our products.
+            At the end of 2023, we partnered with Retraced. This is an online
+            platform that, among other things, is going to help us make our
+            production chain more transparent. In 2024 for instance, we started
+            inventorying our main suppliers. Via the platform, we can request
+            and track certificates. For our Spring/Summer 2025 collection, we
+            tracked our largest orders to gain a clearer understanding of which
+            sub-suppliers are involved in producing our products.
           </p>
 
           <p>
-            In 2025, we will start creating a product passport for 250 items. This largely involves
-            tracing the entire production process from raw material to garment. We strive for
-            transparency to gain insight into our product and production chain and to be able to
-            apply targeted improvements.
+            In 2025, we will start creating a product passport for 250 items.
+            This largely involves tracing the entire production process from raw
+            material to garment. We strive for transparency to gain insight into
+            our product and production chain and to be able to apply targeted
+            improvements.
           </p>
         </div>
       </Accordion>
@@ -88,16 +94,14 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-         <div className="space-y-6 text-white text-base md:text-lg pl-24">
+        <div className="space-y-6 text-white text-base md:text-lg pl-24">
           <p className="font-akzidenz">Code of Conduct</p>
           <p>
-            We formulated our Code of Conduct at the end of 2023. This is a contract
-            that stipulates rules of conduct and conditions that our suppliers must
-            meet in order to start a partnership with us.
+            We formulated our Code of Conduct at the end of 2023. This is a
+            contract that stipulates rules of conduct and conditions that our
+            suppliers must meet in order to start a partnership with us.
           </p>
-          <p>
-            Click on the link below to see our Code of Conduct.
-          </p>
+          <p>Click on the link below to see our Code of Conduct.</p>
 
           <button className="bg-black text-white text-sm px-3 py-1 rounded">
             Code of Conduct
@@ -111,17 +115,19 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-        <div className="space-y-6 text-base md:text-lg pl-24">
+        <div className="space-y-6 text-base md:text-sm pl-24">
           <p className="font-akzidenz">Working Conditions</p>
 
           <p>
-            As part of the rules of conduct and conditions mentioned in our Code of Conduct,
-            we require our suppliers to have a valid social research report. This could be a
-            report from amfori BSCI, SMETA or WRAP. We have been a member of the amfori Business
-            Social Compliance Initiative (BSCI) since 2018. This involves an audit by an
-            independent organisation at the factory every year or every 2 years. During this
-            audit social conditions at the factory are assessed (e.g. no discrimination, no
-            child labour, fair wages, working hours, health, hygiene & safety).
+            As part of the rules of conduct and conditions mentioned in our Code
+            of Conduct, we require our suppliers to have a valid social research
+            report. This could be a report from amfori BSCI, SMETA or WRAP. We
+            have been a member of the amfori Business Social Compliance
+            Initiative (BSCI) since 2018. This involves an audit by an
+            independent organisation at the factory every year or every 2 years.
+            During this audit social conditions at the factory are assessed
+            (e.g. no discrimination, no child labour, fair wages, working hours,
+            health, hygiene & safety).
           </p>
         </div>
       </Accordion>

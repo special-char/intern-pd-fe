@@ -135,16 +135,6 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://tiktok.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gray-600 transition-colors duration-200"
-                >
-                  Tiktok
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://pinterest.com"
                   target="_blank"
                   rel="noopener noreferrer"

@@ -26,14 +26,6 @@ const FilterButton = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      {/* Filter & Sort Button */}
-      <div className="mb-6">
-        <Button
-          onClick={() => setIsFilterOpen(!isFilterOpen)}
-          variant="secondary"
-          className="flex items-left gap-2 px-4 py-2 border border-black text-black bg-white rounded-none"
-=======
       <style jsx>{`
         .custom-checkbox {
           appearance: none;
@@ -97,29 +89,16 @@ const FilterButton = () => {
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
           style={{ boxShadow: "0 0 16px 0 rgba(0,0,0,0.08)" }}
->>>>>>> e35b81d1c411f88d147bfd77bd7694a78e548cfb
         >
           <div className="flex justify-between items-center px-4 pt-6">
-<<<<<<< HEAD
-            <h2 className="font-akzidenz text-[10px] font-medium">
-              FILTER & SORT
-            </h2>
-            <button
-              className=" font-light text-xl hover:text-black focus:outline-none"
-=======
             <Button className="button">FILTER & SORT</Button>
             <Button
               className=" button"
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
               onClick={() => setIsOpen(false)}
               aria-label="Close sidebar"
             >
               ×
-<<<<<<< HEAD
-            </button>
-=======
             </Button>
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
           </div>
 
           <div className="flex flex-col space-y-6 px-4 py-6 overflow-y-auto h-[calc(100vh-56px)] font-akzidenz text-[12px]">
@@ -127,20 +106,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">SORT</h3>
-<<<<<<< HEAD
-                <button
-=======
                 <Button
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
                   onClick={() => setIsSortOpen(!isSortOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isSortOpen ? "−" : "+"}
-<<<<<<< HEAD
-                </button>
-=======
                 </Button>
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
               </div>
               {isSortOpen && (
                 <div className="space-y-2">
@@ -173,20 +144,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">SIZE</h3>
-<<<<<<< HEAD
-                <button
-=======
                 <Button
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
                   onClick={() => setIsSizeOpen(!isSizeOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isSizeOpen ? "−" : "+"}
-<<<<<<< HEAD
-                </button>
-=======
                 </Button>
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
               </div>
               {isSizeOpen && (
                 <div className="grid grid-cols-2 gap-2">
@@ -223,20 +186,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">CATEGORIES</h3>
-<<<<<<< HEAD
-                <button
-=======
                 <Button
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
                   onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isCategoriesOpen ? "−" : "+"}
-<<<<<<< HEAD
-                </button>
-=======
                 </Button>
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
               </div>
               {isCategoriesOpen && (
                 <div className="grid grid-cols-2 gap-2">
@@ -270,20 +225,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">COLOUR</h3>
-<<<<<<< HEAD
-                <button
-=======
                 <Button
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
                   onClick={() => setIsColourOpen(!isColourOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isColourOpen ? "−" : "+"}
-<<<<<<< HEAD
-                </button>
-=======
                 </Button>
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
               </div>
               {isColourOpen && (
                 <div className="grid grid-cols-2 gap-2">
@@ -318,20 +265,12 @@ const FilterButton = () => {
             <div className="p-4 border-b-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-medium mb-3 text-[10px]">PRICE</h3>
-<<<<<<< HEAD
-                <button
-=======
                 <Button
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
                   onClick={() => setIsPriceOpen(!isPriceOpen)}
                   className="text-sm font-light leading-none"
                 >
                   {isPriceOpen ? "−" : "+"}
-<<<<<<< HEAD
-                </button>
-=======
                 </Button>
->>>>>>> 33dcc9fda715159ef2b7463f199ab761de7ffd5e
               </div>
               {isPriceOpen && (
                 <div className="flex flex-col gap-2 pt-2">

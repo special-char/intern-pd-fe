@@ -65,7 +65,7 @@ export default function MaterialAccordion() {
         textColor="text-[#050505]"
       >
         {/* <p className="font-thin text-[16px]">Material</p> */}
-        <div className="space-y-6 text-base md:text-lg pl-24">
+        <div className="space-y-6 text-base md:text-sm pl-24">
           <p className="font-akzidenz">Retraced</p>
 
           <p>
@@ -115,7 +115,7 @@ export default function MaterialAccordion() {
         isItalic={true}
         textColor="text-white"
       >
-        <div className="space-y-6 text-base md:text-lg pl-24">
+        <div className="space-y-6 text-base md:text-sm pl-24">
           <p className="font-akzidenz">Working Conditions</p>
 
           <p>

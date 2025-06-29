@@ -42,11 +42,15 @@ const AccordionItem = ({
           </svg>
         </div>
       </button>
-      {isOpen && (
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
         <div className={`px-6 py-2 ${bgColor} text-sm leading-7 ${textColor}`}>
           {children}
         </div>
-      )}
+      </div>
     </div>
   )
 }

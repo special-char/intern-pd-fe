@@ -143,8 +143,8 @@ export const Toolbar: React.FC<ToolbarProps> = ({
           key={tool.id}
           variant={activeTool === tool.id ? "default" : "outline"}
           className={`w-full justify-start rounded-[5px] transition-colors duration-200
-            ${activeTool === tool.id ? "bg-[#d4a574] text-white" : ""}
-            hover:bg-[#d4a574] hover:text-white focus:bg-[#d4a574] focus:text-white active:bg-[#d4a574] active:text-white`}
+            ${activeTool === tool.id ? "bg-black text-white" : ""}
+            hover:bg-black hover:text-white focus:bg-black focus:text-white active:bg-black active:text-white`}
           onClick={tool.action}
         >
           <tool.icon className="w-4 h-4 mr-2" />
@@ -153,7 +153,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
       ))}
 
       <div className="border rounded-[10px] p-2 space-y-2">
-        <h4 className="text-sm font-medium mb-2 text-gray-400">Text Options</h4>
+        <h4 className="text-sm font-medium mb-2 text-black">Text Options</h4>
 
         <div className="space-y-1">
           <Label htmlFor="font-select" className="text-xs text-gray-400">

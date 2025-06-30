@@ -96,7 +96,7 @@ export const DesignStudio = () => {
         <div className="grid grid-cols-12 gap-6 h-[calc(100vh-140px)]">
           {/* Left Panel - Tools & Layers */}
           <div className="col-span-3 space-y-4">
-            <Card className="p-4 rounded-[10px] bg-gray-900">
+            <Card className="p-4 rounded-[10px] bg-gray-100">
               <h3 className="font-semibold mb-3 text-gray-900 font-saol text-gray-100">
                 Tools
               </h3>
@@ -107,8 +107,11 @@ export const DesignStudio = () => {
               />
             </Card>
 
-            <Card className="p-4 flex-1 rounded-[10px] bg-gray-900">
-              <h3 className="font-semibold mb-3 text-gray-900 text-white">
+            <Card className="p-4 flex-1 rounded-[10px] bg-gray-100">
+              <h3
+                className="font-semibold mb-3 text-gray-900 text-black
+              "
+              >
                 Layers
               </h3>
               <LayerPanel fabricCanvas={fabricCanvas} />

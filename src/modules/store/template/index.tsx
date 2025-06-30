@@ -4,11 +4,13 @@ import { Suspense } from "react"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 
 import InfiniteProductList from "@/components/InfiniteProductList"
-import { listCollections } from "@lib/data/collections"
+import { listCategories } from "@lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+
+
 import FilterButton from "./filter-button"
 
-const StoreTemplate = async ({
+const StoreTemplate = ({
   sortBy,
   page,
   countryCode,
@@ -20,12 +22,13 @@ const StoreTemplate = async ({
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
 
-  // Fetch collections on the server
-  const { collections } = await listCollections()
 
-  // Filter out 'Tops & Blouses' collection
-  const filteredCollections = collections.filter(
-    (collection) => collection.title !== "Tops & Blouses"
+  // Fetch categories on the server
+  const categories = await listCategories()
+
+  // Filter out any unwanted categories if needed
+  const filteredCategories = categories.filter(
+    (category) => category.name !== "Tops & Blouses"
   )
 
   return (
@@ -47,15 +50,51 @@ const StoreTemplate = async ({
               All Clothing
             </Link>
             <span className="text-gray-300">|</span>
-            {filteredCollections.map((collection) => (
+
+            <Link href="/store/coats" className="hover:underline">
+              Coats
+            </Link>
+            <Link href="/store/jackets" className="hover:underline">
+              Jackets
+            </Link>
+            <Link href="/products/Capes" className="hover:underline">
+              Capes
+            </Link>
+            <Link href="/store/waistcoats" className="hover:underline">
+              Waistcoats
+            </Link>
+            <Link href="/store/sweaters" className="hover:underline">
+              Sweaters
+            </Link>
+            <Link href="/store/cardigans" className="hover:underline">
+              Cardigans
+            </Link>
+            <Link href="/products/dulani-top" className="hover:underline">
+              Tops & Blouses
+            </Link>
+            <Link href="/store/t-shirts" className="hover:underline">
+              T-shirts
+            </Link>
+            <Link href="/store/trousers" className="hover:underline">
+              Trousers
+            </Link>
+            <Link href="/category/Skirts" className="hover:underline">
+              Skirts
+            </Link>
+            <Link href="/store/dresses" className="hover:underline">
+              Dresses
+            </Link>
+
+            {filteredCategories.map((category) => (
               <Link
-                key={collection.id}
-                href={`/${countryCode}/collections/${collection.handle}`}
+                key={category.id}
+                href={`/${countryCode}/categories/${category.handle}`}
                 className="hover:underline"
               >
-                {collection.title}
+                {category.name}
               </Link>
             ))}
+
           </nav>
         </div>
         <FilterButton />

@@ -30,4 +30,4 @@ const CartTemplate = ({
   )
 }
 
-export default CartTemplate
+export default CartTemplate

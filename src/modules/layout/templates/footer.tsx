@@ -43,32 +43,37 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/store" className="hover:text-gray-600">
+                <Link href="/store" className="hover:text-gray-600 transition-colors duration-200">
                   Shop
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/about" className="hover:text-gray-600 transition-colors duration-200">
                   About
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="hover:text-gray-600">
+              {/* <li>
+                <Link href="/contact" className="hover:text-gray-600 transition-colors duration-200">
                   Contact
                 </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-gray-600">
+              </li> */}
+              {/* <li>
+                <Link href="/store-locator" className="hover:text-gray-600 transition-colors duration-200">
                   Store locator
+                </Link>
+              </li> */}
+              <li>
+                <Link href="/lookbook" className="hover:text-gray-600 transition-colors duration-200">
+                  Lookbook
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/blog" className="hover:text-gray-600 transition-colors duration-200">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/lets-act" className="hover:text-gray-600 transition-colors duration-200">
                   Let's Act
                 </Link>
               </li>
@@ -81,22 +86,22 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/faq" className="hover:text-gray-600 transition-colors duration-200">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/delivery" className="hover:text-gray-600 transition-colors duration-200">
                   Delivery
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/order-process" className="hover:text-gray-600 transition-colors duration-200">
                   Order process
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/returns" className="hover:text-gray-600 transition-colors duration-200">
                   Returns
                 </Link>
               </li>
@@ -110,40 +115,30 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#"
+                  href="https://instagram.com"
                   target="_blank"
-                  rel="noopener"
-                  className="hover:text-gray-600"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-600 transition-colors duration-200"
                 >
                   Instagram
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://facebook.com"
                   target="_blank"
-                  rel="noopener"
-                  className="hover:text-gray-600"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-600 transition-colors duration-200"
                 >
                   Facebook
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://pinterest.com"
                   target="_blank"
-                  rel="noopener"
-                  className="hover:text-gray-600"
-                >
-                  Tiktok
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener"
-                  className="hover:text-gray-600"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-600 transition-colors duration-200"
                 >
                   Pinterest
                 </a>
@@ -157,12 +152,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/b2b-login" className="hover:text-gray-600 transition-colors duration-200">
                   B2B Login
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/wholesale" className="hover:text-gray-600 transition-colors duration-200">
                   Wholesale
                 </Link>
               </li>
@@ -175,17 +170,17 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/privacy-policy" className="hover:text-gray-600 transition-colors duration-200">
                   Privacy policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/terms-conditions" className="hover:text-gray-600 transition-colors duration-200">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-gray-600">
+                <Link href="/payments" className="hover:text-gray-600 transition-colors duration-200">
                   Payments
                 </Link>
               </li>
@@ -220,12 +215,6 @@ export default function Footer() {
                 placeholder="Email"
                 className="border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-black"
               />
-              {/* <button 
-                                type="submit" 
-                                className="bg-black text-white rounded px-4 py-2 text-sm font-semibold tracking-widest hover:bg-gray-800 transition-colors w-full"
-                            >
-                                SUBSCRIBE
-                            </button> */}
               <Button>SUBSCRIBE</Button>
             </form>
           </div>

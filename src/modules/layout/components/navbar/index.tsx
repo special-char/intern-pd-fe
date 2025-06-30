@@ -21,20 +21,20 @@ const Navbar = () => (
         <LeftNavbar />
         <CenterNavbar
           menuItems={[
-    { name: "Home", href: "/" },
-    { name: "Shop", href: "/store" },
-    { name: "About", href: "/about" },
-    { name: "lookbook", href: "/lookbook" },
-    { name: "Blog", href: "/blog" },
-    { name: "Let's Act", href: "/lets-act" },
+            { name: "Home", href: "/" },
+            { name: "Shop", href: "/store" },
+            { name: "About", href: "/about" },
+            { name: "lookbook", href: "/lookbook" },
+            { name: "Blog", href: "/blog" },
+            { name: "Let's Act", href: "/lets-act" },
           ]}
         />
         <RightNavbar />
-        <PhoneView onSignIn={() => {}} />
+        <PhoneView />
       </div>
-        </div>
-    </nav>
-  )
+    </div>
+  </nav>
+)
 
 export default Navbar
 export { CenterNavbar, LeftNavbar, PhoneView, RightNavbar }

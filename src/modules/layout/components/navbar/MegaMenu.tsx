@@ -17,7 +17,6 @@ const clothing = [
 ]
 
 
-
 export default function MegaMenu() {
   return (
     <div
@@ -29,9 +28,7 @@ export default function MegaMenu() {
         transform: "translateX(-50%)",
       }}
     >
-      <div className="flex gap-12 px-5">
-        {/* Featured */}
-        
+
         {/* Clothing */}
         <div>
           <div className="uppercase text-xs text-gray-400 font-bold mb-2 tracking-widest">
@@ -50,9 +47,7 @@ export default function MegaMenu() {
             ))}
           </ul>
         </div>
-        {/* Accessories */}
-        
-      </div>
+    </div>
     </div>
   )
 }

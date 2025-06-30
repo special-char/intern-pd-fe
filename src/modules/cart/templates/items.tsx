@@ -149,4 +149,4 @@ const ItemsTemplate = ({ cart, onCartUpdate }: ItemsTemplateProps) => {
   )
 }
 
-export default ItemsTemplate
+export default ItemsTemplate

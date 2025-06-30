@@ -23,4 +23,4 @@ const SignInPrompt = () => {
   )
 }
 
-export default SignInPrompt
+export default SignInPrompt

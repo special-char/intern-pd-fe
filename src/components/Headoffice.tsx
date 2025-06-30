@@ -28,9 +28,8 @@ const Accordion = ({
             {title}
           </span>
           <svg
-            className={`w-5 h-5 transition-transform duration-300 ${
-              isOpen ? "rotate-180" : ""
-            }`}
+            className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+              }`}
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -43,9 +42,8 @@ const Accordion = ({
         </div>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-          isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className={`px-6 py-2 ${bgColor} text-sm leading-7 ${textColor}`}>
           {children}

@@ -38,7 +38,6 @@ const StoreTemplate = async ({
             All Clothing
           </h1>
         </div>
-        <FilterButton />
         <div className="flex items-right justify-center  border-b border-gray-200 pb-4 mb-4">
           <nav className="flex items-center gap-6 overflow-x-auto">
             <Link
@@ -59,6 +58,7 @@ const StoreTemplate = async ({
             ))}
           </nav>
         </div>
+        <FilterButton />
         <Suspense fallback={<SkeletonProductGrid />}>
           <InfiniteProductList sortBy={sort} countryCode={countryCode} />
         </Suspense>

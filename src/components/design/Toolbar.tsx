@@ -10,7 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/design/ui/select"
-import { Label } from "@/components/ui/label"
 import { Canvas as FabricCanvas, FabricImage, IText } from "fabric"
 import { MousePointer, Type, Upload } from "lucide-react"
 import React, { useState } from "react"

@@ -1,6 +1,5 @@
 import Link from "next/link"
 
-
 const clothing = [
   { label: "All Clothing", href: "/store" },
   { label: "Coats", href: "/categories/coats" },
@@ -16,7 +15,6 @@ const clothing = [
   { label: "Dresses", href: "/categories/dresses" },
 ]
 
-
 export default function MegaMenu() {
   return (
     <div
@@ -28,6 +26,8 @@ export default function MegaMenu() {
         transform: "translateX(-50%)",
       }}
     >
+      <div className="flex gap-12 px-5">
+        {/* Featured */}
 
         {/* Clothing */}
         <div>
@@ -47,7 +47,8 @@ export default function MegaMenu() {
             ))}
           </ul>
         </div>
-    </div>
-    </div>
-  )
+        {/* Accessories */}
+      </div>
+    </div>
+  )
 }

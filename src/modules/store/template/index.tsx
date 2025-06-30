@@ -7,10 +7,9 @@ import InfiniteProductList from "@/components/InfiniteProductList"
 import { listCategories } from "@lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 
-
 import FilterButton from "./filter-button"
 
-const StoreTemplate = ({
+const StoreTemplate = async ({
   sortBy,
   page,
   countryCode,
@@ -21,7 +20,6 @@ const StoreTemplate = ({
 }) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
-
 
   // Fetch categories on the server
   const categories = await listCategories()
@@ -51,7 +49,7 @@ const StoreTemplate = ({
             </Link>
             <span className="text-gray-300">|</span>
 
-            <Link href="/store/coats" className="hover:underline">
+            {/* <Link href="/store/coats" className="hover:underline">
               Coats
             </Link>
             <Link href="/store/jackets" className="hover:underline">
@@ -83,7 +81,7 @@ const StoreTemplate = ({
             </Link>
             <Link href="/store/dresses" className="hover:underline">
               Dresses
-            </Link>
+            </Link> */}
 
             {filteredCategories.map((category) => (
               <Link
@@ -94,7 +92,6 @@ const StoreTemplate = ({
                 {category.name}
               </Link>
             ))}
-
           </nav>
         </div>
         <FilterButton />

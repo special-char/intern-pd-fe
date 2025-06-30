@@ -8,7 +8,7 @@ import { HttpTypes } from "@medusajs/types"
 import FilterButton from "@modules/store/template/filter-button"
 import { listCategories } from "@lib/data/categories"
 
-export default function CollectionTemplate({
+export default async function CollectionTemplate({
   sortBy,
   collection,
   page,
@@ -64,7 +64,7 @@ export default function CollectionTemplate({
         <Suspense
           fallback={
             <SkeletonProductGrid
-            numberOfProducts={collection.products?.length}
+              numberOfProducts={collection.products?.length}
             />
           }
         >

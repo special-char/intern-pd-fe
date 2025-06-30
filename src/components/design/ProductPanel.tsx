@@ -37,7 +37,7 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
 
   return (
     <div className="space-y-4">
-      <Card className="p-4 rounded-[10px] bg-gray-900">
+      <Card className="p-4 rounded-[10px] bg-gray-100">
         <h3 className="font-semibold mb-3 text-gray-900 text-gray-100">
           Hoodie
         </h3>
@@ -121,7 +121,7 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
         </div>
       </Card>
 
-      <Card className="p-4 rounded-[10px] bg-gray-900 text-gray-400">
+      <Card className="p-4 rounded-[10px] bg-gray-100 text-gray-400">
         <h4 className="font-semibold mb-2 text-gray-900">Order Summary</h4>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">

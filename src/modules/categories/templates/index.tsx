@@ -8,6 +8,7 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import PaginatedProducts from "@/modules/store/template/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
+import Link from "next/link"
 
 export default function CategoryTemplate({
   category,
@@ -36,12 +37,42 @@ export default function CategoryTemplate({
 
   getParents(category)
 
+  const filteredCategories = category.parent_category?.category_children || [
+    category,
+  ]
+
   return (
     <div
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
+      <div className="flex items-right justify-center border-b border-gray-200 pb-4 mb-4">
+        <nav className="flex items-center gap-6 overflow-x-auto">
+          <Link
+            href="/store"
+            className={`font-bold pb-1 ${
+              !category ? "border-b-2 border-black" : ""
+            }`}
+          >
+            All Clothing
+          </Link>
+          <span className="text-gray-300">|</span>
+          {filteredCategories.map((c) => (
+            <Link
+              key={c.id}
+              href={`/${countryCode}/Categories/${c.handle}`}
+              className={`hover:underline ${
+                c.id === category.id
+                  ? "font-bold border-b-2 border-black pb-1"
+                  : ""
+              }`}
+            >
+              {c.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
       <div className="w-full">
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
           {parents &&

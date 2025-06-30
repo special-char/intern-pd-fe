@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <>
       {/* Video Background Section */}
-      <div className="relative h-[75vh] w-full overflow-hidden">
+      <div className="relative h-[95vh] w-full overflow-hidden">
         <video
           preload="metadata"
           autoPlay

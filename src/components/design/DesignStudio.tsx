@@ -38,27 +38,24 @@ export const DesignStudio = () => {
   //   console.log("Design submitted:", designData)
   //   toast.success("Design submitted successfully! We will contact you soon.")
   // }.
-
+ 
   //svg format
-
+  
   const handleSubmitDesign = () => {
     if (!fabricCanvas) {
       toast.error("Please create a design first")
       return
     }
 
-    // ✅ Convert canvas to SVG format
-    const svgData = fabricCanvas.toSVG()
-
     const designData = {
-      svg: svgData, // <--- SVG instead of JSON
+      design: fabricCanvas.toJSON(),
       productColor: selectedColor,
       size: selectedSize,
       quantity: quantity,
       timestamp: new Date().toISOString(),
     }
 
-    //  Send to backend (you can replace with actual API call)
+    // In a real app, you would send this to your backend
     console.log("Design submitted:", designData)
     toast.success("Design submitted successfully! We will contact you soon.")
   }
@@ -96,7 +93,7 @@ export const DesignStudio = () => {
         <div className="grid grid-cols-12 gap-6 h-[calc(100vh-140px)]">
           {/* Left Panel - Tools & Layers */}
           <div className="col-span-3 space-y-4">
-            <Card className="p-4 rounded-[10px] bg-gray-900">
+            <Card className="p-4 rounded-[10px] bg-gray-100">
               <h3 className="font-semibold mb-3 text-gray-900 font-saol text-gray-100">
                 Tools
               </h3>
@@ -107,8 +104,11 @@ export const DesignStudio = () => {
               />
             </Card>
 
-            <Card className="p-4 flex-1 rounded-[10px] bg-gray-900">
-              <h3 className="font-semibold mb-3 text-gray-900 text-white">
+            <Card className="p-4 flex-1 rounded-[10px] bg-gray-100">
+              <h3
+                className="font-semibold mb-3 text-gray-900 text-black
+              "
+              >
                 Layers
               </h3>
               <LayerPanel fabricCanvas={fabricCanvas} />

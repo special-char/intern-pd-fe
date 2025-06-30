@@ -95,7 +95,7 @@ export const LayerPanel: React.FC<LayerPanelProps> = ({ fabricCanvas }) => {
         objects.map((obj, index) => (
           <div
             key={index}
-            className={`border rounded-[5px] p-2 bg-gray-900 ${
+            className={`border rounded-[5px] p-2 bg-black ${
               selectedObject === obj ? "border-blue-400" : "border-gray-200"
             }`}
           >

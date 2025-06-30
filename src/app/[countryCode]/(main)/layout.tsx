@@ -31,13 +31,16 @@ export default async function Layout({
       <CartProvider>
         <div className="flex flex-col min-h-screen">
           <Navbar />
-          {customer && cart && <CartMismatchBanner customer={customer} cart={cart} />}
-          {cart && Array.isArray(shippingOptions?.shipping_options) && (
-            <FreeShippingPriceNudge cart={cart} shippingOptions={shippingOptions.shipping_options} />
+          {customer && cart && (
+            <CartMismatchBanner customer={customer} cart={cart} />
           )}
-          <main>
-            {children}
-          </main>
+          {cart && Array.isArray(shippingOptions?.shipping_options) && (
+            <FreeShippingPriceNudge
+              cart={cart}
+              shippingOptions={shippingOptions.shipping_options}
+            />
+          )}
+          <main>{children}</main>
           <Footer />
         </div>
       </CartProvider>

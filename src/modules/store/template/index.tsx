@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 
 import InfiniteProductList from "@/components/InfiniteProductList"
-import { listCollections } from "@lib/data/collections"
+import { listCategories } from "@lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import FilterButton from "./filter-button"
 
@@ -20,12 +20,12 @@ const StoreTemplate = async ({
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
 
-  // Fetch collections on the server
-  const { collections } = await listCollections()
+  // Fetch categories on the server
+  const categories = await listCategories()
 
-  // Filter out 'Tops & Blouses' collection
-  const filteredCollections = collections.filter(
-    (collection) => collection.title !== "Tops & Blouses"
+  // Filter out any unwanted categories if needed
+  const filteredCategories = categories.filter(
+    (category) => category.name !== "Tops & Blouses"
   )
 
   return (
@@ -47,13 +47,13 @@ const StoreTemplate = async ({
               All Clothing
             </Link>
             <span className="text-gray-300">|</span>
-            {filteredCollections.map((collection) => (
+            {filteredCategories.map((category) => (
               <Link
-                key={collection.id}
-                href={`/${countryCode}/collections/${collection.handle}`}
+                key={category.id}
+                href={`/${countryCode}/categories/${category.handle}`}
                 className="hover:underline"
               >
-                {collection.title}
+                {category.name}
               </Link>
             ))}
           </nav>

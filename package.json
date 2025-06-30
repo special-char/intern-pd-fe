@@ -38,11 +38,7 @@
     "qs": "^6.12.1",
     "react": "^18.2.0",
     "react-country-flag": "^3.1.0",
-<<<<<<< HEAD
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-=======
     "react-dom": "^18.2.0",
->>>>>>> cd5bb50b2bc2a538924321633c3ffee32008bba3
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.6.2",
     "server-only": "^0.0.1",

@@ -9,8 +9,8 @@ import SummerProductList from "@/components/layouts/SummerCollection"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import ImageGallery from "@modules/common/components/ImageGallery"
-import FollowUsSection from "./FollowUsSection"
 import LookbookBanner from "./LookbookBanner"
+import FollowUsSection from "./FollowUsSection"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
@@ -38,14 +38,15 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
-      <FeaturedProductList countryCode={countryCode} />
-      <ResponsibilityProgramSection />
-      <FinalStatementSection />
-      <SummerProductList countryCode={countryCode} />
+      <div className="py-12">
+        <ul className="flex flex-col gap-x-6">
+          <FeaturedProducts collections={collections} region={region} />
+        </ul>
+      </div>
+      <DemoPage />
       <LookbookBanner />
       {/* Follow Us Section */}
       <FollowUsSection />
-      {/* <FeaturedProductList countryCode={countryCode} /> */}
       <ImageGallery
         images={[
           { src: "/images/one.jpg", wishlistCount: 12 },

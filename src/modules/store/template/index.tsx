@@ -6,9 +6,11 @@ import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-g
 import InfiniteProductList from "@/components/InfiniteProductList"
 import { listCategories } from "@lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+
+
 import FilterButton from "./filter-button"
 
-const StoreTemplate = async ({
+const StoreTemplate = ({
   sortBy,
   page,
   countryCode,
@@ -19,6 +21,7 @@ const StoreTemplate = async ({
 }) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
+
 
   // Fetch categories on the server
   const categories = await listCategories()
@@ -47,6 +50,41 @@ const StoreTemplate = async ({
               All Clothing
             </Link>
             <span className="text-gray-300">|</span>
+
+            <Link href="/store/coats" className="hover:underline">
+              Coats
+            </Link>
+            <Link href="/store/jackets" className="hover:underline">
+              Jackets
+            </Link>
+            <Link href="/products/Capes" className="hover:underline">
+              Capes
+            </Link>
+            <Link href="/store/waistcoats" className="hover:underline">
+              Waistcoats
+            </Link>
+            <Link href="/store/sweaters" className="hover:underline">
+              Sweaters
+            </Link>
+            <Link href="/store/cardigans" className="hover:underline">
+              Cardigans
+            </Link>
+            <Link href="/products/dulani-top" className="hover:underline">
+              Tops & Blouses
+            </Link>
+            <Link href="/store/t-shirts" className="hover:underline">
+              T-shirts
+            </Link>
+            <Link href="/store/trousers" className="hover:underline">
+              Trousers
+            </Link>
+            <Link href="/category/Skirts" className="hover:underline">
+              Skirts
+            </Link>
+            <Link href="/store/dresses" className="hover:underline">
+              Dresses
+            </Link>
+
             {filteredCategories.map((category) => (
               <Link
                 key={category.id}
@@ -56,6 +94,7 @@ const StoreTemplate = async ({
                 {category.name}
               </Link>
             ))}
+
           </nav>
         </div>
         <FilterButton />

@@ -1,6 +1,5 @@
 import React from "react"
-import FeatureCard from "@components/FeatureCard"
-import { Heading } from "@lib/components/ui/heading"
+import FeatureCard from "@/components/FeatureCard"
 
 function AboutSection() {
   return (

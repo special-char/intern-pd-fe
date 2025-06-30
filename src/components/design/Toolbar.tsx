@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/design/ui/select"
+import { Label } from "@/components/ui/label"
 import { Canvas as FabricCanvas, FabricImage, IText } from "fabric"
 import { MousePointer, Type, Upload } from "lucide-react"
 import React, { useState } from "react"
@@ -144,23 +145,28 @@ export const Toolbar: React.FC<ToolbarProps> = ({
         <Button
           key={tool.id}
           variant={activeTool === tool.id ? "default" : "outline"}
-          className="w-full justify-start"
+          className={`w-full justify-start rounded-[5px] transition-colors duration-200
+            ${activeTool === tool.id ? "bg-[#d4a574] text-white" : ""}
+            hover:bg-[#d4a574] hover:text-white focus:bg-[#d4a574] focus:text-white active:bg-[#d4a574] active:text-white`}
           onClick={tool.action}
         >
           <tool.icon className="w-4 h-4 mr-2" />
-          {tool.label}
+          {tool.label}s
         </Button>
       ))}
 
-      <div className="border rounded-md p-2 space-y-2">
-        <h4 className="text-sm font-medium mb-2">Text Options</h4>
+      <div className="border rounded-[10px] p-2 space-y-2">
+        <h4 className="text-sm font-medium mb-2 text-gray-400">Text Options</h4>
 
         <div className="space-y-1">
           <Label htmlFor="font-select" className="text-xs">
-            Font
+            {"Font" as React.ReactNode}
           </Label>
           <Select value={selectedFont} onValueChange={handleFontChange}>
-            <SelectTrigger id="font-select" className="h-8 text-xs">
+            <SelectTrigger
+              id="font-select"
+              className="h-8 text-xs rounded-[5px]"
+            >
               <SelectValue placeholder="Select font" />
             </SelectTrigger>
             <SelectContent>
@@ -180,7 +186,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
 
         <div className="space-y-1">
           <Label htmlFor="text-color" className="text-xs">
-            Text Color
+            {"Text Color" as React.ReactNode}
           </Label>
           <div className="flex items-center gap-2">
             <Input
@@ -193,7 +199,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
               type="text"
               value={textColor}
               onChange={(e) => handleTextColorChange(e.target.value)}
-              className="h-8 flex-1 text-xs"
+              className="h-8 flex-1 text-xs rounded-[5px]"
             />
           </div>
         </div>

@@ -19,7 +19,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-     domains: ['rino-pelle.com', 'minio-usw040kwsgkookko0kswwkko.194.164.151.221.sslip.io'],
+     domains: ['rino-pelle.com', 'minio-usw040kwsgkookko0kswwkko.194.164.151.221.sslip.io', 'via.placeholder.com'],
     remotePatterns: [
       {
         protocol: "http",

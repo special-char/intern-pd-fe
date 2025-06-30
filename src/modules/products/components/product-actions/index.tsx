@@ -1,6 +1,7 @@
 "use client"
 
-import { addToCart } from "@lib/data/cart"
+import { useCart } from "@/lib/context/cart-context"
+import { addToCart, retrieveCart } from "@lib/data/cart"
 import { useIntersection } from "@lib/hooks/use-in-view"
 import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
@@ -34,6 +35,7 @@ export default function ProductActions({
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
   const countryCode = useParams().countryCode as string
+  const { cart, setCart } = useCart()
 
   // If there is only 1 variant, preselect the options
   useEffect(() => {
@@ -109,6 +111,9 @@ export default function ProductActions({
       quantity: 1,
       countryCode,
     })
+    // Retrieve and update cart in context
+    const updatedCart = await retrieveCart()
+    setCart(updatedCart)
 
     setIsAdding(false)
   }

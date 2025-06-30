@@ -1,3 +1,4 @@
+import ProductCard from "@/components/common/ProductCard"
 import { listProductsWithSort } from "@lib/data/products"
 import { getRegion } from "@lib/data/regions"
 import { Pagination } from "@modules/store/components/pagination"
@@ -75,7 +76,7 @@ export default async function PaginatedProducts({
         {products.map((p) => {
           return (
             <li key={p.id}>
-              <ProductCardWrapper product={p} region={region} />
+              <ProductCard product={p} />
             </li>
           )
         })}

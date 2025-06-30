@@ -47,18 +47,15 @@ export const DesignStudio = () => {
       return
     }
 
-    // ✅ Convert canvas to SVG format
-    const svgData = fabricCanvas.toSVG()
-
     const designData = {
-      svg: svgData, // <--- SVG instead of JSON
+      design: fabricCanvas.toJSON(),
       productColor: selectedColor,
       size: selectedSize,
       quantity: quantity,
       timestamp: new Date().toISOString(),
     }
 
-    //  Send to backend (you can replace with actual API call)
+    // In a real app, you would send this to your backend
     console.log("Design submitted:", designData)
     toast.success("Design submitted successfully! We will contact you soon.")
   }
@@ -68,11 +65,13 @@ export const DesignStudio = () => {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900 mt-4">
+          <div className="w-full flex flex-col items-center ml-80">
+            <h1 className="text-3xl font-bold font-saol text-gray-900 mt-4 tracking-wide text-center">
               T-Shirt Designer
             </h1>
-            <p className="text-sm text-gray-600">Create your custom design</p>
+            <p className="text-base text-gray-600 font-saol ">
+              Create your custom design
+            </p>
           </div>
           <div className="flex items-center gap-3">
             <Button variant="outline" size="sm">
@@ -94,8 +93,10 @@ export const DesignStudio = () => {
         <div className="grid grid-cols-12 gap-6 h-[calc(100vh-140px)]">
           {/* Left Panel - Tools & Layers */}
           <div className="col-span-3 space-y-4">
-            <Card className="p-4">
-              <h3 className="font-semibold mb-3 text-gray-900">Tools</h3>
+            <Card className="p-4 rounded-[10px] bg-gray-900">
+              <h3 className="font-semibold mb-3 text-gray-900 font-saol text-gray-100">
+                Tools
+              </h3>
               <Toolbar
                 activeTool={activeTool}
                 onToolChange={setActiveTool}
@@ -103,15 +104,17 @@ export const DesignStudio = () => {
               />
             </Card>
 
-            <Card className="p-4 flex-1">
-              <h3 className="font-semibold mb-3 text-gray-900">Layers</h3>
+            <Card className="p-4 flex-1 rounded-[10px] bg-gray-900">
+              <h3 className="font-semibold mb-3 text-gray-900 text-white">
+                Layers
+              </h3>
               <LayerPanel fabricCanvas={fabricCanvas} />
             </Card>
           </div>
 
           {/* Center - Canvas */}
           <div className="col-span-6">
-            <Card className="p-6 h-full flex items-center justify-center bg-white">
+            <Card className="p-6 h-full flex items-center justify-center bg-white  ">
               <Canvas
                 activeTool={activeTool}
                 selectedColor={selectedColor}

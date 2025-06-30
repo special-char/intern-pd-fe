@@ -858,10 +858,8 @@
   cursor: pointer;
   border: none;
   border-radius: 0;
-  pointer-events: auto;
+  pointer-events: auto;
 }
-
-
 
 @layer base {
   * {

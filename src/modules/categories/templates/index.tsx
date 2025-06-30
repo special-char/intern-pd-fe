@@ -3,6 +3,7 @@
 import { notFound, useRouter, useSearchParams } from "next/navigation"
 import { Suspense, useEffect, useMemo } from "react"
 
+import PaginatedProducts from "@modules/store/template/paginated-products"
 import InteractiveLink from "@modules/common/components/interactive-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import RefinementList from "@modules/store/components/refinement-list"
@@ -97,7 +98,7 @@ export default function CategoryTemplate({
             />
           }
         >
-          <PaginatedProductsServer
+          <PaginatedProducts
             sortBy={sort}
             page={pageNumber}
             categoryId={category.id}

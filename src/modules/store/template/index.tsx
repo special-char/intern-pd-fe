@@ -1,12 +1,12 @@
-import { Suspense } from "react"
 import Link from "next/link"
+import { Suspense } from "react"
 
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 
-import PaginatedProducts from "./paginated-products"
-import FilterButton from "./filter-button"
-import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import InfiniteProductList from "@/components/InfiniteProductList"
 import { listCollections } from "@lib/data/collections"
+import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import FilterButton from "./filter-button"
 
 const StoreTemplate = async ({
   sortBy,
@@ -25,7 +25,7 @@ const StoreTemplate = async ({
 
   // Filter out 'Tops & Blouses' collection
   const filteredCollections = collections.filter(
-    (collection) => collection.title !== 'Tops & Blouses'
+    (collection) => collection.title !== "Tops & Blouses"
   )
 
   return (
@@ -38,7 +38,6 @@ const StoreTemplate = async ({
             All Clothing
           </h1>
         </div>
-        <FilterButton />
         <div className="flex items-right justify-center  border-b border-gray-200 pb-4 mb-4">
           <nav className="flex items-center gap-6 overflow-x-auto">
             <Link
@@ -59,12 +58,9 @@ const StoreTemplate = async ({
             ))}
           </nav>
         </div>
+        <FilterButton />
         <Suspense fallback={<SkeletonProductGrid />}>
-          <PaginatedProducts
-            sortBy={sort}
-            page={pageNumber}
-            countryCode={countryCode}
-          />
+          <InfiniteProductList sortBy={sort} countryCode={countryCode} />
         </Suspense>
       </div>
     </div>

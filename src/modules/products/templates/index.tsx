@@ -11,6 +11,11 @@ import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import { HttpTypes } from "@medusajs/types"
 
+
+import { Button } from "@/components/design/ui/button"
+import { Edit } from "lucide-react"
+
+
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
   region: HttpTypes.StoreRegion

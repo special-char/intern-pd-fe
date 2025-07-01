@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 
 import InfiniteProductList from "@/components/InfiniteProductList"
-import { listCategories } from "@lib/data/categories"
+import { listCategories } from "@/lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import { listCategories } from "@/lib/data/categories"
 
@@ -30,10 +30,11 @@ const StoreTemplate = async ({
     (category) => !['Tops & Blouses', 'Shirts', 'Sweatshirts', 'Pants', 'Merch'].includes(category.name)
   // Fetch categories on the server
   const categories = await listCategories()
-
-  // Filter out any unwanted categories if needed
   const filteredCategories = categories.filter(
-    (category) => category.name !== "Tops & Blouses"
+    (category) =>
+      !["Tops & Blouses", "Shirts", "Sweatshirts", "Pants", "Merch"].includes(
+        category.name
+      )
   )
 
   return (

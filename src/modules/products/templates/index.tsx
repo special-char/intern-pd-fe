@@ -10,9 +10,6 @@ import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-relat
 import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import { HttpTypes } from "@medusajs/types"
-import { Button } from "@/components/design/ui/button"
-import { Edit } from "lucide-react"
-import EditButton from "../components/edit-button"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
@@ -35,8 +32,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         className="content-container flex flex-col lg:flex-row py-6 relative gap-8"
         data-testid="product-container"
       >
-        {product?.images?.[0] && <EditButton imageId={product.images[0].id} />}
-
         {/* Left Column - Images */}
         <div className="w-full lg:w-2/3">
           <div className="grid grid-cols-2 gap-4">
@@ -54,6 +49,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
             ))}
           </div>
         </div>
+
         {/* Right Column - Content */}
         <div className="w-full lg:w-1/3 flex flex-col gap-8">
           <ProductInfo product={product} />

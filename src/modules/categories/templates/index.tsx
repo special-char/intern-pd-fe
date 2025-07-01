@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { Suspense, useMemo } from "react"
+import { Suspense } from "react"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
@@ -10,108 +10,64 @@ import { HttpTypes } from "@medusajs/types"
 
 import Link from "next/link"
 import PaginatedProducts from "@/modules/store/template/paginated-products"
+import FilterButton from "@modules/store/template/filter-button"
+import { listCategories } from "@lib/data/categories"
 
-import PaginatedProducts from "@/modules/store/template/paginated-products"
-
-export default function CategoryTemplate({
+export default async function CategoryTemplate({
   category,
   countryCode,
 }: {
   category: HttpTypes.StoreProductCategory
   countryCode: string
 }) {
-  if (!category || !countryCode) notFound()
+  if (!category || !countryCode) return null
 
   const sort = "created_at"
   const pageNumber = 1
 
-  const parents = useMemo(() => {
-    const result: HttpTypes.StoreProductCategory[] = []
-    const getParents = (cat: HttpTypes.StoreProductCategory) => {
-      if (cat.parent_category) {
-        result.push(cat.parent_category)
-        getParents(cat.parent_category)
-      }
-    }
-    getParents(category)
-    return result.reverse()
-  }, [category])
-
-  const filteredCategories = category.parent_category?.category_children || [
-    category,
-  ]
+  // Fetch categories on the server
+  const categories = await listCategories()
+  const filteredCategories = categories.filter(
+    (c) =>
+      !["Tops & Blouses", "Shirts", "Sweatshirts", "Pants", "Merch"].includes(
+        c.name
+      )
+  )
 
   return (
-    <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
-      data-testid="category-container"
-    >
-      <RefinementList sortBy={sort} data-testid="sort-by-container" />
-      <div className="flex items-right justify-center border-b border-gray-200 pb-4 mb-4">
-        <nav className="flex items-center gap-6 overflow-x-auto">
-          <Link
-            href="/store"
-            className={`font-bold pb-1 ${
-              !category ? "border-b-2 border-black" : ""
-            }`}
-          >
-            All Clothing
-          </Link>
-          <span className="text-gray-300">|</span>
-          {filteredCategories.map((c) => (
-            <Link
-              key={c.id}
-              href={`/${countryCode}/Categories/${c.handle}`}
-              className={`hover:underline ${
-                c.id === category.id
-                  ? "font-bold border-b-2 border-black pb-1"
-                  : ""
-              }`}
-            >
-              {c.name}
-            </Link>
-          ))}
-        </nav>
-      </div>
-
-      <RefinementList sortBy={sort} data-testid="sort-by-container" />
+    <div className="w-full py-6 px-0 content-container">
       <div className="w-full">
-        <div className="flex flex-row mb-8 text-2xl-semi gap-4">
-          {parents.map((parent) => (
-            <span key={parent.id} className="text-ui-fg-subtle">
-              <LocalizedClientLink
-                className="mr-4 hover:text-black"
-                href={`/categories/${parent.handle}`}
-                data-testid="sort-by-link"
-              >
-                {parent.name}
-              </LocalizedClientLink>
-              /
-            </span>
-          ))}
-          <h1 data-testid="category-page-title">{category.name}</h1>
+        <div className="mt-8 mb-8 text-2xl-semi text-center">
+          <h1 className="font-thin">{category.name}</h1>
         </div>
 
-        {category.description && (
-          <div className="mb-8 text-base-regular">
-            <p>{category.description}</p>
-          </div>
-        )}
-
-        {category.category_children && (
-          <div className="mb-8 text-base-large">
-            <ul className="grid grid-cols-1 gap-2">
-              {category.category_children.map((c) => (
-                <li key={c.id}>
-                  <InteractiveLink href={`/categories/${c.handle}`}>
-                    {c.name}
-                  </InteractiveLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
+        <div className="flex items-right justify-center border-b border-gray-200 pb-4 mb-4">
+          <nav className="flex items-center gap-6 overflow-x-auto">
+            <Link
+              href="/store"
+              className={`font-bold pb-1 ${
+                !category ? "border-b-2 border-black" : ""
+              }`}
+            >
+              All Clothing
+            </Link>
+            <span className="text-gray-300">|</span>
+            {filteredCategories.map((c) => (
+              <Link
+                key={c.id}
+                href={`/${countryCode}/categories/${c.handle}`}
+                className={`hover:underline ${
+                  c.id === category.id
+                    ? "font-bold border-b-2 border-black pb-1"
+                    : ""
+                }`}
+              >
+                {c.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+        <FilterButton />
         <Suspense
           fallback={
             <SkeletonProductGrid

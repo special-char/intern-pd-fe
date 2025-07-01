@@ -35,6 +35,17 @@ const StoreTemplate = async ({
             All Clothing
           </h1>
         </div>
+        <div className="mb-6 flex flex-wrap justify-center gap-3 text-sm">
+          {filteredCategories.map((category) => (
+            <a
+              key={category.id}
+              href={`/categories/${category.handle}`}
+              className="hover:underline text-gray-700 px-2"
+            >
+              {category.name}
+            </a>
+          ))}
+        </div>
         <FilterButton />
         <Suspense fallback={<SkeletonProductGrid />}>
           <InfiniteProductList sortBy={sort} countryCode={countryCode} />

@@ -15,7 +15,8 @@ const EditButton = ({ imageId }: EditButtonProps) => {
       onClick={() => {
         router.push("/design")
       }}
-      className="bg-neutral-900 hover:bg-neutral-800 hover:text-gray-300 text-white px-6 py-2 rounded-md font-semibold shadow-lg font-akzidenz tracking-normal w-full"
+
+      className="fixed top-28 left-20 z-50 bg-neutral-900 hover:bg-neutral-800 hover:text-gray-300 text-white px-6 py-2 rounded-md font-semibold shadow-lg font-akzidenz tracking-normal"
       size="lg"
     >
       Customize Design

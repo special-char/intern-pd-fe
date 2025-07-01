@@ -10,7 +10,6 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
 import Link from "next/link"
-import PaginatedProducts from "@/modules/store/template/paginated-products"
 
 export default function CategoryTemplate({
   category,
@@ -81,6 +80,12 @@ export default function CategoryTemplate({
           ))}
         </nav>
       </div>
+
+      <RefinementList
+        sortBy={sort}
+        onSortChange={handleSortChange}
+        data-testid="sort-by-container"
+      />
       <div className="w-full">
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
           {parents.map((parent) => (

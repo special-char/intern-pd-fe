@@ -6,6 +6,7 @@ import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-g
 import InfiniteProductList from "@/components/InfiniteProductList"
 import { listCategories } from "@/lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { listCategories } from "@/lib/data/categories"
 
 import FilterButton from "./filter-button"
 
@@ -21,7 +22,13 @@ const StoreTemplate = async ({
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
 
-  // Fetch and filter categories on the server
+  // Fetch collections on the server
+  const categories = await listCategories()
+
+  // Filter out specific categories
+  const filteredCategories = categories.filter(
+    (category) => !['Tops & Blouses', 'Shirts', 'Sweatshirts', 'Pants', 'Merch'].includes(category.name)
+  // Fetch categories on the server
   const categories = await listCategories()
   const filteredCategories = categories.filter(
     (category) =>

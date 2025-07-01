@@ -3,11 +3,11 @@
 import { Heading } from "@/lib/components/ui/heading"
 import { cn } from "@/lib/utils"
 import { HttpTypes, StoreProduct } from "@medusajs/types"
+import { isEqual } from "lodash"
 import Image from "next/image"
 import Link from "next/link"
-import ProductCardOptionSelect from "./OptionSelect"
 import { useEffect, useMemo, useState } from "react"
-import { isEqual } from "lodash"
+import ProductCardOptionSelect from "./OptionSelect"
 import ProductCartPrice from "./ProductCardPrice"
 
 interface ProductCardProps {

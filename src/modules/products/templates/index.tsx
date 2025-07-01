@@ -55,7 +55,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         {/* Right Column - Content */}
         <div className="w-full lg:w-1/3 flex flex-col gap-8">
           <ProductInfo product={product} />
-          <ProductTabs product={product} />
           <ProductOnboardingCta />
           <Suspense
             fallback={

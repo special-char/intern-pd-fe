@@ -54,7 +54,7 @@ export default function CategoryTemplate({
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
-<<<<<<< HEAD
+
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
       <div className="flex items-right justify-center border-b border-gray-200 pb-4 mb-4">
         <nav className="flex items-center gap-6 overflow-x-auto">
@@ -82,13 +82,13 @@ export default function CategoryTemplate({
           ))}
         </nav>
       </div>
-=======
+
       <RefinementList
         sortBy={sort}
         onSortChange={handleSortChange}
         data-testid="sort-by-container"
       />
->>>>>>> cd5bb50b2bc2a538924321633c3ffee32008bba3
+
       <div className="w-full">
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
           {parents.map((parent) => (

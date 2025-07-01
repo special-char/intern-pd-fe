@@ -4,8 +4,9 @@ import { Suspense } from "react"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 
 import InfiniteProductList from "@/components/InfiniteProductList"
-import { listCategories } from "@lib/data/categories"
+import { listCategories } from "@/lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import { listCategories } from "@/lib/data/categories"
 
 
 import FilterButton from "./filter-button"
@@ -22,13 +23,24 @@ const StoreTemplate = ({
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
 
+<<<<<<< HEAD
 
   // Fetch categories on the server
+=======
+  // Fetch collections on the server
+>>>>>>> f18ee6cb092e79d6c10b687a2b138b2d92be23a2
   const categories = await listCategories()
 
-  // Filter out any unwanted categories if needed
+  // Filter out specific categories
   const filteredCategories = categories.filter(
-    (category) => category.name !== "Tops & Blouses"
+    (category) => !['Tops & Blouses', 'Shirts', 'Sweatshirts', 'Pants', 'Merch'].includes(category.name)
+  // Fetch categories on the server
+  const categories = await listCategories()
+  const filteredCategories = categories.filter(
+    (category) =>
+      !["Tops & Blouses", "Shirts", "Sweatshirts", "Pants", "Merch"].includes(
+        category.name
+      )
   )
 
   return (

@@ -48,8 +48,13 @@ export default async function RelatedProducts({
 
   return (
     <div className="product-page-constraint w-full max-w-screen-2xl mx-auto ">
+<<<<<<< HEAD
       <div className="flex flex-col items-start mb-8">
         <span className="uppercase text-xs font-light tracking-widest text-gray-500 mb-2">
+=======
+      <div className="flex flex-col items-center text-center mb-16">
+        <span className="text-base-regular text-gray-600 mb-6">
+>>>>>>> 99e70575cfa4c05a7e5e553be3f0b79e02cb9cd7
           Related products
         </span>
         <div className="flex flex-row gap-6 items-end">

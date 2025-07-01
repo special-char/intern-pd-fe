@@ -11,6 +11,10 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
 import Link from "next/link"
+<<<<<<< HEAD
+=======
+import PaginatedProducts from "@modules/store/template/paginated-products"
+>>>>>>> eaa1cbcc25f6b2ec165b918c1318ae93ceb3fd49
 
 export default function CategoryTemplate({
   category,
@@ -54,8 +58,16 @@ export default function CategoryTemplate({
       className="flex flex-col small:flex-row small:items-start py-6 content-container"
       data-testid="category-container"
     >
+<<<<<<< HEAD
 
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
+=======
+      <RefinementList
+        sortBy={sort}
+        onSortChange={handleSortChange}
+        data-testid="sort-by-container"
+      />
+>>>>>>> eaa1cbcc25f6b2ec165b918c1318ae93ceb3fd49
       <div className="flex items-right justify-center border-b border-gray-200 pb-4 mb-4">
         <nav className="flex items-center gap-6 overflow-x-auto">
           <Link
@@ -82,6 +94,7 @@ export default function CategoryTemplate({
           ))}
         </nav>
       </div>
+<<<<<<< HEAD
 
       <RefinementList
         sortBy={sort}
@@ -89,6 +102,8 @@ export default function CategoryTemplate({
         data-testid="sort-by-container"
       />
 
+=======
+>>>>>>> eaa1cbcc25f6b2ec165b918c1318ae93ceb3fd49
       <div className="w-full">
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
           {parents.map((parent) => (

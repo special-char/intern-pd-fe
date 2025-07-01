@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import Link from "next/link"
 
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import RefinementList from "@modules/store/components/refinement-list"
@@ -36,6 +37,7 @@ export default async function CollectionTemplate({
           <h1 className="font-thin">{collection.title}</h1>
         </div>
         <FilterButton />
+        <FilterButton />
         <div className="flex items-right justify-center border-b border-gray-200 pb-4 mb-4">
           <nav className="flex items-center gap-6 overflow-x-auto">
             <Link
@@ -62,7 +64,7 @@ export default async function CollectionTemplate({
             ))}
           </nav>
         </div>
-       
+
         <Suspense
           fallback={
             <SkeletonProductGrid

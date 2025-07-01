@@ -11,13 +11,8 @@ import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import { HttpTypes } from "@medusajs/types"
 
-
 import { Button } from "@/components/design/ui/button"
 import { Edit } from "lucide-react"
-<<<<<<< HEAD
-=======
-
->>>>>>> 99e70575cfa4c05a7e5e553be3f0b79e02cb9cd7
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct

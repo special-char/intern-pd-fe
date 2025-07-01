@@ -86,7 +86,7 @@ export const LayerPanel: React.FC<LayerPanelProps> = ({ fabricCanvas }) => {
   }
 
   return (
-    <div className="space-y-2 max-h-64 overflow-y-auto">
+    <div className="space-y-2 max-h-64 overflow-y-auto text-white">
       {objects.length === 0 ? (
         <p className="text-gray-500 text-sm text-center py-4">
           No layers yet. Add text or images to get started.
@@ -95,16 +95,14 @@ export const LayerPanel: React.FC<LayerPanelProps> = ({ fabricCanvas }) => {
         objects.map((obj, index) => (
           <div
             key={index}
-            className={`border rounded-none p-2 ${
-              selectedObject === obj
-                ? "border-blue-400 bg-blue-50"
-                : "border-gray-200"
+            className={`border rounded-[5px] p-2 bg-black ${
+              selectedObject === obj ? "border-blue-400" : "border-gray-200"
             }`}
           >
             <div className="flex items-center justify-between">
               <button
                 onClick={() => selectObject(obj)}
-                className="text-sm font-medium text-left flex-1 truncate"
+                className="text-sm font-medium text-left flex-1 truncate text-white"
               >
                 {getObjectName(obj)}
               </button>

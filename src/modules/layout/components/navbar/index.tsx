@@ -30,7 +30,7 @@ const Navbar = () => (
           ]}
         />
         <RightNavbar />
-        <PhoneView onSignIn={() => {}} />
+        <PhoneView />
       </div>
     </div>
   </nav>

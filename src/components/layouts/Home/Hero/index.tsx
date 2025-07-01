@@ -1,11 +1,10 @@
-import { Github } from "@medusajs/icons"
-import { Button } from "@medusajs/ui"
+import Link from "next/link"
 
 const Hero = () => {
   return (
     <>
       {/* Video Background Section */}
-      <div className="relative h-[75vh] w-full overflow-hidden">
+      <div className="relative h-[95vh] w-full overflow-hidden">
         <video
           preload="metadata"
           autoPlay
@@ -28,16 +27,17 @@ const Hero = () => {
         <div className="absolute inset-0 z-20 flex flex-col justify-center items-start px-16">
           <span className="text-left">
             <h4 className="text-white font-light font-akzidenz">
-              latest collection
+              LATEST COLLECTION
             </h4>
-            <h1 className="text-white text-4xl md:text-6xl font-light mb-6 font-saol">
-              spring
-            </h1>
-            <h1 className="font-light text-white">
-              summer <em className="font-light">'25</em>
+            <h1 className="text-white text-4xl md:text-6xl font-light mb-4 font-saol">
+            
+              Spring <br />
+              <span className="font-saol font-light text-white">
+                Summer <em className="font-saol font-light">'25</em>
+              </span>
             </h1>
           </span>
-          <a
+          {/* <a
             href="https://github.com/medusajs/nextjs-starter-medusa"
             target="_blank"
             rel="noopener noreferrer"
@@ -47,8 +47,19 @@ const Hero = () => {
               View on GitHub
               <Github className="ml-2" />
             </Button>
-          </a>
+          </a> */}
         </div>
+      </div>
+
+      {/* Responsibility Program Section */}
+      <div className="w-full py-16 text-center">
+        <h4 className="font-akzidenz">OUR RESPONSIBILITY PROGRAM</h4>
+        <h3 className="font-saol">Let's Act!</h3>
+        <Link href="/lets-act">
+          <button className="border px-4 py-2 mt-4 hover:opacity-75 transition">
+            Read More
+          </button>
+        </Link>
       </div>
     </>
   )

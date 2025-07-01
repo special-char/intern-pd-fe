@@ -1,12 +1,14 @@
-import { Suspense } from "react"
 import Link from "next/link"
+import { Suspense } from "react"
 
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 
-import PaginatedProducts from "./paginated-products"
-import FilterButton from "./filter-button"
+import InfiniteProductList from "@/components/InfiniteProductList"
+import { listCategories } from "@lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import { listCategories } from "@/lib/data/categories"
+
+import FilterButton from "./filter-button"
 
 const StoreTemplate = async ({
   sortBy,
@@ -26,6 +28,12 @@ const StoreTemplate = async ({
   // Filter out specific categories
   const filteredCategories = categories.filter(
     (category) => !['Tops & Blouses', 'Shirts', 'Sweatshirts', 'Pants', 'Merch'].includes(category.name)
+  // Fetch categories on the server
+  const categories = await listCategories()
+
+  // Filter out any unwanted categories if needed
+  const filteredCategories = categories.filter(
+    (category) => category.name !== "Tops & Blouses"
   )
 
   return (
@@ -38,7 +46,6 @@ const StoreTemplate = async ({
             All Clothing
           </h1>
         </div>
-        <FilterButton />
         <div className="flex items-right justify-center  border-b border-gray-200 pb-4 mb-4">
           <nav className="flex items-center gap-6 overflow-x-auto">
             <Link
@@ -48,6 +55,41 @@ const StoreTemplate = async ({
               All Clothing
             </Link>
             <span className="text-gray-300">|</span>
+
+            {/* <Link href="/store/coats" className="hover:underline">
+              Coats
+            </Link>
+            <Link href="/store/jackets" className="hover:underline">
+              Jackets
+            </Link>
+            <Link href="/products/Capes" className="hover:underline">
+              Capes
+            </Link>
+            <Link href="/store/waistcoats" className="hover:underline">
+              Waistcoats
+            </Link>
+            <Link href="/store/sweaters" className="hover:underline">
+              Sweaters
+            </Link>
+            <Link href="/store/cardigans" className="hover:underline">
+              Cardigans
+            </Link>
+            <Link href="/products/dulani-top" className="hover:underline">
+              Tops & Blouses
+            </Link>
+            <Link href="/store/t-shirts" className="hover:underline">
+              T-shirts
+            </Link>
+            <Link href="/store/trousers" className="hover:underline">
+              Trousers
+            </Link>
+            <Link href="/category/Skirts" className="hover:underline">
+              Skirts
+            </Link>
+            <Link href="/store/dresses" className="hover:underline">
+              Dresses
+            </Link> */}
+
             {filteredCategories.map((category) => (
               <Link
                 key={category.id}
@@ -59,12 +101,9 @@ const StoreTemplate = async ({
             ))}
           </nav>
         </div>
+        <FilterButton />
         <Suspense fallback={<SkeletonProductGrid />}>
-          <PaginatedProducts
-            sortBy={sort}
-            page={pageNumber}
-            countryCode={countryCode}
-          />
+          <InfiniteProductList sortBy={sort} countryCode={countryCode} />
         </Suspense>
       </div>
     </div>

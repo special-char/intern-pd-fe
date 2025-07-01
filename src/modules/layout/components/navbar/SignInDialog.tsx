@@ -1,20 +1,44 @@
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
-import LoginTemplate from "@/modules/account/templates/login-template"
+import React from "react"
 
 interface SignInDialogProps {
   isOpen: boolean
-  onOpenChange: (isOpen: boolean) => void
+  onOpenChange: (open: boolean) => void
 }
 
-export const SignInDialog = ({ isOpen, onOpenChange }: SignInDialogProps) => {
+const SignInDialog: React.FC<SignInDialogProps> = ({
+  isOpen,
+  onOpenChange,
+}) => {
+  if (!isOpen) return null
   return (
-    <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogTitle></DialogTitle>
-        <LoginTemplate />
-      </DialogContent>
-    </Dialog>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: "rgba(0,0,0,0.3)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 1000,
+      }}
+    >
+      <div
+        style={{
+          background: "white",
+          padding: 32,
+          borderRadius: 8,
+          minWidth: 300,
+        }}
+      >
+        <h2>Sign In</h2>
+        <p>This is a placeholder for the sign-in dialog.</p>
+        <button onClick={() => onOpenChange(false)}>Close</button>
+      </div>
+    </div>
   )
 }
 
-export default SignInDialog 
+export default SignInDialog

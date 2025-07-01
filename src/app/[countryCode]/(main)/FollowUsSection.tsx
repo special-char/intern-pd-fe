@@ -10,4 +10,4 @@ const FollowUsSection = () => (
   </div>
 )
 
-export default FollowUsSection 
+export default FollowUsSection

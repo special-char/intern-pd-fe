@@ -1,7 +1,7 @@
 "use client"
 import ProductCard from "@/components/common/ProductCard"
-import { useEffect, useState, useRef } from "react"
-import { useIntersection } from "@/lib/hooks/use-in-view"
+import { useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
 
 const PAGE_SIZE = 12
 
@@ -15,8 +15,7 @@ export default function InfiniteProductList({
   const [products, setProducts] = useState<any[]>([])
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(true)
-  const loadMoreRef = useRef<HTMLDivElement>(null)
-  const inView = useIntersection(loadMoreRef, "0px")
+  const { ref, inView } = useInView()
 
   useEffect(() => {
     fetch(
@@ -49,7 +48,7 @@ export default function InfiniteProductList({
           </li>
         ))}
       </ul>
-      {hasMore && <div ref={loadMoreRef}>Loading more...</div>}
+      {hasMore && <div ref={ref}>Loading more...</div>}
     </div>
   )
 }

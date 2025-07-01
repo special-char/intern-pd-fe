@@ -12,7 +12,6 @@ import ProductActionsWrapper from "./product-actions-wrapper"
 import { HttpTypes } from "@medusajs/types"
 import { Button } from "@/components/design/ui/button"
 import { Edit } from "lucide-react"
-import EditButton from "../components/edit-button"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
@@ -35,10 +34,13 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         className="content-container flex flex-col lg:flex-row py-6 relative gap-8"
         data-testid="product-container"
       >
+<<<<<<< HEAD
 
 
         {product?.images?.[0] && <EditButton imageId={product.images[0].id} />}
 
+=======
+>>>>>>> eaa1cbcc25f6b2ec165b918c1318ae93ceb3fd49
         {/* Left Column - Images */}
         <div className="w-full lg:w-2/3">
           <div className="grid grid-cols-2 gap-4">

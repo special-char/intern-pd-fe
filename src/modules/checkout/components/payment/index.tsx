@@ -126,7 +126,7 @@ const Payment = ({
           <Text>
             <button
               onClick={handleEdit}
-              className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
+              className="  bg-white w-[5em] h-[2em]  rounded-[5px]  border-[1px]"
               data-testid="edit-payment-button"
             >
               Edit
@@ -187,7 +187,7 @@ const Payment = ({
 
           <Button
             size="large"
-            className="mt-6"
+            className="mt-6 w-full rounded-[5px]"
             onClick={handleSubmit}
             isLoading={isLoading}
             disabled={

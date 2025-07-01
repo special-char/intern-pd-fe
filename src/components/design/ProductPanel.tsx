@@ -37,11 +37,13 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
 
   return (
     <div className="space-y-4">
-      <Card className="p-4">
-        <h3 className="font-semibold mb-3 text-gray-900">Hoodie</h3>
+      <Card className="p-4 rounded-[10px] bg-gray-100">
+        <h3 className="font-semibold mb-3 text-gray-900 text-gray-100">
+          Hoodie
+        </h3>
         <div className="space-y-4">
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-2 block">
+            <Label className="text-sm font-medium text-gray-700 mb-2 block text-gray-400">
               Color
             </Label>
             <div className="grid grid-cols-4 gap-2">
@@ -72,7 +74,7 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
           </div>
 
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-2 block">
+            <Label className="text-sm font-medium text-gray-700 mb-2 block text-gray-400">
               Size
             </Label>
             <div className="grid grid-cols-3 gap-2">
@@ -82,7 +84,7 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
                   variant={selectedSize === size ? "default" : "outline"}
                   size="sm"
                   onClick={() => onSizeChange(size)}
-                  className="text-sm"
+                  className="text-sm rounded-[5px]"
                 >
                   {size}
                 </Button>
@@ -91,7 +93,7 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
           </div>
 
           <div>
-            <Label className="text-sm font-medium text-gray-700 mb-2 block">
+            <Label className="text-sm font-medium text-gray-700 mb-2 block text-gray-400">
               Quantity
             </Label>
             <div className="flex items-center gap-3">
@@ -99,7 +101,7 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
                 size="sm"
                 variant="outline"
                 onClick={() => onQuantityChange(Math.max(1, quantity - 1))}
-                className="h-8 w-8 p-0"
+                className="h-8 w-8 p-0 rounded-[5px]"
               >
                 <Minus className="w-4 h-4" />
               </Button>
@@ -110,7 +112,7 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
                 size="sm"
                 variant="outline"
                 onClick={() => onQuantityChange(quantity + 1)}
-                className="h-8 w-8 p-0"
+                className="h-8 w-8 p-0 rounded-[5px]"
               >
                 <Plus className="w-4 h-4" />
               </Button>
@@ -119,7 +121,7 @@ export const ProductPanel: React.FC<ProductPanelProps> = ({
         </div>
       </Card>
 
-      <Card className="p-4">
+      <Card className="p-4 rounded-[10px] bg-gray-100 text-gray-400">
         <h4 className="font-semibold mb-2 text-gray-900">Order Summary</h4>
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">

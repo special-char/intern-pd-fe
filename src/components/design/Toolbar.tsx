@@ -144,23 +144,28 @@ export const Toolbar: React.FC<ToolbarProps> = ({
         <Button
           key={tool.id}
           variant={activeTool === tool.id ? "default" : "outline"}
-          className="w-full justify-start"
+          className={`w-full justify-start rounded-[5px] transition-colors duration-200
+            ${activeTool === tool.id ? "bg-black text-white" : ""}
+            hover:bg-black hover:text-white focus:bg-black focus:text-white active:bg-black active:text-white`}
           onClick={tool.action}
         >
           <tool.icon className="w-4 h-4 mr-2" />
-          {tool.label}
+          {tool.label}s
         </Button>
       ))}
 
-      <div className="border rounded-md p-2 space-y-2">
-        <h4 className="text-sm font-medium mb-2">Text Options</h4>
+      <div className="border rounded-[10px] p-2 space-y-2">
+        <h4 className="text-sm font-medium mb-2 text-black">Text Options</h4>
 
         <div className="space-y-1">
           <Label htmlFor="font-select" className="text-xs">
-            Font
+            {"Font" as React.ReactNode}
           </Label>
           <Select value={selectedFont} onValueChange={handleFontChange}>
-            <SelectTrigger id="font-select" className="h-8 text-xs">
+            <SelectTrigger
+              id="font-select"
+              className="h-8 text-xs rounded-[5px]"
+            >
               <SelectValue placeholder="Select font" />
             </SelectTrigger>
             <SelectContent>
@@ -180,7 +185,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
 
         <div className="space-y-1">
           <Label htmlFor="text-color" className="text-xs">
-            Text Color
+            {"Text Color" as React.ReactNode}
           </Label>
           <div className="flex items-center gap-2">
             <Input
@@ -193,7 +198,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
               type="text"
               value={textColor}
               onChange={(e) => handleTextColorChange(e.target.value)}
-              className="h-8 flex-1 text-xs"
+              className="h-8 flex-1 text-xs rounded-[5px]"
             />
           </div>
         </div>

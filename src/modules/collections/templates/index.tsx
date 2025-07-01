@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import Link from "next/link"
 
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import RefinementList from "@modules/store/components/refinement-list"
@@ -63,7 +64,7 @@ export default async function CollectionTemplate({
             ))}
           </nav>
         </div>
-       
+
         <Suspense
           fallback={
             <SkeletonProductGrid

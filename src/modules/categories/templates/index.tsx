@@ -1,7 +1,5 @@
-"use client"
-
-import { notFound, useRouter, useSearchParams } from "next/navigation"
-import { Suspense, useEffect, useMemo } from "react"
+import { notFound } from "next/navigation"
+import { Suspense, useMemo } from "react"
 
 import InteractiveLink from "@modules/common/components/interactive-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
@@ -11,6 +9,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import { HttpTypes } from "@medusajs/types"
 
 import Link from "next/link"
+import PaginatedProducts from "@/modules/store/template/paginated-products"
 
 import PaginatedProducts from "@/modules/store/template/paginated-products"
 
@@ -21,13 +20,10 @@ export default function CategoryTemplate({
   category: HttpTypes.StoreProductCategory
   countryCode: string
 }) {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-
   if (!category || !countryCode) notFound()
 
-  const sort = (searchParams.get("sort") as SortOptions) || "created_at"
-  const pageNumber = parseInt(searchParams.get("page") || "1")
+  const sort = "created_at"
+  const pageNumber = 1
 
   const parents = useMemo(() => {
     const result: HttpTypes.StoreProductCategory[] = []
@@ -40,12 +36,6 @@ export default function CategoryTemplate({
     getParents(category)
     return result.reverse()
   }, [category])
-
-  const handleSortChange = (newSort: SortOptions) => {
-    const params = new URLSearchParams(searchParams.toString())
-    params.set("sort", newSort)
-    router.push(`?${params.toString()}`)
-  }
 
   const filteredCategories = category.parent_category?.category_children || [
     category,
@@ -84,11 +74,7 @@ export default function CategoryTemplate({
         </nav>
       </div>
 
-      <RefinementList
-        sortBy={sort}
-        onSortChange={handleSortChange}
-        data-testid="sort-by-container"
-      />
+      <RefinementList sortBy={sort} data-testid="sort-by-container" />
       <div className="w-full">
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
           {parents.map((parent) => (

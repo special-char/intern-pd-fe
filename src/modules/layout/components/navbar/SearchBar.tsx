@@ -75,6 +75,14 @@ export const SearchBar = ({
     }
   }, [searchTerm, countryCode])
 
+  useEffect(() => {
+    if (isSearchOpen) {
+      setSearchTerm("");
+      setSuggestions([]);
+      setShowSuggestions(false);
+    }
+  }, [isSearchOpen]);
+
   if (!isSearchOpen) return null
 
   return (

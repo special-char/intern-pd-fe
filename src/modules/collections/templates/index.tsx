@@ -62,6 +62,7 @@ export default async function CollectionTemplate({
             ))}
           </nav>
         </div>
+       
         <Suspense
           fallback={
             <SkeletonProductGrid

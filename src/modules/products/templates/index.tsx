@@ -35,7 +35,12 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         className="content-container flex flex-col lg:flex-row py-6 relative gap-8"
         data-testid="product-container"
       >
+<<<<<<< HEAD
         {/* {product?.images?.[0] && <EditButton imageId={product.images[0].id} />} */}
+=======
+
+        {product?.images?.[0] && <EditButton imageId={product.images[0].id} />}
+>>>>>>> f18ee6cb092e79d6c10b687a2b138b2d92be23a2
         {/* Left Column - Images */}
         <div className="w-full lg:w-2/3">
           <div className="grid grid-cols-2 gap-4">

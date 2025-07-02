@@ -7,7 +7,6 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
-
 import Link from "next/link"
 import PaginatedProducts from "@modules/store/template/paginated-products"
 import { listCategories } from "@lib/data/categories"
@@ -59,6 +58,22 @@ export default async function CategoryTemplate({
                     ? "font-bold border-b-2 border-black pb-1"
                     : ""
                 }`}
+
+
+          ))}
+        </nav>
+      < /div>
+      < div className="w-full">
+        <div className="flex flex-row mb-8 text-2xl-semi gap-4">
+          {parents.map((parent) => (
+            <span key={parent.id} className="text-ui-fg-subtle">
+              <LocalizedClientLink
+                className="mr-4 hover:text-black"
+                href={`/categories/${parent.handle}`}
+                data-testid="sort-by-link"
+
+
+
               >
                 {c.name}
               </Link>

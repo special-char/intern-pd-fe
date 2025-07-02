@@ -36,9 +36,9 @@ export const DesignStudio = ({ product }: { product: any }) => {
   //   console.log("Design submitted:", designData)
   //   toast.success("Design submitted successfully! We will contact you soon.")
   // }.
-
+ 
   //svg format
-
+  
   const handleSubmitDesign = () => {
     if (!fabricCanvas) {
       toast.error("Please create a design first")
@@ -60,12 +60,39 @@ export const DesignStudio = ({ product }: { product: any }) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
+          <div className="w-full flex flex-col items-center ml-80">
+            <h1 className="text-3xl font-bold font-saol text-gray-900 mt-4 tracking-wide text-center">
+              T-Shirt Designer
+            </h1>
+            <p className="text-base text-gray-600 font-saol ">
+              Create your custom design
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm">
+              <Share2 className="w-4 h-4 mr-2" />
+              Share
+            </Button>
+            <Button
+              onClick={handleSubmitDesign}
+              className="bg-black hover:bg-gray-800 text-white"
+            >
+              <ShoppingCart className="w-4 h-4 mr-2" />
+              Submit Design
+            </Button>
+          </div>
+
       {/* Product Name Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-center max-w-7xl mx-auto">
           <h1 className="text-3xl font-bold font-saol text-gray-900 mt-4 tracking-wide text-center">
             {product?.title || "Product"}
           </h1>
+
         </div>
       </header>
 

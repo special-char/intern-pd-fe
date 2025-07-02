@@ -20,10 +20,7 @@ const StoreTemplate = async ({
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
 
-<<<<<<< HEAD
-  // Fetch categories on the server
-=======
->>>>>>> 99e70575cfa4c05a7e5e553be3f0b79e02cb9cd7
+
   const categories = await listCategories()
 
   // Filter out any unwanted categories if needed

@@ -92,8 +92,8 @@ export default async function CategoryTemplate({
 
           ))}
         </nav>
-      </div>
-      <div className="w-full">
+      < /div>
+      < div className="w-full">
         <div className="flex flex-row mb-8 text-2xl-semi gap-4">
           {parents.map((parent) => (
             <span key={parent.id} className="text-ui-fg-subtle">

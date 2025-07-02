@@ -1,9 +1,7 @@
 "use client"
 
-import { Button } from "@/components/design/ui/button"
 import { Card } from "@/components/design/ui/card"
 import { Canvas as FabricCanvas } from "fabric"
-import { Share2, ShoppingCart } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
 import { Canvas } from "./Canvas"
@@ -11,7 +9,7 @@ import { LayerPanel } from "./LayerPanel"
 import { ProductPanel } from "./ProductPanel"
 import { Toolbar } from "./Toolbar"
 
-export const DesignStudio = () => {
+export const DesignStudio = ({ product }: { product: any }) => {
   const [activeTool, setActiveTool] = useState<"text" | "image" | "select">(
     "select"
   )
@@ -62,6 +60,7 @@ export const DesignStudio = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
@@ -86,6 +85,14 @@ export const DesignStudio = () => {
               Submit Design
             </Button>
           </div>
+
+      {/* Product Name Header */}
+      <header className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="flex items-center justify-center max-w-7xl mx-auto">
+          <h1 className="text-3xl font-bold font-saol text-gray-900 mt-4 tracking-wide text-center">
+            {product?.title || "Product"}
+          </h1>
+
         </div>
       </header>
 

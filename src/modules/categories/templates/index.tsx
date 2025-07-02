@@ -8,13 +8,8 @@ import { SortOptions } from "@modules/store/components/refinement-list/sort-prod
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
 import Link from "next/link"
-
-import PaginatedProducts from "@/modules/store/template/paginated-products"
-import FilterButton from "@modules/store/template/filter-button"
-import { listCategories } from "@lib/data/categories"
-
 import PaginatedProducts from "@modules/store/template/paginated-products"
-
+import { listCategories } from "@lib/data/categories"
 
 export default async function CategoryTemplate({
   category,
@@ -38,38 +33,13 @@ export default async function CategoryTemplate({
   )
 
   return (
-
     <div className="w-full py-6 px-0 content-container">
       <div className="w-full">
         <div className="mt-8 mb-8 text-2xl-semi text-center">
           <h1 className="font-thin">{category.name}</h1>
         </div>
-
         <div className="flex items-right justify-center border-b border-gray-200 pb-4 mb-4">
           <nav className="flex items-center gap-6 overflow-x-auto">
-
-    <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
-      data-testid="category-container"
-    >
-      <RefinementList
-        sortBy={sort}
-        onSortChange={handleSortChange}
-        data-testid="sort-by-container"
-      />
-      <div className="flex items-right justify-center border-b border-gray-200 pb-4 mb-4">
-        <nav className="flex items-center gap-6 overflow-x-auto">
-          <Link
-            href="/store"
-            className={`font-bold pb-1 ${
-              !category ? "border-b-2 border-black" : ""
-            }`}
-          >
-            All Clothing
-          </Link>
-          <span className="text-gray-300">|</span>
-          {filteredCategories.map((c) => (
-
             <Link
               href="/store"
               className={`font-bold pb-1 ${
@@ -78,7 +48,6 @@ export default async function CategoryTemplate({
             >
               All Clothing
             </Link>
-
             <span className="text-gray-300">|</span>
             {filteredCategories.map((c) => (
               <Link
@@ -89,6 +58,7 @@ export default async function CategoryTemplate({
                     ? "font-bold border-b-2 border-black pb-1"
                     : ""
                 }`}
+
 
           ))}
         </nav>
@@ -102,13 +72,14 @@ export default async function CategoryTemplate({
                 href={`/categories/${parent.handle}`}
                 data-testid="sort-by-link"
 
+
+
               >
                 {c.name}
               </Link>
             ))}
           </nav>
         </div>
-        <FilterButton />
         <Suspense
           fallback={
             <SkeletonProductGrid

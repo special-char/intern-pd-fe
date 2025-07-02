@@ -11,10 +11,12 @@ import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import { HttpTypes } from "@medusajs/types"
 
-
 import { Button } from "@/components/design/ui/button"
 import { Edit } from "lucide-react"
-
+import ProductPrice from "@modules/products/components/product-price"
+import OptionSelect from "@modules/products/components/product-actions/option-select"
+import EditButton from "@modules/products/components/edit-button"
+import ProductDetailsClient from "./ProductDetailsClient"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
@@ -60,10 +62,21 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         </div>
 
         {/* Right Column - Content */}
-        <div className="w-full lg:w-1/3 flex flex-col gap-8">
-          <ProductInfo product={product} />
-          <ProductTabs product={product} />
-          <ProductOnboardingCta />
+        <div className="w-full lg:w-1/3 flex flex-col gap-6">
+          {/* Product Type and Name */}
+          {product.type && (
+            <span className="text-sm text-ui-fg-muted font-medium uppercase tracking-widest mb-1">
+              {product.type.value}
+            </span>
+          )}
+          <h1 className="text-3xl leading-10 text-ui-fg-base font-bold mb-2">
+            {product.title}
+          </h1>
+          {/* Product Price */}
+          <div className="mb-4">
+            <ProductPrice product={product} />
+          </div>
+          {/* Color, Size, Add to Cart, Customize (all in ProductActionsWrapper) */}
           <Suspense
             fallback={
               <ProductActions
@@ -75,6 +88,15 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           >
             <ProductActionsWrapper id={product.id} region={region} />
           </Suspense>
+          {/* Product Detail */}
+          <div className="mt-4">
+            <span className="text-lg font-semibold mb-2 block">
+              Product Details
+            </span>
+            <p className="text-medium text-ui-fg-subtle whitespace-pre-line">
+              {product.description}
+            </p>
+          </div>
         </div>
       </div>
       <div

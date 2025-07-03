@@ -10,6 +10,16 @@ const navigationItems = [
   { id: "agreement", label: "The Agreement" },
   { id: "withdrawal", label: "Right of Withdrawal" },
   { id: "delivery", label: "Delivery and Implementation" },
+  { id: "exclusion", label: "Exclusion withdrawal" },
+  { id: "price", label: "Price" },
+  { id: "compliance", label: "Compliance with the Agreement" },
+  { id: "delivery-execution", label: "Delivery and Execution" },
+  { id: "payment", label: "Payment" },
+  { id: "ip", label: "Intellectual Property Rights" },
+  { id: "complaints", label: "Complaints Procedure" },
+  { id: "personal-data", label: "Personal Data" },
+  { id: "marketing", label: "Marketing terms" },
+  { id: "disputes", label: "Disputes" },
 ];
 
 const TermsAndConditions = () => {
@@ -54,15 +64,15 @@ const TermsAndConditions = () => {
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-4xl mx-auto px-8 py-12">
           <div className="mb-12">
-            <h1 className="text-4xl font-light text-gray-900 mb-2">
-              Terms <em className="italic">& Conditions</em>
+            <h1 className="text-4xl font-light text-black mb-2">
+              Terms & Conditions
             </h1>
           </div>
 
           <div className="prose prose-lg max-w-none">
-            <section id="identity" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">1. Identity</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="identity" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold text-black mb-6">1. Identity</h2>
+              <div className="space-y-4 text-black leading-relaxed">
                 <p>The private limited company Rino & Pelle Online B.V., with its registered offices at Olivier van Noortweg 6 at 5928 LX Venlo, NL, also operating under the name of Rino & Pelle.</p>
                 <p>Telephone Number: +31 (0)77 472 3383</p>
                 <p>Email Address: customercare@rinopelle.com</p>
@@ -70,9 +80,9 @@ const TermsAndConditions = () => {
               </div>
             </section>
 
-            <section id="definitions" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">2. Definitions</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="definitions" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">2. Definitions</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>In these Terms and Conditions (hereinafter referred to as "Terms and Conditions") the following terms have the following meanings:</p>
                 <p className="font-medium">Rino & Pelle: Rino & Pelle Online B.V.</p>
                 <p className="font-medium">Agreement: a remote contract that is concluded between Rino & Pelle and the Consumer in the context of an organised system for the remote selling of products, whereby exclusive or joint use is made of one or more remote communication technologies up to and including the conclusion of the Agreement;</p>
@@ -84,25 +94,25 @@ const TermsAndConditions = () => {
               </div>
             </section>
 
-            <section id="applicability" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">3. Applicability</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="applicability" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold text-blackmb-6">3. Applicability</h2><br />
+              <div className="space-y-4 text-black leading-relaxed">
                 <p>3.1 These Terms and Conditions apply to every offer from Rino & Pelle and to every Agreement that comes into effect between Rino & Pelle and the Consumer.</p>
                 <p>3.2 The text of these Terms and Conditions are available to the Consumer prior to the conclusion of the Agreement and the Consumer can simply save this on a Permanent Data Carrier.</p>
               </div>
             </section>
 
-            <section id="offer" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">4. Offer</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="offer" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">4. Offer</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>4.1 If an offer has a limited validity period or takes place subject to conditions, this will be set out in the offer.</p>
                 <p>4.2 The offer contains a description of the offered products in a manner that will enable a proper assessment of the offer by the Consumer. Apparent mistakes or apparent errors in the offer will not bind Rino & Pelle.</p>
               </div>
             </section>
 
-            <section id="agreement" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">5. Agreement</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="agreement" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold text-blackmb-6">5. Agreement</h2><br />
+              <div className="space-y-4 text-black leading-relaxed">
                 <p>5.1 The Agreement comes into effect at the time of placement of the order. Rino & Pelle promptly confirms by electronic means receipt of the acceptance of the offer.</p>
                 <p>5.2 Rino & Pelle performs the Agreement on the basis of best endeavours.</p>
                 <p>5.3 Rino & Pelle makes efforts to take suitable technical and organisational measures for the protection of the electronic transfer of data and makes every reasonable effort to ensure a secure web environment.</p>
@@ -110,9 +120,9 @@ const TermsAndConditions = () => {
               </div>
             </section>
 
-            <section id="withdrawal" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">6. Right of Withdrawal</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="withdrawal" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6 ">6. Right of Withdrawal</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>6.1 The Consumer may withdraw an Agreement with regard to the purchase of a product during the Cooling-off Period.</p>
                 <p>6.2 If the Consumer wishes to exercise his/her Right of Withdrawal for undamaged and unused products, he/she must notify Rino & Pelle within the Cooling-off Period by completing the online return form.</p>
                 <p>6.3 The Consumer returns the product as soon as possible, but at the latest within 14 days from the day following notification that they are exercising their Right of Withdrawal, or the Consumer hands the product to (an authorised representative of) Rino & Pelle, unless Rino & Pelle collects the product.</p>
@@ -123,42 +133,42 @@ const TermsAndConditions = () => {
               </div>
             </section>
 
-            <section id="delivery" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">7. Cooling-off Period</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="delivery" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">7. Cooling-off Period</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>7.1 The Consumer handles the product and packaging with good care during the Cooling-off Period. He/she will only unwrap or use the product to the extent that this is necessary to establish the nature, the characteristics and the functioning of the product. The starting point hereby is that the Consumer is only permitted to handle and inspect the product to the same extent as in a shop.</p>
                 <p>7.2 The Consumer is liable for any decrease in value of the product that is the result of a manner of handling the product that goes beyond the extent stated in article 7.1.</p>
               </div>
             </section>
 
-            <section id="exclusion" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">8. Exclusion of the Right of Withdrawal</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="exclusion" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold text-black mb-6">8. Exclusion of the Right of Withdrawal</h2>
+              <div className="space-y-4 text-black leading-relaxed">
                 <p>8.1 Rino & Pelle may exclude products from the Right of Withdrawal. This is stated with the offer in the webshop, in a timely manner prior to the conclusion of the Agreement. The exclusion of the right of withdrawal applies in any case to products that are custom-made for the Consumer.</p>
               </div>
             </section>
 
-            <section id="price" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">9. Price</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="price" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">9. Price</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>9.1 The prices of the offered products shall not be increased during the validity period stated in the offer, with the exception of price changes as a result of changes in legal provisions.</p>
                 <p>9.2 The prices of the products stated in the offer are in Euros, including VAT and exclude any shipping and administrative costs.</p>
                 <p>9.3 Rino & Pelle is entitled to periodically adjust its prices.</p>
               </div>
             </section>
 
-            <section id="compliance" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">10. Compliance with the Agreement</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="compliance" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold text-black mb-6">10. Compliance with the Agreement</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>10.1 Rino & Pelle guarantees that the products meet the sound condition and/or fitness for purpose of the products delivered by it in conformity with the specifications set out.</p>
                 <p>10.2 The risk of damage to and/or loss of products is vested in Rino & Pelle until the time of delivery to the Consumer, or to a representative appointed in advance and made known to Rino & Pelle.</p>
                 <p>10.3 Ownership of the delivered products only transfer after the amount owed has been paid.</p>
               </div>
             </section>
 
-            <section id="delivery-execution" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">11. Delivery and Execution</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="delivery-execution" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">11. Delivery and Execution</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>11.1 Rino & Pelle makes every effort to observe care when taking receipt of and during the execution of the orders.</p>
                 <p>11.2 The Consumer is responsible for providing Rino & Pelle with the correct address, email address, mobile telephone number, payment details and any changes to these in a timely manner.</p>
                 <p>11.3 Rino & Pelle makes every effort to execute the accepted orders, no later than within 30 days, unless another delivery period has been agreed. If the delivery is delayed, or if a delivery cannot or can only partially be executed, the Consumer shall be notified no later than 30 days after the order was placed.</p>
@@ -166,40 +176,40 @@ const TermsAndConditions = () => {
               </div>
             </section>
 
-            <section id="payment" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">12. Payment</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="payment" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">12. Payment</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>12.1 Rino & Pelle is permitted to charge the applicable price at the point of delivery to the Consumer, which the Consumer is obliged to pay.</p>
                 <p>12.2 If the Consumer does not pay in a timely manner, Rino & Pelle reminds the Consumer and allow them a reasonable further payment period. If payment is still not forthcoming, Rino & Pelle may charge the extrajudicial collection costs incurred by Rino & Pelle. These collection costs amount to a maximum of: 15% of outstanding sums up to € 2,500; 10% of the next € 2,500 and 5% of the next € 5,000 with a minimum of € 40.</p>
               </div>
             </section>
 
-            <section id="ip" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">13. Intellectual Property Rights</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="ip" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold text-black mb-6">13. Intellectual Property Rights</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>13.1 Any intellectual property rights and know-how of Rino & Pelle with regard to this Agreement and the products supplied by Rino & Pelle, are vested in Rino & Pelle and/or its suppliers. No transfer of any intellectual property rights takes place by virtue of the Agreement.</p>
               </div>
             </section>
 
-            <section id="complaints" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">14. Complaints Procedure</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="complaints" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">14. Complaints Procedure</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>14.1 Rino & Pelle is committed to providing excellent customer service. Please let us know if you are not satisfied. You can reach us via the contact information on the website of Rino & Pelle.</p>
                 <p>14.2 Complaints regarding the performance of the Agreement must be submitted clearly and in full to Rino & Pelle, within a reasonable period after the Consumer has noticed the defects.</p>
                 <p>14.3 In principle, any complaint submitted to us shall be responded to within 14 days after submission. If more time is needed for dealing with your complaint, you receive acknowledgement of receipt, which will set out the period in which you can expect a substantive response from us.</p>
               </div>
             </section>
 
-            <section id="personal-data" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">15. Personal Data</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="personal-data" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">15. Personal Data</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>15.1 Rino & Pelle process personal data in the context of the performance of the Agreement and its service provision in accordance with the applicable legislation and regulations.</p>
               </div>
             </section>
 
-            <section id="marketing" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">16. Marketing terms</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="marketing" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold text-black mb-6">16. Marketing terms</h2>
+              <div className="space-y-4 text-black leading-relaxed">
                 <p>These marketing terms apply once customer consents to our marketing services. We divide our marketing services in a promotional email messaging service and a text messaging service.</p>
                 <p>16.1 Mobile terms of service</p>
                 <p>The Rino&Pelle mobile message service (the "Service") is operated by Rino&Pelle ("Rino&Pelle", "we", or "us"). Your use of the Service constitutes your agreement to these terms and conditions ("Mobile Terms"). We may modify or cancel the Service or any of its features without notice. To the extent permitted by applicable law, we may also modify these Mobile Terms at any time and your continued use of the Service following the effective date of any such changes shall constitute your acceptance of such changes.</p>
@@ -215,9 +225,9 @@ const TermsAndConditions = () => {
               </div>
             </section>
 
-            <section id="disputes" className="mb-12">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">17. Disputes</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+            <section id="disputes" className="mb-12 scroll-m-48">
+              <h2 className="text-xl font-semibold  text-black mb-6">17. Disputes</h2>
+              <div className="space-y-4  text-black leading-relaxed">
                 <p>17.1 The law of the Netherlands applies exclusively to Agreements between Rino & Pelle and the Consumer. Any disputes that might arise between parties to the Agreement shall be submitted to the competent court in the Limburg district in the Netherlands.</p>
                 <p>17.2 No matter the language of the Terms and Conditions, the English language of the Terms and Conditions will prevail.</p>
               </div>

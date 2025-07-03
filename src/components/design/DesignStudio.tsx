@@ -1,9 +1,7 @@
 "use client"
 
-import { Button } from "@/components/design/ui/button"
 import { Card } from "@/components/design/ui/card"
 import { Canvas as FabricCanvas } from "fabric"
-import { Share2, ShoppingCart } from "lucide-react"
 import { useState } from "react"
 import { toast } from "sonner"
 import { Canvas } from "./Canvas"
@@ -11,7 +9,7 @@ import { LayerPanel } from "./LayerPanel"
 import { ProductPanel } from "./ProductPanel"
 import { Toolbar } from "./Toolbar"
 
-export const DesignStudio = () => {
+export const DesignStudio = ({ product }: { product: any }) => {
   const [activeTool, setActiveTool] = useState<"text" | "image" | "select">(
     "select"
   )
@@ -19,6 +17,7 @@ export const DesignStudio = () => {
   const [selectedSize, setSelectedSize] = useState("M")
   const [quantity, setQuantity] = useState(1)
   const [fabricCanvas, setFabricCanvas] = useState<FabricCanvas | null>(null)
+
 
   const handleSubmitDesign = () => {
     if (!fabricCanvas) {
@@ -40,6 +39,7 @@ export const DesignStudio = () => {
   }
 
   return (
+
     <div className="min-h-screen bg-gray-50 flex flex-col">
       {/* Tabs for mobile only */}
       <div className="flex justify-center gap-2 py-2 bg-gray-50 md:hidden">
@@ -63,9 +63,46 @@ export const DesignStudio = () => {
               selectedColor={selectedColor}
               onCanvasReady={setFabricCanvas}
             />
+
+    <div className="min-h-screen bg-gray-50">
+
+      {/* Header */}
+      <header className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
+          <div className="w-full flex flex-col items-center ml-80">
+            <h1 className="text-3xl font-bold font-saol text-gray-900 mt-4 tracking-wide text-center">
+              T-Shirt Designer
+            </h1>
+            <p className="text-base text-gray-600 font-saol ">
+              Create your custom design
+            </p>
           </div>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm">
+              <Share2 className="w-4 h-4 mr-2" />
+              Share
+            </Button>
+            <Button
+              onClick={handleSubmitDesign}
+              className="bg-black hover:bg-gray-800 text-white"
+            >
+              <ShoppingCart className="w-4 h-4 mr-2" />
+              Submit Design
+            </Button>
+
+          </div>
+
+      {/* Product Name Header */}
+      <header className="bg-white border-b border-gray-200 px-6 py-4">
+        <div className="flex items-center justify-center max-w-7xl mx-auto">
+          <h1 className="text-3xl font-bold font-saol text-gray-900 mt-4 tracking-wide text-center">
+            {product?.title || "Product"}
+          </h1>
+
         </div>
 
+
+      </header>
         {/* Action Bar (not fixed) */}
         <div className="flex justify-between gap-2 mb-2">
           <button className="flex-1 flex flex-col items-center text-xs">

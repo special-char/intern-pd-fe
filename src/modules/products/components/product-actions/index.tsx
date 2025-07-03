@@ -12,7 +12,6 @@ import { useParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import ProductPrice from "../product-price"
 import MobileActions from "./mobile-actions"
-import EditButton from "../edit-button"
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
@@ -166,12 +165,6 @@ export default function ProductActions({
             ? "Out of stock"
             : "Add to cart"}
         </Button>
-        {/* Customize Design button below Add to Cart */}
-        <div className="w-full mt-2 ">
-          <EditButton
-            imageId={product?.images?.[0]?.id || "default-image-id"}
-          />
-        </div>
         <MobileActions
           product={product}
           variant={selectedVariant}

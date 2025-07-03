@@ -170,12 +170,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/privacy-policy" className="hover:text-gray-600 transition-colors duration-200">
+                <Link href="/privacy" className="hover:text-gray-600 transition-colors duration-200">
                   Privacy policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-conditions" className="hover:text-gray-600 transition-colors duration-200">
+                <Link href="/terms" className="hover:text-gray-600 transition-colors duration-200">
                   Terms & Conditions
                 </Link>
               </li>

@@ -8,7 +8,7 @@ import { TooltipProvider } from "@/components/design/ui/tooltip"
 export default function DesignPage() {
   return (
     <TooltipProvider>
-      <DesignStudio />
+      <DesignStudio product={null} />
       <Toaster />
       <Sonner />
     </TooltipProvider>

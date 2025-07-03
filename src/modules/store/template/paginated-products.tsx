@@ -1,5 +1,3 @@
-"use client"
-
 import ProductCard from "@/components/common/ProductCard"
 import { listProductsWithSort } from "@lib/data/products"
 import { getRegion } from "@lib/data/regions"

@@ -50,7 +50,7 @@ const PhoneView = () => (
         </svg>
       </Link>
     </div>
-    <SheetContent side="left" className="p-0 w-[100vw] max-w-[400px]">
+    <SheetContent  className="p-0  w-[100vw] max-w-[400px] side-[left]">
       <SheetTitle className="sr-only">Main menu</SheetTitle>
       {/* Header with logo and close icon */}
       <div className="flex items-center px-4 py-6 border-b border-gray-200 gap-2">

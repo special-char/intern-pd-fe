@@ -7,11 +7,18 @@ import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
+
 import Link from "next/link"
 import PaginatedProducts from "@modules/store/template/paginated-products"
 import { listCategories } from "@lib/data/categories"
 
+ 
+import PaginatedProducts from "@/modules/store/template/paginated-products"
+
+export default function CategoryTemplate({
+
 export default async function CategoryTemplate({
+ 
   category,
   countryCode,
 }: {

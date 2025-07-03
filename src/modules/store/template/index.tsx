@@ -5,6 +5,7 @@ import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-g
 import InfiniteProductList from "@/components/InfiniteProductList"
 import { listCategories } from "@lib/data/categories"
 import type { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+
 import FilterButton from "./filter-button"
 
 const StoreTemplate = async ({
@@ -19,10 +20,10 @@ const StoreTemplate = async ({
   const pageNumber = page ? parseInt(page) : 1
   const sort = (sortBy as SortOptions) || "created_at"
 
-
   const categories = await listCategories()
 
   // Filter out any unwanted categories if needed
+
   const filteredCategories = categories.filter(
     (category) => category.name !== "Tops & Blouses"
   )

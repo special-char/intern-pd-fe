@@ -19,19 +19,13 @@ export default async function RelatedProducts({
   }
 
   // edit this function to define your related products logic
-  const queryParams: HttpTypes.StoreProductParams = {}
+  const queryParams: Record<string, any> = {}
   if (region?.id) {
     queryParams.region_id = region.id
   }
   if (product.collection_id) {
     queryParams.collection_id = [product.collection_id]
   }
-  if (product.tags) {
-    queryParams.tag_id = product.tags
-      .map((t) => t.id)
-      .filter(Boolean) as string[]
-  }
-  queryParams.is_giftcard = false
 
   const products = await listProducts({
     queryParams,
@@ -48,13 +42,18 @@ export default async function RelatedProducts({
 
   return (
     <div className="product-page-constraint w-full max-w-screen-2xl mx-auto ">
-      <div className="flex flex-col items-center text-center mb-16">
-        <span className="text-base-regular text-gray-600 mb-6">
+      <div className="flex flex-col items-start mb-8">
+        <span className="uppercase text-xs font-light tracking-widest text-gray-500 mb-2">
           Related products
         </span>
-        <p className="text-2xl-regular text-ui-fg-base max-w-lg">
-          You might also want to check out these products.
-        </p>
+        <div className="flex flex-row gap-6 items-end">
+          <span className="text-3xl font-saol font-light leading-tight">
+            Recommendations
+          </span>
+          <span className="text-3xl font-saol text-gray-300 font-normal leading-tight">
+            Recently viewed
+          </span>
+        </div>
       </div>
 
       <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-x-2 gap-y-4 max-w-screen-2xl mx-auto w-full">

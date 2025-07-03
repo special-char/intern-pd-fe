@@ -17,7 +17,7 @@ interface ProductPanelProps {
 export const ProductPanel: React.FC<ProductPanelProps> = ({
   selectedColor,
   onColorChange,
-  selectedSize,
+  selectedSize, 
   onSizeChange,
   quantity,
   onQuantityChange,

@@ -25,14 +25,43 @@ import { Metadata } from "next"
 
     const { countryCode } = params
 
-    const region = await getRegion(countryCode)
+    let region
+    let collections
 
-    const { collections } = await listCollections({
-      fields: "id, handle, title",
-    })
+    try {
+      region = await getRegion(countryCode)
+      const result = await listCollections({
+        fields: "id, handle, title",
+      })
+      collections = result?.collections
+    } catch (error) {
+      console.error("Error loading page data:", error)
+    }
 
     if (!collections || !region) {
-      return null
+      return (
+        <div className="flex min-h-screen flex-col items-center justify-center p-8">
+          <div className="max-w-md text-center">
+            <h1 className="mb-4 text-2xl font-bold">Unable to Connect to Backend</h1>
+            <p className="mb-4 text-gray-600">
+              The application cannot connect to the Medusa backend server.
+            </p>
+            <div className="rounded-lg bg-gray-100 p-4 text-left">
+              <p className="mb-2 font-semibold">Please ensure:</p>
+              <ul className="list-inside list-disc space-y-1 text-sm text-gray-700">
+                <li>Your Medusa backend is running</li>
+                <li>
+                  <code className="rounded bg-gray-200 px-1">MEDUSA_BACKEND_URL</code> is set correctly in your <code className="rounded bg-gray-200 px-1">.env</code> file
+                </li>
+                <li>
+                  <code className="rounded bg-gray-200 px-1">NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY</code> is set in your <code className="rounded bg-gray-200 px-1">.env</code> file
+                </li>
+                <li>The backend is accessible at the configured URL</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
     }
 
     return (

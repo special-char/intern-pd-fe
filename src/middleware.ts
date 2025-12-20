@@ -14,49 +14,71 @@ async function getRegionMap(cacheId: string) {
   const { regionMap, regionMapUpdated } = regionMapCache
 
   if (!BACKEND_URL) {
-    throw new Error(
-      "Middleware.ts: Error fetching regions. Did you set up regions in your Medusa Admin and define a MEDUSA_BACKEND_URL environment variable? Note that the variable is no longer named NEXT_PUBLIC_MEDUSA_BACKEND_URL."
-    )
+    if (process.env.NODE_ENV === "development") {
+      console.error(
+        "Middleware.ts: MEDUSA_BACKEND_URL is not set. Please define a MEDUSA_BACKEND_URL environment variable. Note that the variable is no longer named NEXT_PUBLIC_MEDUSA_BACKEND_URL."
+      )
+    }
+    return regionMap
   }
 
   if (
     !regionMap.keys().next().value ||
     regionMapUpdated < Date.now() - 3600 * 1000
   ) {
-    // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
-    const { regions } = await fetch(`${BACKEND_URL}/store/regions`, {
-      headers: {
-        "x-publishable-api-key": PUBLISHABLE_API_KEY!,
-      },
-      next: {
-        revalidate: 3600,
-        tags: [`regions-${cacheId}`],
-      },
-      cache: "force-cache",
-    }).then(async (response) => {
-      const json = await response.json()
+    try {
+      // Fetch regions from Medusa. We can't use the JS client here because middleware is running on Edge and the client needs a Node environment.
+      const response = await fetch(`${BACKEND_URL}/store/regions`, {
+        headers: {
+          "x-publishable-api-key": PUBLISHABLE_API_KEY || "",
+        },
+        next: {
+          revalidate: 3600,
+          tags: [`regions-${cacheId}`],
+        },
+        cache: "force-cache",
+      })
 
       if (!response.ok) {
-        throw new Error(json.message)
+        const json = await response.json().catch(() => ({}))
+        throw new Error(
+          json.message || `Failed to fetch regions: ${response.status} ${response.statusText}`
+        )
       }
 
-      return json
-    })
+      const json = await response.json()
 
-    if (!regions?.length) {
-      throw new Error(
-        "No regions found. Please set up regions in your Medusa Admin."
-      )
-    }
+      if (!json.regions?.length) {
+        if (process.env.NODE_ENV === "development") {
+          console.error(
+            "Middleware.ts: No regions found. Please set up regions in your Medusa Admin."
+          )
+        }
+        return regionMap
+      }
 
-    // Create a map of country codes to regions.
-    regions.forEach((region: HttpTypes.StoreRegion) => {
-      region.countries?.forEach((c) => {
-        regionMapCache.regionMap.set(c.iso_2 ?? "", region)
+      // Create a map of country codes to regions.
+      json.regions.forEach((region: HttpTypes.StoreRegion) => {
+        region.countries?.forEach((c) => {
+          regionMapCache.regionMap.set(c.iso_2 ?? "", region)
+        })
       })
-    })
 
-    regionMapCache.regionMapUpdated = Date.now()
+      regionMapCache.regionMapUpdated = Date.now()
+    } catch (error) {
+      if (process.env.NODE_ENV === "development") {
+        console.error(
+          "Middleware.ts: Error fetching regions from Medusa backend:",
+          error instanceof Error ? error.message : String(error)
+        )
+        console.error(
+          "Make sure your Medusa backend is running and accessible at:",
+          BACKEND_URL
+        )
+      }
+      // Return existing cache if available, otherwise return empty map
+      return regionMap
+    }
   }
 
   return regionMapCache.regionMap
@@ -112,9 +134,23 @@ export async function middleware(request: NextRequest) {
 
   let cacheId = cacheIdCookie?.value || crypto.randomUUID()
 
-  const regionMap = await getRegionMap(cacheId)
+  let regionMap: Map<string, HttpTypes.StoreRegion>
+  try {
+    regionMap = await getRegionMap(cacheId)
+  } catch (error) {
+    if (process.env.NODE_ENV === "development") {
+      console.error("Middleware.ts: Failed to get region map:", error)
+    }
+    // If we can't get regions, allow the request to proceed without region-based routing
+    return NextResponse.next()
+  }
 
-  const countryCode = regionMap && (await getCountryCode(request, regionMap))
+  // If region map is empty, allow request to proceed
+  if (!regionMap || regionMap.size === 0) {
+    return NextResponse.next()
+  }
+
+  const countryCode = await getCountryCode(request, regionMap)
 
   const urlHasCountryCode =
     countryCode && request.nextUrl.pathname.split("/")[1].includes(countryCode)

@@ -11,16 +11,8 @@ import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
 import { HttpTypes } from "@medusajs/types"
 
-import { Button } from "@/components/design/ui/button"
-import { Edit } from "lucide-react"
-
 import EditButton from "@modules/products/components/edit-button"
-
-
 import ProductPrice from "@modules/products/components/product-price"
-import OptionSelect from "@modules/products/components/product-actions/option-select"
-import EditButton from "@modules/products/components/edit-button"
-import ProductDetailsClient from "./ProductDetailsClient"
 
 
 type ProductTemplateProps = {
@@ -46,9 +38,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
       >
 
 
-
-
-        {product?.images?.[0] && <EditButton imageId={product.images[0].id} />}
 
 
         {product?.images?.[0] && <EditButton imageId={product.images[0].id} />}
